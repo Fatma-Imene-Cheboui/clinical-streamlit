@@ -1,6 +1,2 @@
 streamlit
-<<<<<<< HEAD
 pandas
-=======
-pandas
->>>>>>> 349104c (fixed dark & light mode with scrol)
