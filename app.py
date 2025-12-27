@@ -31,200 +31,134 @@ st.set_page_config(layout="wide", page_title="Clinical Notes", page_icon="🩺")
 # Enhanced CSS with smooth animations
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    
-    * {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-main: #f4f6fb;
+    --bg-card: #ffffff;
+    --text-main: #2c3e50;
+    --text-muted: #8492a6;
+}
+.login-title {
+    color: var(--text-main);
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 700;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-main: #0e1117;
+        --bg-card: #1e222a;
+        --text-main: #e6e9ef;
+        --text-muted: #a0a4ab;
     }
-    
-    .main {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 0 !important;
-    }
-    
-    .block-container {
-        padding: 1.5rem 2rem !important;
-        max-width: 100% !important;
-    }
-    
-    /* Buttons */
-    .stButton>button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border-radius: 10px;
-        border: none;
-        padding: 0.6rem 1.5rem;
-        font-weight: 600;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-    }
-    
-    .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    }
-    
-    .logout-btn button {
-        background: linear-gradient(135deg, #ED5565 0%, #DA4453 100%) !important;
-        box-shadow: 0 4px 15px rgba(237, 85, 101, 0.3) !important;
-    }
-    
-    .save-btn button {
-        background: linear-gradient(135deg, #48CFAD 0%, #37BC9B 100%) !important;
-        box-shadow: 0 4px 15px rgba(72, 207, 173, 0.3) !important;
-    }
-    
-    /* Input fields */
-    .stSelectbox, .stTextArea {
-        animation: fadeIn 0.5s ease;
-    }
-    
-    .stSelectbox>div>div {
-        background: white;
-        border-radius: 10px;
-        border: 2px solid transparent;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-    
-    .stSelectbox>div>div:focus-within {
-        border-color: #667eea;
-        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
-    }
-    
-    .stTextArea textarea {
-        border: 2px solid #e8ecf1;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-        background: white;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-    
-    .stTextArea textarea:focus {
-        border-color: #667eea;
-        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2);
-    }
-    
-    /* Login card */
-    .login-card {
-        background: white;
-        border-radius: 20px;
-        padding: 3rem;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        animation: slideUp 0.6s ease;
-    }
-    
-    /* Header */
-    .header-card {
-        background: white;
-        border-radius: 15px;
-        padding: 1.2rem 1.5rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        animation: slideDown 0.5s ease;
-    }
-    
-    .header-title {
-        color: #667eea;
-        font-size: 24px;
-        font-weight: 700;
-        margin: 0;
-    }
-    
-    /* Note sections */
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.main {
+    background: var(--bg-main);
+}
+
+.block-container {
+    padding: 1.5rem 2rem !important;
+}
+
+/* Cards */
+.login-card,
+.note-section {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+.header-card{
+    background: var(--bg-card);
+    color: var(--text-main);
+    border-radius: 16px;
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+.stButton>button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    transition: 0.3s;
+}
+
+.stButton>button:hover {
+    transform: translateY(-2px);
+}
+
+/* Inputs */
+.stSelectbox>div>div,
+.stTextArea textarea {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border-radius: 10px;
+    border: 1px solid rgba(150,150,150,0.3);
+}
+
+/* Labels */
+label, .stMarkdown {
+    color: var(--text-main) !important;
+}
+
+/* Section headers */
+.section-header {
+    font-weight: 700;
+    padding: 0.5rem 0.8rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.atcd { color:#5D9CEC; background:rgba(93,156,236,0.15); }
+.hdm { color:#AC92EC; background:rgba(172,146,236,0.15); }
+.exam { color:#4FC1E9; background:rgba(79,193,233,0.15); }
+.ecg { color:#ED5565; background:rgba(237,85,101,0.15); }
+.ett { color:#FC6E51; background:rgba(252,110,81,0.15); }
+.conduite { color:#FFCE54; background:rgba(255,206,84,0.2); }
+.cat { color:#A0826D; background:rgba(160,130,109,0.2); }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+@media (max-width: 768px) {
     .note-section {
-        background: white;
-        border-radius: 15px;
-        padding: 1.5rem;
-        height: 100%;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-        animation: fadeIn 0.6s ease;
+        max-height: none !important;
+        overflow: visible !important;
+        margin-bottom: 0.5rem !important;
+        padding: 0.8rem !important;
     }
-    
-    .note-section:hover {
-        box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        transform: translateY(-2px);
+
+    /* Reduce space between columns */
+    div[data-testid="column"] {
+        padding-left: 0.2rem !important;
+        padding-right: 0.2rem !important;
     }
-    
-    /* Section headers in clinical text */
-    .section-header {
-        font-weight: 700;
-        font-size: 16px;
-        margin: 1rem 0 0.5rem 0;
-        padding: 0.5rem 0.8rem;
-        border-radius: 8px;
-        display: inline-block;
-        transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+    .block-container {
+        padding: 0.8rem !important;
     }
-    
-    .section-header .emoji {
-        margin-right: 0.5rem;
-    }
-    
-    .atcd { background: rgba(93, 156, 236, 0.1); color: #5D9CEC; }
-    .hdm { background: rgba(172, 146, 236, 0.1); color: #AC92EC; }
-    .exam { background: rgba(79, 193, 233, 0.1); color: #4FC1E9; }
-    .ecg { background: rgba(237, 85, 101, 0.1); color: #ED5565; }
-    .ett { background: rgba(252, 110, 81, 0.1); color: #FC6E51; }
-    .conduite { background: rgba(255, 206, 84, 0.1); color: #FFCE54; }
-    .cat { background: rgba(160, 130, 109, 0.1); color: #A0826D; }
-    
-    /* Animations */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes slideUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Success/Error messages */
-    .stSuccess, .stError {
-        animation: slideUp 0.4s ease;
-        border-radius: 10px;
-    }
-    
-    /* Audio input */
-    .stAudioInput {
-        animation: fadeIn 0.5s ease;
-    }
-    
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-    }
-    
-    ::-webkit-scrollbar-track {
-        background: #f1f3f5;
-        border-radius: 10px;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-        background: #667eea;
-        border-radius: 10px;
-        transition: all 0.3s ease;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-        background: #764ba2;
-    }
-    
-    /* Labels */
-    label {
-        font-size: 14px !important;
-        font-weight: 600 !important;
-        color: #495057 !important;
-    }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -251,11 +185,11 @@ if not st.session_state.logged_in:
     
     with col2:
         st.markdown("""
-        <div class='login-card'>
+        <div>
             <div style='text-align: center; margin-bottom: 2rem;'>
                 <h1 style='color: #667eea; font-size: 56px; margin: 0;'>🩺</h1>
-                <h2 style='color: #2c3e50; margin: 1rem 0 0.5rem 0; font-weight: 700;'>Clinical Notes Review</h2>
-                <p style='color: #8492a6; font-size: 16px; margin: 0;'>Secure doctor login portal</p>
+                <h2 class="login-title"> Clinical Notes Recording</h2>
+                <p style='color: #8492a6; font-size: 16px; margin: 0;'>Doctor login portal</p>
             </div>
         """, unsafe_allow_html=True)
         
@@ -281,7 +215,7 @@ else:
     with col_h1:
         st.markdown(f"""
         <div class='header-card'>
-            <h1 class='header-title'>🩺 Clinical Notes Review — {st.session_state.username.replace('_', ' ').title()}</h1>
+            <h1 class='header-title'>🩺 Clinical Notes Recording — {st.session_state.username.replace('_', ' ').title()}</h1>
         </div>
         """, unsafe_allow_html=True)
     
@@ -351,21 +285,21 @@ else:
 
     with col1:
         st.markdown(f"""
-        <div class='note-section' style='max-height: 500px; overflow-y: auto;'>
+        <div class='note-section' style='max-height: 550px; overflow-y: auto;'>
             {sections[0]}
         </div>
         """, unsafe_allow_html=True)
 
     with col2:
         st.markdown(f"""
-        <div class='note-section' style='max-height: 500px; overflow-y: auto;'>
+        <div class='note-section' style='max-height: 550px; overflow-y: auto;'>
             {sections[1]}
         </div>
         """, unsafe_allow_html=True)
 
     with col3:
         st.markdown(f"""
-        <div class='note-section' style='max-height: 500px; overflow-y: auto;'>
+        <div class='note-section' style='max-height: 550px; overflow-y: auto;'>
             {sections[2]}
         </div>
         """, unsafe_allow_html=True)
