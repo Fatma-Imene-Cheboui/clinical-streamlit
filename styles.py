@@ -55,7 +55,7 @@ MAIN_STYLES = """
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     flex: 0 0 calc(33.333% - 0.5rem);
     height: 100%;
-    overflow: hidden;
+    overflow-y: auto;
     padding: 1rem;
     border-radius: 16px;
 }
@@ -112,22 +112,50 @@ label, .stMarkdown {
     border-radius: 10px;
 }
 
+/* Mobile-specific styles */
 @media (max-width: 768px) {
-    .cards-container {
-        height: auto;
-        flex-direction: column;
+    .block-container {
+        padding: 0.8rem !important;
+    }
+    
+    /* Hide navigation arrows on mobile */
+    .stButton>button:contains('◀'),
+    .stButton>button:contains('▶') {
+        display: none !important;
+    }
+    
+    /* Single column layout on mobile */
+    .element-container:has(.note-section) {
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
     .note-section {
-        flex: 1;
+        flex: 1 1 100% !important;
+        width: 100% !important;
         max-height: none !important;
-        overflow: visible !important;
-        margin-bottom: 0.5rem !important;
-        padding: 0.8rem !important;
+        height: auto !important;
+        overflow-y: visible !important;
+        margin-bottom: 1rem !important;
+        padding: 1rem !important;
     }
     
-    .block-container {
-        padding: 0.8rem !important;
+    /* Stack columns vertically on mobile */
+    div[data-testid="column"] {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+    
+    /* Adjust text input on mobile */
+    .stTextArea textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .note-section {
+        flex: 0 0 calc(50% - 0.5rem) !important;
     }
 }
 </style>
