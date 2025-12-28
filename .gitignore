@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# Secrets / auth
+token.pkl
+client_secret_360211228268-646iajdl0r02sc65olnuuqs5n7a1c5g3.apps.googleusercontent.com.json
+
+# Audio files
+audios/
+
