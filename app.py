@@ -2,7 +2,7 @@
 Main application file for Clinical Notes Recording System
 """
 import streamlit as st
-from utils import create_directories, test_supabase_connection
+from utils import create_directories
 from auth import initialize_session_state, render_login_page, check_authentication, get_current_username
 from data_handler import load_data, get_doctor_notes, get_note_by_id
 from text_formatter import format_clinical_text, split_content_dynamically
@@ -18,44 +18,24 @@ from styles import MAIN_STYLES
 
 def main():
     """Main application entry point"""
-    # Page configuration
     st.set_page_config(
         layout="wide",
         page_title="Clinical Notes",
         page_icon="🩺"
     )
     
-    # Apply styles
     st.markdown(MAIN_STYLES, unsafe_allow_html=True)
     
-    # Initialize
     create_directories()
     initialize_session_state()
     
-    # 🐛 DEBUG PANEL (Optional - remove in production)
-    with st.sidebar:
-        st.markdown("---")
-        if st.checkbox("🐛 Debug Mode", value=False):
-            st.subheader("Supabase Connection Test")
-            if st.button("🧪 Test Connection"):
-                with st.spinner("Testing..."):
-                    success = test_supabase_connection()
-                    if success:
-                        st.success("✅ Supabase working!")
-                    else:
-                        st.error("❌ Connection failed - check console")
-            st.markdown("---")
-    
-    # Authentication check
     if not check_authentication():
         render_login_page()
         return
     
-    # Load data
     df = load_data()
     username = get_current_username()
     
-    # Get doctor's notes
     doctor_notes = get_doctor_notes(df, username)
     
     if doctor_notes.empty:
@@ -64,7 +44,6 @@ def main():
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Main controls
     c1, c2, c3 = st.columns([2, 2, 1])
     
     with c1:
@@ -75,20 +54,16 @@ def main():
 
     with c3:
         render_save_audio_button(selected, username, df)
-
     
-    # Get selected note
     note = get_note_by_id(doctor_notes, selected)
     if note is None:
         st.error("Note not found!")
         return
     
-    # Display content
     formatted_text = format_clinical_text(note["raw_text"])
     sections = split_content_dynamically(formatted_text, max_height=500)
     render_content_cards(sections)
     
-    # Additional notes section
     render_additional_notes(selected, username, df)
     
     st.markdown("<br>", unsafe_allow_html=True)

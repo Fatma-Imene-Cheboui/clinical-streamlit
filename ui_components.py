@@ -1,29 +1,33 @@
 """
-UI components for Clinical Notes Application - Supabase Version
+UI components for Clinical Notes Application
 """
 
 import streamlit as st
 from datetime import datetime
 from typing import List
+import time
 
 from config import VISIBLE_CARDS
 from utils import safe_filename, upload_audio_file, upload_notes_file
 from data_handler import update_audio_file, update_additional_notes, save_data
 
 
-# --------------------------------------------------
-# 🔒 SAFE SESSION STATE INITIALIZATION (DEPLOYMENT)
-# --------------------------------------------------
-
 def init_session_state():
+    """Initialize session state variables"""
     if "recorded_audio" not in st.session_state:
         st.session_state.recorded_audio = None
 
     if "audio_saved_msg" not in st.session_state:
         st.session_state.audio_saved_msg = None
+    
+    if "audio_saved_time" not in st.session_state:
+        st.session_state.audio_saved_time = None
 
     if "notes_saved_msg" not in st.session_state:
         st.session_state.notes_saved_msg = None
+    
+    if "notes_saved_time" not in st.session_state:
+        st.session_state.notes_saved_time = None
 
     if "additional_notes_text" not in st.session_state:
         st.session_state.additional_notes_text = ""
@@ -32,11 +36,8 @@ def init_session_state():
         st.session_state.card_offset = 0
 
 
-# --------------------------------------------------
-# NOTE SELECTOR
-# --------------------------------------------------
-
 def render_note_selector(doctor_notes, username: str) -> str:
+    """Render note selection dropdown"""
     note_ids = doctor_notes["note_id"].tolist()
     return st.selectbox(
         f"📝 Select Clinical Note — {username}",
@@ -44,22 +45,16 @@ def render_note_selector(doctor_notes, username: str) -> str:
     )
 
 
-# --------------------------------------------------
-# AUDIO RECORDER
-# --------------------------------------------------
-
 def render_audio_recorder():
+    """Render audio recording input"""
     audio = st.audio_input("🎤 Record audio", key="audio_input")
 
     if audio is not None:
         st.session_state.recorded_audio = audio.getvalue()
 
 
-# --------------------------------------------------
-# SAVE AUDIO BUTTON (SUPABASE VERSION)
-# --------------------------------------------------
-
 def render_save_audio_button(selected_note_id: str, username: str, df):
+    """Render save audio button and handle upload"""
     init_session_state()
 
     recorded_audio = st.session_state.get("recorded_audio")
@@ -75,34 +70,37 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
         filename = f"audio/{safe_doctor_name}_{selected_note_id}_{timestamp}.wav"
 
         try:
-            # Upload to Supabase
             _, link = upload_audio_file(filename, recorded_audio)
 
-            # Update CSV with new link
             update_audio_file(df, selected_note_id, link)
             save_data(df)
 
             st.session_state.audio_saved_msg = link
+            st.session_state.audio_saved_time = time.time()
             st.session_state.recorded_audio = None
 
             st.rerun()
 
         except Exception as e:
             st.error(f"❌ Save failed: {e}")
-            print(f"Error details: {e}")
 
-    # ✅ MESSAGE PERSISTS AFTER RERUN
+    # Display success message if within 3 seconds
     msg = st.session_state.get("audio_saved_msg")
-    if msg:
-        st.success("✅ Audio saved successfully")
-        st.markdown(f"[🔗 Open audio file]({msg})")
+    msg_time = st.session_state.get("audio_saved_time")
+    
+    if msg and msg_time:
+        elapsed = time.time() - msg_time
+        if elapsed < 3:
+            st.success("✅ Audio saved successfully")
+            time.sleep(0.1)
+            st.rerun()
+        else:
+            st.session_state.audio_saved_msg = None
+            st.session_state.audio_saved_time = None
 
-
-# --------------------------------------------------
-# CONTENT CARDS
-# --------------------------------------------------
 
 def render_content_cards(sections: List[str]):
+    """Render content cards with navigation"""
     init_session_state()
 
     num_cards = len(sections)
@@ -133,11 +131,8 @@ def render_content_cards(sections: List[str]):
             )
 
 
-# --------------------------------------------------
-# ADDITIONAL NOTES (SUPABASE VERSION)
-# --------------------------------------------------
-
 def render_additional_notes(selected_note_id: str, username: str, df):
+    """Render additional notes text area and save button"""
     init_session_state()
 
     st.markdown("<br>", unsafe_allow_html=True)
@@ -165,24 +160,30 @@ def render_additional_notes(selected_note_id: str, username: str, df):
             filename = f"notes/{safe_doctor_name}_{selected_note_id}_notes_{timestamp}.txt"
 
             try:
-                # Upload to Supabase
                 _, link = upload_notes_file(filename, notes_text.encode("utf-8"))
 
-                # Update CSV with new link
                 update_additional_notes(df, selected_note_id, link)
                 save_data(df)
 
                 st.session_state.notes_saved_msg = link
+                st.session_state.notes_saved_time = time.time()
                 st.session_state.additional_notes_text = ""
 
                 st.rerun()
 
             except Exception as e:
                 st.error(f"❌ Upload failed: {e}")
-                print(f"Error details: {e}")
 
-    # ✅ MESSAGE PERSISTS AFTER RERUN
+    # Display success message if within 3 seconds
     msg = st.session_state.get("notes_saved_msg")
-    if msg:
-        st.success("✅ Notes saved successfully")
-        st.markdown(f"[🔗 Open notes file]({msg})")
+    msg_time = st.session_state.get("notes_saved_time")
+    
+    if msg and msg_time:
+        elapsed = time.time() - msg_time
+        if elapsed < 3:
+            st.success("✅ Notes saved successfully")
+            time.sleep(0.1)
+            st.rerun()
+        else:
+            st.session_state.notes_saved_msg = None
+            st.session_state.notes_saved_time = None
