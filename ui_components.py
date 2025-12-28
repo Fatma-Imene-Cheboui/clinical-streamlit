@@ -11,52 +11,6 @@ from config import VISIBLE_CARDS
 from utils import safe_filename, upload_audio_file, upload_notes_file
 from data_handler import update_audio_file, update_additional_notes, save_data
 
-import streamlit as st
-
-st.markdown(
-    """
-    <script>
-    (function() {
-        function updateIsMobile() {
-            const isMobile = window.innerWidth <= 768;
-            const streamlitDoc = window.parent.document;
-            let input = streamlitDoc.getElementById("is_mobile");
-
-            if (!input) {
-                input = streamlitDoc.createElement("input");
-                input.type = "hidden";
-                input.id = "is_mobile";
-                streamlitDoc.body.appendChild(input);
-            }
-
-            input.value = isMobile;
-
-            // Notify Streamlit about the change
-            fetch(window.location.href + `?is_mobile=${isMobile}`, {
-                method: "GET"
-            });
-        }
-
-        // Initial detection
-        updateIsMobile();
-
-        // Update on resize
-        window.addEventListener("resize", updateIsMobile);
-    })();
-    </script>
-    """,
-    unsafe_allow_html=True
-)
-
-# Update session state based on query parameters
-query_params = st.query_params
-if "is_mobile" in query_params:
-    st.session_state.is_mobile = query_params["is_mobile"][0] == "true"
-else:
-    st.session_state.is_mobile = False
-
-def is_mobile():
-    return st.session_state.get("is_mobile", False)
 
 def init_session_state():
     """Initialize session state variables"""
@@ -130,7 +84,6 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
         except Exception as e:
             st.error(f"❌ Save failed: {e}")
 
-    # Display success message if within 3 seconds
     msg = st.session_state.get("audio_saved_msg")
     msg_time = st.session_state.get("audio_saved_time")
     
@@ -145,45 +98,57 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
             st.session_state.audio_saved_time = None
 
 
-def render_content_cards(sections):
+def render_content_cards(sections: List[str]):
+    """
+    Render content cards
+    Desktop: paginated 3 cards
+    Mobile: all cards stacked (handled by CSS)
+    """
     init_session_state()
     num_cards = len(sections)
 
-    # ===== MOBILE =====
-    if is_mobile():
-        for section in sections:
-            st.markdown(
-                f"<div class='note-section mobile-card'>{section}</div>",
-                unsafe_allow_html=True
-            )
-        return
-
-    # ===== DESKTOP =====
+    # Navigation controls - wrapped in a unique HTML element
     if num_cards > VISIBLE_CARDS:
+        # Use HTML comment to mark the navigation section
+        st.markdown('<!-- NAV_START -->', unsafe_allow_html=True)
+        
         nav_col1, _, nav_col3 = st.columns([1, 6, 1])
 
         with nav_col1:
-            if st.button("◀", disabled=st.session_state.card_offset == 0):
+            st.markdown('<span class="nav-arrow-btn">', unsafe_allow_html=True)
+            if st.button("◀", disabled=st.session_state.card_offset == 0, key="nav_prev"):
                 st.session_state.card_offset -= 1
                 st.rerun()
+            st.markdown('</span>', unsafe_allow_html=True)
 
         with nav_col3:
+            st.markdown('<span class="nav-arrow-btn">', unsafe_allow_html=True)
             max_offset = num_cards - VISIBLE_CARDS
-            if st.button("▶", disabled=st.session_state.card_offset >= max_offset):
+            if st.button("▶", disabled=st.session_state.card_offset >= max_offset, key="nav_next"):
                 st.session_state.card_offset += 1
                 st.rerun()
+            st.markdown('</span>', unsafe_allow_html=True)
+        
+        st.markdown('<!-- NAV_END -->', unsafe_allow_html=True)
 
+    # Desktop paginated view
     start = st.session_state.card_offset
     end = start + VISIBLE_CARDS
-
-    cols = st.columns(VISIBLE_CARDS)
-    for col, section in zip(cols, sections[start:end]):
+    
+    cols = st.columns(min(VISIBLE_CARDS, len(sections[start:end])))
+    for i, (col, section) in enumerate(zip(cols, sections[start:end])):
         with col:
             st.markdown(
-                f"<div class='note-section desktop-card'>{section}</div>",
+                f'<div class="note-section desktop-card">{section}</div>',
                 unsafe_allow_html=True
             )
-
+    
+    # Mobile all-cards view (hidden on desktop via CSS)
+    for i, section in enumerate(sections):
+        st.markdown(
+            f'<div class="note-section mobile-card" style="display: none;">{section}</div>',
+            unsafe_allow_html=True
+        )
 
 
 def render_additional_notes(selected_note_id: str, username: str, df):
@@ -229,7 +194,6 @@ def render_additional_notes(selected_note_id: str, username: str, df):
             except Exception as e:
                 st.error(f"❌ Upload failed: {e}")
 
-    # Display success message if within 3 seconds
     msg = st.session_state.get("notes_saved_msg")
     msg_time = st.session_state.get("notes_saved_time")
     

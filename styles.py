@@ -35,14 +35,31 @@ MAIN_STYLES = """
     max-width: 100% !important;
 }
 
+.login-title {
+    color: var(--text-main);
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 700;
+}
+
+/* Base card styling */
 .note-section {
     background: var(--bg-card);
     color: var(--text-main);
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     padding: 1rem;
     border-radius: 16px;
-    height: 100%;
-    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+/* Desktop cards */
+.desktop-card {
+    height: calc(100vh - 320px);
+    overflow-y: auto;
+}
+
+/* Mobile cards - hidden by default */
+.mobile-card {
+    display: none !important;
 }
 
 .section-header {
@@ -97,31 +114,95 @@ label, .stMarkdown {
     border-radius: 10px;
 }
 
-/* MOBILE: Stack columns vertically, hide arrows */
+/* MOBILE LAYOUT (≤768px) */
 @media (max-width: 768px) {
-    /* Hide arrow navigation buttons on mobile */
-    [data-testid="column"]:first-child button,
-    [data-testid="column"]:last-child button {
+    /* Hide desktop cards */
+    .desktop-card {
         display: none !important;
     }
     
-    /* Stack columns vertically */
-    [data-testid="stHorizontalBlock"] {
-        flex-direction: column !important;
+    /* Hide navigation arrow buttons using the span markers */
+    .nav-arrow-btn {
+        display: none !important;
     }
     
-    [data-testid="column"] {
+    /* Hide parent elements containing nav buttons */
+    [data-testid="column"]:has(.nav-arrow-btn) {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Hide the horizontal block containing nav arrows AND remove its space */
+    [data-testid="stHorizontalBlock"]:has(.nav-arrow-btn) {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+    }
+    
+    /* Remove gap from ALL parent containers */
+    div:has(> [data-testid="stHorizontalBlock"]:has(.nav-arrow-btn)) {
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        height: 0 !important;
+    }
+    
+    /* Target element-container that wraps the navigation */
+    .element-container:has([data-testid="stHorizontalBlock"]:has(.nav-arrow-btn)) {
+        display: none !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Remove margin from elements near mobile cards */
+    .mobile-card:first-of-type {
+        margin-top: 0 !important;
+    }
+    
+    /* Show mobile cards */
+    .mobile-card {
+        display: block !important;
         width: 100% !important;
-        max-width: 100% !important;
-    }
-    
-    .note-section {
-        margin-bottom: 0.75rem !important;
         height: auto !important;
+        max-height: none !important;
+        overflow-y: visible !important;
+        margin-bottom: 1rem !important;
     }
     
+    /* General mobile adjustments */
     .block-container {
         padding: 0.8rem !important;
+    }
+    
+    /* Force single column for remaining content */
+    [data-testid="column"] {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+    
+    /* Mobile text input */
+    .stTextArea textarea {
+        font-size: 16px !important;
+    }
+    
+    /* Keep other buttons full width */
+    .stButton > button {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .desktop-card {
+        height: calc(100vh - 300px);
     }
 }
 </style>
