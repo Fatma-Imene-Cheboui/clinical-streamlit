@@ -7,8 +7,8 @@ import io
 import pickle
 from typing import Optional, Tuple
 from config import SCOPES
-import streamlit as st
 import json
+import streamlit as st
 
 try:
     from google.oauth2 import service_account
@@ -25,57 +25,12 @@ def safe_filename(name: str) -> str:
     return re.sub(r'[^\w\-_.]', '_', name)
 
 
-
-
 def authenticate_drive():
-    """Authenticate with Google Drive using Streamlit secrets safely."""
-    
-    secret_path = "client_secret.json"
-
-    # Write client_secret to file (only if missing or running locally)
-    if not os.path.exists(secret_path):
-        try:
-            # Load JSON string from Streamlit secrets
-            client_secret_json_str = st.secrets["google"]["client_secret_json"]
-            creds = service_account.Credentials.from_service_account_info(client_secret_json_str, scopes=["https://www.googleapis.com/auth/drive.file"])
-            drive_service = build("drive", "v3", credentials=creds)
-            return drive_service
-        except Exception as e:
-            st.error(f"Failed to load Google client secret: {e}")
-            return None
-
-    #     # Write to file for InstalledAppFlow
-    #     with open(secret_path, "w") as f:
-    #         json.dump(creds, f)
-
-    # # Streamlit Cloud has ephemeral filesystem, token.pkl might not persist
-    # creds = None
-    # token_path = "token.pkl"
-    # if os.path.exists(token_path):
-    #     try:
-    #         with open(token_path, "rb") as token_file:
-    #             creds = pickle.load(token_file)
-    #     except Exception:
-    #         creds = None
-
-    # if not creds:
-    #     try:
-    #         flow = InstalledAppFlow.from_client_secrets_file(secret_path, SCOPES)
-    #         creds = flow.run_local_server(port=0)
-    #         # Attempt to save token for session (ok if ephemeral)
-    #         with open(token_path, "wb") as token_file:
-    #             pickle.dump(creds, token_file)
-    #     except Exception as e:
-    #         st.error(f"Drive authentication failed: {e}")
-    #         return None
-
-    # try:
-    #     service = build("drive", "v3", credentials=creds)
-    #     return service
-    # except Exception as e:
-    #     st.error(f"Failed to build Drive service: {e}")
-    #     return None
-
+    client_secret_dict = json.loads(st.secrets["google"]["client_secret_json"])
+    flow = InstalledAppFlow.from_client_config(client_secret_dict, SCOPES)
+    creds = flow.run_local_server(port=0)
+    service = build("drive", "v3", credentials=creds)
+    return service
 
 
 def upload_file_to_drive(service, filename: str, file_bytes: bytes, 
