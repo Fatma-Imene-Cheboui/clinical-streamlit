@@ -19,7 +19,6 @@ st.markdown(
     (function() {
         function updateIsMobile() {
             const isMobile = window.innerWidth <= 768;
-            console.log("isMobile value:", isMobile); // Debugging: Log the value in the browser console
             const streamlitDoc = window.parent.document;
             let input = streamlitDoc.getElementById("is_mobile");
 
@@ -150,13 +149,8 @@ def render_content_cards(sections):
     init_session_state()
     num_cards = len(sections)
 
-    # Debugging: Log the `is_mobile` value and `sections` data
-    st.write("Debug: Is Mobile:", is_mobile())
-    st.write("Debug: Sections:", sections)
-
     # ===== MOBILE =====
     if is_mobile():
-        st.write("Rendering mobile layout")  # Debugging: Visual indicator
         for section in sections:
             st.markdown(
                 f"<div class='note-section mobile-card'>{section}</div>",
@@ -165,7 +159,6 @@ def render_content_cards(sections):
         return
 
     # ===== DESKTOP =====
-    st.write("Rendering desktop layout")  # Debugging: Visual indicator
     if num_cards > VISIBLE_CARDS:
         nav_col1, _, nav_col3 = st.columns([1, 6, 1])
 
