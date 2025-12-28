@@ -37,42 +37,44 @@ def authenticate_drive():
         try:
             # Load JSON string from Streamlit secrets
             client_secret_json_str = st.secrets["google"]["client_secret_json"]
-            client_secret_json = json.loads(client_secret_json_str)
+            creds = service_account.Credentials.from_service_account_info(client_secret_json_str, scopes=["https://www.googleapis.com/auth/drive.file"])
+            drive_service = build("drive", "v3", credentials=creds)
+            return drive_service
         except Exception as e:
             st.error(f"Failed to load Google client secret: {e}")
             return None
 
-        # Write to file for InstalledAppFlow
-        with open(secret_path, "w") as f:
-            json.dump(client_secret_json, f)
+    #     # Write to file for InstalledAppFlow
+    #     with open(secret_path, "w") as f:
+    #         json.dump(creds, f)
 
-    # Streamlit Cloud has ephemeral filesystem, token.pkl might not persist
-    creds = None
-    token_path = "token.pkl"
-    if os.path.exists(token_path):
-        try:
-            with open(token_path, "rb") as token_file:
-                creds = pickle.load(token_file)
-        except Exception:
-            creds = None
+    # # Streamlit Cloud has ephemeral filesystem, token.pkl might not persist
+    # creds = None
+    # token_path = "token.pkl"
+    # if os.path.exists(token_path):
+    #     try:
+    #         with open(token_path, "rb") as token_file:
+    #             creds = pickle.load(token_file)
+    #     except Exception:
+    #         creds = None
 
-    if not creds:
-        try:
-            flow = InstalledAppFlow.from_client_secrets_file(secret_path, SCOPES)
-            creds = flow.run_local_server(port=0)
-            # Attempt to save token for session (ok if ephemeral)
-            with open(token_path, "wb") as token_file:
-                pickle.dump(creds, token_file)
-        except Exception as e:
-            st.error(f"Drive authentication failed: {e}")
-            return None
+    # if not creds:
+    #     try:
+    #         flow = InstalledAppFlow.from_client_secrets_file(secret_path, SCOPES)
+    #         creds = flow.run_local_server(port=0)
+    #         # Attempt to save token for session (ok if ephemeral)
+    #         with open(token_path, "wb") as token_file:
+    #             pickle.dump(creds, token_file)
+    #     except Exception as e:
+    #         st.error(f"Drive authentication failed: {e}")
+    #         return None
 
-    try:
-        service = build("drive", "v3", credentials=creds)
-        return service
-    except Exception as e:
-        st.error(f"Failed to build Drive service: {e}")
-        return None
+    # try:
+    #     service = build("drive", "v3", credentials=creds)
+    #     return service
+    # except Exception as e:
+    #     st.error(f"Failed to build Drive service: {e}")
+    #     return None
 
 
 
