@@ -51,20 +51,24 @@ def authenticate_drive():
 
 
 def upload_file_to_drive(service, filename: str, file_bytes: bytes, folder_id: str, mimetype: str = 'audio/wav'):
-    """Upload file to Google Drive"""
+    """Upload file to a shared folder using a service account"""
     if service is None:
         st.error("Drive service is None! Cannot upload file.")
         return None, None
 
     try:
         st.write(f"Uploading file: {filename} to folder: {folder_id}")
-        file_metadata = {'name': filename, 'parents': [folder_id]}
+        file_metadata = {
+            'name': filename,
+            'parents': [folder_id]
+        }
         media = MediaIoBaseUpload(io.BytesIO(file_bytes), mimetype=mimetype)
 
         file = service.files().create(
             body=file_metadata,
             media_body=media,
-            fields='id, webViewLink'
+            fields='id, webViewLink',
+            supportsAllDrives=True  # crucial for shared folders
         ).execute()
 
         st.success(f"File uploaded! ID: {file['id']}")
@@ -73,6 +77,7 @@ def upload_file_to_drive(service, filename: str, file_bytes: bytes, folder_id: s
     except Exception as e:
         st.error(f"File upload failed: {e}")
         return None, None
+
 
 
 
