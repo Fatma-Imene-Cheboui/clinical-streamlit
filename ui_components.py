@@ -13,28 +13,51 @@ from data_handler import update_audio_file, update_additional_notes, save_data
 
 import streamlit as st
 
+st.markdown(
+    """
+    <script>
+    (function() {
+        function updateIsMobile() {
+            const isMobile = window.innerWidth <= 768;
+            console.log("isMobile value:", isMobile); // Debugging: Log the value in the browser console
+            const streamlitDoc = window.parent.document;
+            let input = streamlitDoc.getElementById("is_mobile");
+
+            if (!input) {
+                input = streamlitDoc.createElement("input");
+                input.type = "hidden";
+                input.id = "is_mobile";
+                streamlitDoc.body.appendChild(input);
+            }
+
+            input.value = isMobile;
+
+            // Notify Streamlit about the change
+            fetch(window.location.href + `?is_mobile=${isMobile}`, {
+                method: "GET"
+            });
+        }
+
+        // Initial detection
+        updateIsMobile();
+
+        // Update on resize
+        window.addEventListener("resize", updateIsMobile);
+    })();
+    </script>
+    """,
+    unsafe_allow_html=True
+)
+
+# Update session state based on query parameters
+query_params = st.query_params
+if "is_mobile" in query_params:
+    st.session_state.is_mobile = query_params["is_mobile"][0] == "true"
+else:
+    st.session_state.is_mobile = False
+
 def is_mobile():
     return st.session_state.get("is_mobile", False)
-
-st.markdown("""
-<script>
-if (!window.isMobileSet) {
-    window.isMobileSet = true;
-    const isMobile = window.innerWidth <= 768;
-    const streamlitDoc = window.parent.document;
-    const input = streamlitDoc.createElement("input");
-    input.type = "hidden";
-    input.id = "is_mobile";
-    input.value = isMobile;
-    streamlitDoc.body.appendChild(input);
-}
-</script>
-""", unsafe_allow_html=True)
-
-st.session_state.is_mobile = st.session_state.get(
-    "is_mobile",
-    False
-)
 
 def init_session_state():
     """Initialize session state variables"""
@@ -127,8 +150,13 @@ def render_content_cards(sections):
     init_session_state()
     num_cards = len(sections)
 
+    # Debugging: Log the `is_mobile` value and `sections` data
+    st.write("Debug: Is Mobile:", is_mobile())
+    st.write("Debug: Sections:", sections)
+
     # ===== MOBILE =====
     if is_mobile():
+        st.write("Rendering mobile layout")  # Debugging: Visual indicator
         for section in sections:
             st.markdown(
                 f"<div class='note-section mobile-card'>{section}</div>",
@@ -137,6 +165,7 @@ def render_content_cards(sections):
         return
 
     # ===== DESKTOP =====
+    st.write("Rendering desktop layout")  # Debugging: Visual indicator
     if num_cards > VISIBLE_CARDS:
         nav_col1, _, nav_col3 = st.columns([1, 6, 1])
 
