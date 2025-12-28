@@ -2,7 +2,7 @@
 Main application file for Clinical Notes Recording System
 """
 import streamlit as st
-from utils import create_directories
+from utils import create_directories, test_supabase_connection
 from auth import initialize_session_state, render_login_page, check_authentication, get_current_username
 from data_handler import load_data, get_doctor_notes, get_note_by_id
 from text_formatter import format_clinical_text, split_content_dynamically
@@ -31,6 +31,20 @@ def main():
     # Initialize
     create_directories()
     initialize_session_state()
+    
+    # 🐛 DEBUG PANEL (Optional - remove in production)
+    with st.sidebar:
+        st.markdown("---")
+        if st.checkbox("🐛 Debug Mode", value=False):
+            st.subheader("Supabase Connection Test")
+            if st.button("🧪 Test Connection"):
+                with st.spinner("Testing..."):
+                    success = test_supabase_connection()
+                    if success:
+                        st.success("✅ Supabase working!")
+                    else:
+                        st.error("❌ Connection failed - check console")
+            st.markdown("---")
     
     # Authentication check
     if not check_authentication():

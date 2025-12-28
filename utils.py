@@ -1,20 +1,11 @@
 """
-Utility functions for the Clinical Notes Application
+Utility functions for the Clinical Notes Application - Supabase Version
+Works locally and on deployment with zero hassle
 """
 import re
 import os
-import io
-import json
-from typing import Optional, Tuple
-from config import SCOPES
-
-try:
-    from google.oauth2 import service_account
-    from googleapiclient.discovery import build
-    from googleapiclient.http import MediaIoBaseUpload
-    DRIVE_AVAILABLE = True
-except ImportError:
-    DRIVE_AVAILABLE = False
+import requests
+from typing import Tuple
 
 
 def safe_filename(name: str) -> str:
@@ -22,82 +13,151 @@ def safe_filename(name: str) -> str:
     return re.sub(r'[^\w\-_.]', '_', name)
 
 
-def authenticate_drive():
-    """
-    Authenticate with Google Drive using Service Account
-    Works in both local and deployed environments
-    """
-    # Try to get credentials from Streamlit secrets (deployment)
+def get_supabase_config():
+    """Get Supabase configuration from secrets or environment"""
     try:
         import streamlit as st
-        if hasattr(st, 'secrets') and 'GOOGLE_SERVICE_ACCOUNT' in st.secrets:
-            # Load from Streamlit secrets
-            service_account_info = dict(st.secrets["GOOGLE_SERVICE_ACCOUNT"])
-            creds = service_account.Credentials.from_service_account_info(
-                service_account_info,
-                scopes=SCOPES
-            )
-            return build('drive', 'v3', credentials=creds)
-    except:
-        pass
-    
-    # Try to get credentials from environment variable
-    service_account_json = os.environ.get('GOOGLE_SERVICE_ACCOUNT_JSON')
-    if service_account_json:
-        service_account_info = json.loads(service_account_json)
-        creds = service_account.Credentials.from_service_account_info(
-            service_account_info,
-            scopes=SCOPES
-        )
-        return build('drive', 'v3', credentials=creds)
-    
-    # Try to load from local file (development)
-    service_account_file = 'service_account.json'
-    if os.path.exists(service_account_file):
-        creds = service_account.Credentials.from_service_account_file(
-            service_account_file,
-            scopes=SCOPES
-        )
-        return build('drive', 'v3', credentials=creds)
-    
-    raise Exception(
-        "No Google Service Account credentials found. "
-        "Please set up credentials in Streamlit secrets or environment variables."
-    )
-
-
-def upload_file_to_drive(service, filename: str, file_bytes: bytes, 
-                         folder_id: str, mimetype: str = 'audio/wav') -> Tuple[str, str]:
-    """Upload file to Google Drive"""
-    try:
-        file_metadata = {
-            'name': filename,
-            'parents': [folder_id]
-        }
-        media = MediaIoBaseUpload(
-            io.BytesIO(file_bytes),
-            mimetype=mimetype,
-            resumable=True
-        )
-        file = service.files().create(
-            body=file_metadata,
-            media_body=media,
-            fields='id, webViewLink'
-        ).execute()
-        return file['id'], file['webViewLink']
+        url = st.secrets["supabase"]["SUPABASE_URL"]
+        key = st.secrets["supabase"]["SUPABASE_KEY"]
+        bucket = st.secrets["supabase"]["BUCKET_NAME"]
+        print(f"✅ Loaded Supabase config from Streamlit secrets")
+        return url, key, bucket
     except Exception as e:
-        if '403' in str(e):
+        print(f"⚠️ Streamlit secrets not found: {e}")
+        # Fallback to environment variables (for local development)
+        url = os.environ.get("SUPABASE_URL")
+        key = os.environ.get("SUPABASE_KEY")
+        bucket = os.environ.get("SUPABASE_BUCKET", "recordings")
+        
+        if not url or not key:
             raise Exception(
-                f"Permission denied. Please ensure:\n"
-                f"1. The service account has access to folder: {folder_id}\n"
-                f"2. Google Drive API is enabled in your project\n"
-                f"3. The service account email has Editor permissions on the folder"
+                "❌ Supabase configuration not found!\n"
+                "Please set up Supabase credentials in:\n"
+                "- Streamlit Cloud: App Settings > Secrets\n"
+                "- Local: .streamlit/secrets.toml or environment variables"
             )
-        raise
+        
+        print(f"✅ Loaded Supabase config from environment variables")
+        return url, key, bucket
+
+
+def upload_file_to_supabase(filename: str, file_bytes: bytes, 
+                            mimetype: str = 'audio/wav') -> Tuple[str, str]:
+    """
+    Upload file to Supabase Storage
+    Returns: (file_id, public_url)
+    """
+    url, key, bucket = get_supabase_config()
+    
+    print(f"🔍 Uploading {filename} to Supabase...")
+    print(f"📦 File size: {len(file_bytes)} bytes")
+    print(f"🪣 Bucket: {bucket}")
+    
+    # Upload file
+    upload_url = f"{url}/storage/v1/object/{bucket}/{filename}"
+    headers = {
+        "Authorization": f"Bearer {key}",
+        "Content-Type": mimetype,
+        "x-upsert": "true"  # Overwrite if exists
+    }
+    
+    response = requests.post(upload_url, headers=headers, data=file_bytes)
+    
+    if response.status_code not in [200, 201]:
+        print(f"❌ Upload failed: {response.status_code}")
+        print(f"Response: {response.text}")
+        raise Exception(f"Upload failed: {response.status_code} - {response.text}")
+    
+    print(f"✅ Upload successful!")
+    
+    # Generate public URL
+    public_url = f"{url}/storage/v1/object/public/{bucket}/{filename}"
+    print(f"🔗 Public URL: {public_url}")
+    
+    return filename, public_url
+
+
+def upload_audio_file(filename: str, file_bytes: bytes) -> Tuple[str, str]:
+    """Upload audio file to Supabase"""
+    return upload_file_to_supabase(filename, file_bytes, mimetype='audio/wav')
+
+
+def upload_notes_file(filename: str, file_bytes: bytes) -> Tuple[str, str]:
+    """Upload text notes to Supabase"""
+    return upload_file_to_supabase(filename, file_bytes, mimetype='text/plain')
+
+
+def list_files(prefix: str = "") -> list:
+    """List files in Supabase bucket (optional)"""
+    url, key, bucket = get_supabase_config()
+    
+    list_url = f"{url}/storage/v1/object/list/{bucket}"
+    headers = {"Authorization": f"Bearer {key}"}
+    
+    params = {}
+    if prefix:
+        params["prefix"] = prefix
+    
+    response = requests.get(list_url, headers=headers, params=params)
+    
+    if response.status_code == 200:
+        return response.json()
+    else:
+        print(f"⚠️ Failed to list files: {response.status_code}")
+        return []
 
 
 def create_directories():
-    """Create necessary directories if they don't exist"""
+    """Create necessary directories if they don't exist (for local storage fallback)"""
     from config import AUDIO_DIR, NOTES_DIR
     os.makedirs(AUDIO_DIR, exist_ok=True)
     os.makedirs(NOTES_DIR, exist_ok=True)
+
+
+def test_supabase_connection():
+    """Test Supabase connection - call this for debugging"""
+    print("\n" + "="*60)
+    print("🧪 TESTING SUPABASE CONNECTION")
+    print("="*60)
+    
+    try:
+        url, key, bucket = get_supabase_config()
+        print(f"✅ Config loaded")
+        print(f"📍 URL: {url}")
+        print(f"🪣 Bucket: {bucket}")
+        
+        # Try to list files
+        print(f"\n[TEST] Listing files in bucket...")
+        files = list_files()
+        print(f"✅ Found {len(files)} files")
+        
+        # Try to upload a test file
+        print(f"\n[TEST] Uploading test file...")
+        test_content = b"test connection"
+        test_filename = "test_connection.txt"
+        
+        file_id, file_url = upload_file_to_supabase(
+            test_filename,
+            test_content,
+            mimetype='text/plain'
+        )
+        
+        print(f"✅ Test upload successful!")
+        print(f"📄 File ID: {file_id}")
+        print(f"🔗 URL: {file_url}")
+        
+        print("\n" + "="*60)
+        print("✅ ALL TESTS PASSED - Supabase is working!")
+        print("="*60 + "\n")
+        return True
+        
+    except Exception as e:
+        print(f"\n❌ TEST FAILED: {e}")
+        print("\n" + "="*60)
+        print("🔧 TROUBLESHOOTING:")
+        print("="*60)
+        print("1. Check your Supabase credentials are correct")
+        print("2. Make sure the bucket exists and is public")
+        print("3. Verify you copied the correct API URL and key")
+        print("="*60 + "\n")
+        return False

@@ -4,13 +4,11 @@ Configuration file for Clinical Notes Application
 
 # File paths
 DATA_PATH = "clinical_notes.csv"
-AUDIO_DIR = "audios"
-NOTES_DIR = "additional_notes"
+AUDIO_DIR = "audios"  # Local fallback only
+NOTES_DIR = "additional_notes"  # Local fallback only
 
-# Google Drive configuration
-SCOPES = ['https://www.googleapis.com/auth/drive.file']
-DRIVE_AUDIO_FOLDER_ID = '1i0DW8qlRVAJuRD2Jf-3AtGAsbF0qtpd6'
-DRIVE_NOTES_FOLDER_ID = '1vlZ00_eZI5ZLIdT7h15RNAszteIpYuey'
+# Supabase configuration (loaded from secrets/env at runtime)
+# No hardcoded values needed here - handled in utils.py
 
 # UI Configuration
 VISIBLE_CARDS = 3

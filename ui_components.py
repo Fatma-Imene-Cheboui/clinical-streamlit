@@ -1,17 +1,13 @@
 """
-UI components for Clinical Notes Application
+UI components for Clinical Notes Application - Supabase Version
 """
 
 import streamlit as st
 from datetime import datetime
 from typing import List
 
-from config import (
-    VISIBLE_CARDS,
-    DRIVE_AUDIO_FOLDER_ID,
-    DRIVE_NOTES_FOLDER_ID
-)
-from utils import safe_filename, authenticate_drive, upload_file_to_drive
+from config import VISIBLE_CARDS
+from utils import safe_filename, upload_audio_file, upload_notes_file
 from data_handler import update_audio_file, update_additional_notes, save_data
 
 
@@ -60,7 +56,7 @@ def render_audio_recorder():
 
 
 # --------------------------------------------------
-# SAVE AUDIO BUTTON (DEPLOYMENT SAFE)
+# SAVE AUDIO BUTTON (SUPABASE VERSION)
 # --------------------------------------------------
 
 def render_save_audio_button(selected_note_id: str, username: str, df):
@@ -76,18 +72,13 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
 
         safe_doctor_name = safe_filename(username)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"{safe_doctor_name}_{selected_note_id}_{timestamp}.wav"
+        filename = f"audio/{safe_doctor_name}_{selected_note_id}_{timestamp}.wav"
 
         try:
-            service = authenticate_drive()
-            _, link = upload_file_to_drive(
-                service,
-                filename,
-                recorded_audio,
-                DRIVE_AUDIO_FOLDER_ID,
-                "audio/wav"
-            )
+            # Upload to Supabase
+            _, link = upload_audio_file(filename, recorded_audio)
 
+            # Update CSV with new link
             update_audio_file(df, selected_note_id, link)
             save_data(df)
 
@@ -98,6 +89,7 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
 
         except Exception as e:
             st.error(f"❌ Save failed: {e}")
+            print(f"Error details: {e}")
 
     # ✅ MESSAGE PERSISTS AFTER RERUN
     msg = st.session_state.get("audio_saved_msg")
@@ -142,7 +134,7 @@ def render_content_cards(sections: List[str]):
 
 
 # --------------------------------------------------
-# ADDITIONAL NOTES
+# ADDITIONAL NOTES (SUPABASE VERSION)
 # --------------------------------------------------
 
 def render_additional_notes(selected_note_id: str, username: str, df):
@@ -170,18 +162,13 @@ def render_additional_notes(selected_note_id: str, username: str, df):
 
             safe_doctor_name = safe_filename(username)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"{safe_doctor_name}_{selected_note_id}_notes_{timestamp}.txt"
+            filename = f"notes/{safe_doctor_name}_{selected_note_id}_notes_{timestamp}.txt"
 
             try:
-                service = authenticate_drive()
-                _, link = upload_file_to_drive(
-                    service,
-                    filename,
-                    notes_text.encode("utf-8"),
-                    DRIVE_NOTES_FOLDER_ID,
-                    "text/plain"
-                )
+                # Upload to Supabase
+                _, link = upload_notes_file(filename, notes_text.encode("utf-8"))
 
+                # Update CSV with new link
                 update_additional_notes(df, selected_note_id, link)
                 save_data(df)
 
@@ -192,6 +179,7 @@ def render_additional_notes(selected_note_id: str, username: str, df):
 
             except Exception as e:
                 st.error(f"❌ Upload failed: {e}")
+                print(f"Error details: {e}")
 
     # ✅ MESSAGE PERSISTS AFTER RERUN
     msg = st.session_state.get("notes_saved_msg")
