@@ -34,29 +34,32 @@ def init_session_state():
 
     if "card_offset" not in st.session_state:
         st.session_state.card_offset = 0
+    
+    if "mobile_card_index" not in st.session_state:
+        st.session_state.mobile_card_index = 0
 
 
 def is_mobile():
-    """Detect if user is on mobile device"""
-    try:
-        import streamlit.components.v1 as components
-        script = """
-        <script>
-        const isMobile = window.innerWidth <= 768;
-        window.parent.postMessage({type: 'streamlit:setComponentValue', value: isMobile}, '*');
-        </script>
-        """
-        result = components.html(script, height=0)
-        return result if result is not None else False
-    except:
-        return False
+    """Detect if the user is on mobile based on viewport width"""
+    # Inject JavaScript to detect screen width
+    mobile_js = """
+    <script>
+    const isMobile = window.innerWidth <= 768;
+    window.parent.postMessage({type: 'streamlit:setComponentValue', value: isMobile}, '*');
+    </script>
+    """
+    st.markdown(mobile_js, unsafe_allow_html=True)
+    
+    # Fallback: assume mobile if not explicitly set
+    # You can also use streamlit-js or custom components for more reliable detection
+    return st.session_state.get("is_mobile", False)
 
 
 def render_note_selector(doctor_notes, username: str) -> str:
     """Render note selection dropdown"""
     note_ids = doctor_notes["note_id"].tolist()
     return st.selectbox(
-        f"📝 Select Clinical Note — {username}",
+        f"📋 Select Clinical Note — {username}",
         note_ids
     )
 
@@ -100,6 +103,7 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
         except Exception as e:
             st.error(f"❌ Save failed: {e}")
 
+    # Display success message if within 3 seconds
     msg = st.session_state.get("audio_saved_msg")
     msg_time = st.session_state.get("audio_saved_time")
     
@@ -115,46 +119,80 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
 
 
 def render_content_cards(sections: List[str]):
-    """Render content cards with navigation (desktop) or single column (mobile)"""
+    """Render content cards with navigation (desktop: multiple cards, mobile: single card)"""
     init_session_state()
 
     num_cards = len(sections)
     
-    # Check screen width using JavaScript
-    mobile_check = st.empty()
-    with mobile_check:
-        mobile_html = """
-        <script>
-        const width = window.innerWidth;
-        const isMobile = width <= 768;
-        window.parent.postMessage({isMobile: isMobile, width: width}, '*');
-        </script>
-        """
-        st.components.v1.html(mobile_html, height=0)
+    # Check if mobile view via CSS media query approach
+    # We'll use a simpler approach: check viewport with custom component or assume based on layout
     
-    # Simple mobile detection based on expected behavior
-    # On mobile: show all cards vertically
-    # On desktop: show pagination
+    # Add mobile detection CSS and render accordingly
+    st.markdown("""
+    <style>
+    .mobile-only { display: none; }
+    .desktop-only { display: block; }
     
-    # Desktop view with pagination
+    @media (max-width: 768px) {
+        .mobile-only { display: block; }
+        .desktop-only { display: none; }
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Mobile view: Single card with navigation
+    st.markdown('<div class="mobile-only">', unsafe_allow_html=True)
+    
+    if num_cards > 1:
+        nav_col1, nav_col2, nav_col3 = st.columns([1, 2, 1])
+        
+        with nav_col1:
+            if st.button("◀ Prev", key="mobile_prev", disabled=st.session_state.mobile_card_index == 0):
+                st.session_state.mobile_card_index -= 1
+                st.rerun()
+        
+        with nav_col2:
+            st.markdown(
+                f"<div style='text-align: center; padding: 8px; color: var(--text-muted);'>"
+                f"Card {st.session_state.mobile_card_index + 1} of {num_cards}"
+                f"</div>",
+                unsafe_allow_html=True
+            )
+        
+        with nav_col3:
+            if st.button("Next ▶", key="mobile_next", disabled=st.session_state.mobile_card_index >= num_cards - 1):
+                st.session_state.mobile_card_index += 1
+                st.rerun()
+    
+    # Display single card for mobile
+    current_section = sections[st.session_state.mobile_card_index]
+    st.markdown(
+        f"<div class='note-section' style='height: auto; max-height: none;'>{current_section}</div>",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Desktop view: Multiple cards with horizontal scrolling
+    st.markdown('<div class="desktop-only">', unsafe_allow_html=True)
+    
     if num_cards > VISIBLE_CARDS:
         nav_col1, _, nav_col3 = st.columns([1, 6, 1])
 
         with nav_col1:
-            if st.button("◀", disabled=st.session_state.card_offset == 0):
+            if st.button("◀", key="desktop_prev", disabled=st.session_state.card_offset == 0):
                 st.session_state.card_offset -= 1
                 st.rerun()
 
         with nav_col3:
             max_offset = num_cards - VISIBLE_CARDS
-            if st.button("▶", disabled=st.session_state.card_offset >= max_offset):
+            if st.button("▶", key="desktop_next", disabled=st.session_state.card_offset >= max_offset):
                 st.session_state.card_offset += 1
                 st.rerun()
 
     start = st.session_state.card_offset
     end = start + VISIBLE_CARDS
 
-    # Render cards
     cols = st.columns(min(VISIBLE_CARDS, num_cards))
     for col, section in zip(cols, sections[start:end]):
         with col:
@@ -162,6 +200,8 @@ def render_content_cards(sections: List[str]):
                 f"<div class='note-section'>{section}</div>",
                 unsafe_allow_html=True
             )
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
 
 def render_additional_notes(selected_note_id: str, username: str, df):
@@ -207,6 +247,7 @@ def render_additional_notes(selected_note_id: str, username: str, df):
             except Exception as e:
                 st.error(f"❌ Upload failed: {e}")
 
+    # Display success message if within 3 seconds
     msg = st.session_state.get("notes_saved_msg")
     msg_time = st.session_state.get("notes_saved_time")
     

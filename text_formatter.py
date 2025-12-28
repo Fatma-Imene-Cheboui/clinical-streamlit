@@ -81,49 +81,18 @@ def calculate_line_height(line: str, card_width_chars: int = CARD_WIDTH_CHARS) -
         return 24 * wrapped_lines
 
 
-def is_mobile_device() -> bool:
-    """
-    Simple check for mobile - in production this would use 
-    Streamlit's context or JavaScript detection
-    """
-    try:
-        import streamlit as st
-        # Check if screen width is available in session state
-        if 'screen_width' in st.session_state:
-            return st.session_state.screen_width <= 768
-    except:
-        pass
-    return False
-
-
 def split_content_dynamically(text: str, max_height: int = 500) -> List[str]:
-    """
-    Distribute content across cards
-    On mobile: returns single long card
-    On desktop: splits into multiple cards with pagination
-    """
+    """Distribute content equally across minimum cards needed"""
     text = clean_content(text)
     lines = [l for l in text.split("<br>") if l.strip()]
     
     if not lines:
         return [text]
     
-    # Mobile: return all content as one card
-    # The CSS will handle making it scrollable/full height
-    # For now, we'll split into 3 cards on desktop and 1 on mobile
-    # This is handled by CSS flexbox wrapping
-    
     PADDING = 32
     line_heights = [calculate_line_height(line) for line in lines]
     total_height = sum(line_heights) + PADDING
-    
-    # Calculate minimum cards needed for desktop
     num_cards = max(1, -(-total_height // max_height))
-    
-    # If content fits in 3 or fewer cards, use that
-    # Otherwise split across more cards
-    num_cards = min(num_cards, 5)  # Max 5 cards even on desktop
-    
     target_height_per_card = total_height / num_cards
     
     sections = []
@@ -152,7 +121,6 @@ def split_content_dynamically(text: str, max_height: int = 500) -> List[str]:
     if current_section:
         sections.append("<br>".join(current_section))
     
-    # Balance section heights
     if len(sections) >= 2:
         section_heights = []
         for section in sections:
