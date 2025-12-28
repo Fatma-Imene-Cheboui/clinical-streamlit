@@ -7,6 +7,7 @@ import io
 import pickle
 from typing import Optional, Tuple
 from config import SCOPES
+import streamlit as st
 
 try:
     from google.oauth2 import service_account
@@ -24,19 +25,25 @@ def safe_filename(name: str) -> str:
 
 
 def authenticate_drive():
-    """Authenticate with Google Drive using OAuth"""
-    try:
-        with open('token.pkl', 'rb') as token_file:
+    """Authenticate with Google Drive using secrets.json from Streamlit."""
+    
+    # write the client_secret to a temp file
+    secret_path = "client_secret.json"
+    if not os.path.exists(secret_path):
+        with open(secret_path, "w") as f:
+            f.write(st.secrets["google"]["client_secret_json"])
+    
+    # check for existing token
+    if os.path.exists("token.pkl"):
+        with open("token.pkl", "rb") as token_file:
             creds = pickle.load(token_file)
-    except:
-        flow = InstalledAppFlow.from_client_secrets_file(
-            'client_secret_360211228268-646iajdl0r02sc65olnuuqs5n7a1c5g3.apps.googleusercontent.com.json',
-            SCOPES
-        )
+    else:
+        flow = InstalledAppFlow.from_client_secrets_file(secret_path, SCOPES)
         creds = flow.run_local_server(port=0)
-        with open('token.pkl', 'wb') as token_file:
+        with open("token.pkl", "wb") as token_file:
             pickle.dump(creds, token_file)
-    return build('drive', 'v3', credentials=creds)
+    
+    return build("drive", "v3", credentials=creds)
 
 
 def upload_file_to_drive(service, filename: str, file_bytes: bytes, 
