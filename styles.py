@@ -6,6 +6,7 @@ MAIN_STYLES = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* ================= ROOT THEME ================= */
 :root {
     --bg-main: #f4f6fb;
     --bg-card: #ffffff;
@@ -35,11 +36,7 @@ MAIN_STYLES = """
     max-width: 100% !important;
 }
 
-.login-title {
-    color: var(--text-main);
-    margin: 1rem 0 0.5rem 0;
-    font-weight: 700;
-}
+/* ================= CARDS ================= */
 
 .cards-container {
     display: flex;
@@ -53,12 +50,23 @@ MAIN_STYLES = """
     background: var(--bg-card);
     color: var(--text-main);
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    flex: 0 0 calc(33.333% - 0.5rem);
     height: 100%;
     overflow: hidden;
     padding: 1rem;
     border-radius: 16px;
 }
+
+/* Desktop cards */
+.desktop-card {
+    flex: 0 0 calc(33.333% - 0.5rem);
+}
+
+/* Mobile cards */
+.mobile-card {
+    margin-bottom: 0.75rem;
+}
+
+/* ================= HEADERS ================= */
 
 .section-header {
     font-weight: 700;
@@ -68,6 +76,7 @@ MAIN_STYLES = """
     display: inline-block;
 }
 
+/* Color tags */
 .atcd { color:#5D9CEC; background:rgba(93,156,236,0.15); }
 .hdm { color:#AC92EC; background:rgba(172,146,236,0.15); }
 .exam { color:#4FC1E9; background:rgba(79,193,233,0.15); }
@@ -77,7 +86,9 @@ MAIN_STYLES = """
 .conduite { color:#FFCE54; background:rgba(255,206,84,0.2); }
 .cat { color:#A0826D; background:rgba(160,130,109,0.2); }
 
-.stButton>button {
+/* ================= BUTTONS ================= */
+
+.stButton > button {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     border-radius: 10px;
@@ -87,11 +98,13 @@ MAIN_STYLES = """
     transition: 0.3s;
 }
 
-.stButton>button:hover {
+.stButton > button:hover {
     transform: translateY(-2px);
 }
 
-.stSelectbox>div>div,
+/* ================= INPUTS ================= */
+
+.stSelectbox > div > div,
 .stTextArea textarea {
     background: var(--bg-card);
     color: var(--text-main);
@@ -103,6 +116,8 @@ label, .stMarkdown {
     color: var(--text-main) !important;
 }
 
+/* ================= SCROLLBAR ================= */
+
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -112,23 +127,50 @@ label, .stMarkdown {
     border-radius: 10px;
 }
 
+/* ================= RESPONSIVE LOGIC ================= */
+
+/* Default = DESKTOP */
+.mobile-version {
+    display: none;
+}
+
+.desktop-version {
+    display: block;
+}
+
+/* MOBILE OVERRIDE */
 @media (max-width: 768px) {
+
+    .desktop-version {
+        display: none !important;
+    }
+
+    .mobile-version {
+        display: block !important;
+    }
+
     .cards-container {
         height: auto;
         flex-direction: column;
     }
-    
+
     .note-section {
-        flex: 1;
         max-height: none !important;
         overflow: visible !important;
-        margin-bottom: 0.5rem !important;
         padding: 0.8rem !important;
     }
-    
+
     .block-container {
         padding: 0.8rem !important;
     }
 }
+
+/* Optional polish */
+.mobile-version,
+.desktop-version {
+    transition: opacity 0.2s ease;
+}
+
 </style>
+
 """

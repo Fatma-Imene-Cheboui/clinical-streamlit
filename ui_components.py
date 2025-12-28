@@ -11,6 +11,30 @@ from config import VISIBLE_CARDS
 from utils import safe_filename, upload_audio_file, upload_notes_file
 from data_handler import update_audio_file, update_additional_notes, save_data
 
+import streamlit as st
+
+def is_mobile():
+    return st.session_state.get("is_mobile", False)
+
+st.markdown("""
+<script>
+if (!window.isMobileSet) {
+    window.isMobileSet = true;
+    const isMobile = window.innerWidth <= 768;
+    const streamlitDoc = window.parent.document;
+    const input = streamlitDoc.createElement("input");
+    input.type = "hidden";
+    input.id = "is_mobile";
+    input.value = isMobile;
+    streamlitDoc.body.appendChild(input);
+}
+</script>
+""", unsafe_allow_html=True)
+
+st.session_state.is_mobile = st.session_state.get(
+    "is_mobile",
+    False
+)
 
 def init_session_state():
     """Initialize session state variables"""
@@ -34,32 +58,13 @@ def init_session_state():
 
     if "card_offset" not in st.session_state:
         st.session_state.card_offset = 0
-    
-    if "mobile_card_index" not in st.session_state:
-        st.session_state.mobile_card_index = 0
-
-
-def is_mobile():
-    """Detect if the user is on mobile based on viewport width"""
-    # Inject JavaScript to detect screen width
-    mobile_js = """
-    <script>
-    const isMobile = window.innerWidth <= 768;
-    window.parent.postMessage({type: 'streamlit:setComponentValue', value: isMobile}, '*');
-    </script>
-    """
-    st.markdown(mobile_js, unsafe_allow_html=True)
-    
-    # Fallback: assume mobile if not explicitly set
-    # You can also use streamlit-js or custom components for more reliable detection
-    return st.session_state.get("is_mobile", False)
 
 
 def render_note_selector(doctor_notes, username: str) -> str:
     """Render note selection dropdown"""
     note_ids = doctor_notes["note_id"].tolist()
     return st.selectbox(
-        f"📋 Select Clinical Note — {username}",
+        f"📝 Select Clinical Note — {username}",
         note_ids
     )
 
@@ -118,90 +123,45 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
             st.session_state.audio_saved_time = None
 
 
-def render_content_cards(sections: List[str]):
-    """Render content cards with navigation (desktop: multiple cards, mobile: single card)"""
+def render_content_cards(sections):
     init_session_state()
-
     num_cards = len(sections)
-    
-    # Check if mobile view via CSS media query approach
-    # We'll use a simpler approach: check viewport with custom component or assume based on layout
-    
-    # Add mobile detection CSS and render accordingly
-    st.markdown("""
-    <style>
-    .mobile-only { display: none; }
-    .desktop-only { display: block; }
-    
-    @media (max-width: 768px) {
-        .mobile-only { display: block; }
-        .desktop-only { display: none; }
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    # Mobile view: Single card with navigation
-    st.markdown('<div class="mobile-only">', unsafe_allow_html=True)
-    
-    if num_cards > 1:
-        nav_col1, nav_col2, nav_col3 = st.columns([1, 2, 1])
-        
-        with nav_col1:
-            if st.button("◀ Prev", key="mobile_prev", disabled=st.session_state.mobile_card_index == 0):
-                st.session_state.mobile_card_index -= 1
-                st.rerun()
-        
-        with nav_col2:
+
+    # ===== MOBILE =====
+    if is_mobile():
+        for section in sections:
             st.markdown(
-                f"<div style='text-align: center; padding: 8px; color: var(--text-muted);'>"
-                f"Card {st.session_state.mobile_card_index + 1} of {num_cards}"
-                f"</div>",
+                f"<div class='note-section mobile-card'>{section}</div>",
                 unsafe_allow_html=True
             )
-        
-        with nav_col3:
-            if st.button("Next ▶", key="mobile_next", disabled=st.session_state.mobile_card_index >= num_cards - 1):
-                st.session_state.mobile_card_index += 1
-                st.rerun()
-    
-    # Display single card for mobile
-    current_section = sections[st.session_state.mobile_card_index]
-    st.markdown(
-        f"<div class='note-section' style='height: auto; max-height: none;'>{current_section}</div>",
-        unsafe_allow_html=True
-    )
-    
-    st.markdown('</div>', unsafe_allow_html=True)
-    
-    # Desktop view: Multiple cards with horizontal scrolling
-    st.markdown('<div class="desktop-only">', unsafe_allow_html=True)
-    
+        return
+
+    # ===== DESKTOP =====
     if num_cards > VISIBLE_CARDS:
         nav_col1, _, nav_col3 = st.columns([1, 6, 1])
 
         with nav_col1:
-            if st.button("◀", key="desktop_prev", disabled=st.session_state.card_offset == 0):
+            if st.button("◀", disabled=st.session_state.card_offset == 0):
                 st.session_state.card_offset -= 1
                 st.rerun()
 
         with nav_col3:
             max_offset = num_cards - VISIBLE_CARDS
-            if st.button("▶", key="desktop_next", disabled=st.session_state.card_offset >= max_offset):
+            if st.button("▶", disabled=st.session_state.card_offset >= max_offset):
                 st.session_state.card_offset += 1
                 st.rerun()
 
     start = st.session_state.card_offset
     end = start + VISIBLE_CARDS
 
-    cols = st.columns(min(VISIBLE_CARDS, num_cards))
+    cols = st.columns(VISIBLE_CARDS)
     for col, section in zip(cols, sections[start:end]):
         with col:
             st.markdown(
-                f"<div class='note-section'>{section}</div>",
+                f"<div class='note-section desktop-card'>{section}</div>",
                 unsafe_allow_html=True
             )
-    
-    st.markdown('</div>', unsafe_allow_html=True)
+
 
 
 def render_additional_notes(selected_note_id: str, username: str, df):
