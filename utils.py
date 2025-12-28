@@ -25,25 +25,55 @@ def safe_filename(name: str) -> str:
     return re.sub(r'[^\w\-_.]', '_', name)
 
 
+import json
+import streamlit as st
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaIoBaseUpload
+import io
+
+SCOPES = ["https://www.googleapis.com/auth/drive.file"]
+
 def authenticate_drive():
-    client_secret_dict = json.loads(st.secrets["google"]["client_secret_json"])
-    flow = InstalledAppFlow.from_client_config(client_secret_dict, SCOPES)
-    creds = flow.run_local_server(port=0)
-    service = build("drive", "v3", credentials=creds)
-    return service
+    try:
+        st.write("Loading service account from Streamlit secrets...")
+        client_secret_dict = json.loads(st.secrets["google"]["client_secret_json"])
+        creds = service_account.Credentials.from_service_account_info(
+            client_secret_dict,
+            scopes=SCOPES
+        )
+        service = build("drive", "v3", credentials=creds)
+        st.success("Drive service authenticated successfully!")
+        return service
+    except Exception as e:
+        st.error(f"Drive authentication failed: {e}")
+        return None
 
 
-def upload_file_to_drive(service, filename: str, file_bytes: bytes, 
-                         folder_id: str, mimetype: str = 'audio/wav') -> Tuple[str, str]:
+def upload_file_to_drive(service, filename: str, file_bytes: bytes, folder_id: str, mimetype: str = 'audio/wav'):
     """Upload file to Google Drive"""
-    file_metadata = {'name': filename, 'parents': [folder_id]}
-    media = MediaIoBaseUpload(io.BytesIO(file_bytes), mimetype=mimetype)
-    file = service.files().create(
-        body=file_metadata,
-        media_body=media,
-        fields='id, webViewLink'
-    ).execute()
-    return file['id'], file['webViewLink']
+    if service is None:
+        st.error("Drive service is None! Cannot upload file.")
+        return None, None
+
+    try:
+        st.write(f"Uploading file: {filename} to folder: {folder_id}")
+        file_metadata = {'name': filename, 'parents': [folder_id]}
+        media = MediaIoBaseUpload(io.BytesIO(file_bytes), mimetype=mimetype)
+
+        file = service.files().create(
+            body=file_metadata,
+            media_body=media,
+            fields='id, webViewLink'
+        ).execute()
+
+        st.success(f"File uploaded! ID: {file['id']}")
+        return file['id'], file['webViewLink']
+
+    except Exception as e:
+        st.error(f"File upload failed: {e}")
+        return None, None
+
 
 
 def create_directories():
