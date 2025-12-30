@@ -12,25 +12,28 @@ def get_users() -> Dict[str, str]:
             "Dr. Smith": st.secrets["passwords"]["dr_smith"],
             "Dr. Jhones": st.secrets["passwords"]["dr_jones"]
         }
-    except:
+    except KeyError:
         return {
-            "Dr. Smith": "password123",
-            "Dr. Jhones": "mypassword"
+            "Dr. Kadri": "Kadri01",
+            "Dr. Mohand Akli": "Mohaned02",
+            "Dr. Khacef": "Khacef02",
+            "Dr. Himer": "Himer01"
         }
 
 
 def initialize_session_state():
     """Initialize session state variables"""
-    if "logged_in" not in st.session_state:
-        st.session_state.logged_in = False
-    if "username" not in st.session_state:
-        st.session_state.username = None
-    if "recorded_audio" not in st.session_state:
-        st.session_state.recorded_audio = None
-    if "card_offset" not in st.session_state:
-        st.session_state.card_offset = 0
-    if "additional_notes_text" not in st.session_state:
-        st.session_state.additional_notes_text = ""
+    defaults = {
+        "logged_in": False,
+        "username": None,
+        "recorded_audio": None,
+        "card_offset": 0,
+        "additional_notes_text": ""
+    }
+    
+    for key, value in defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = value
 
 
 def render_login_page():

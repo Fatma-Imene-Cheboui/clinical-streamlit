@@ -18,11 +18,14 @@ CARD_WIDTH_CHARS = 55
 # Section colors and styles
 SECTION_STYLES = {
     "atcd": {"color": "#5D9CEC", "emoji": "🟦"},
+    "fdrcv": {"color": "#ED5565", "emoji": "🟥"},
     "hdm": {"color": "#AC92EC", "emoji": "🟪"},
     "exam": {"color": "#4FC1E9", "emoji": "🟩"},
-    "ecg": {"color": "#ED5565", "emoji": "🟥"},
-    "ett": {"color": "#FC6E51", "emoji": "🟧"},
-    "coro": {"color": "#E9573F", "emoji": "🫀"},
+    "bio": {"color": "#48CFAD", "emoji": "🧪"},
+    "ecg": {"color": "#ED5565", "emoji": "📈"},
+    "ett": {"color": "#FC6E51", "emoji": "🫀"},
+    "coro": {"color": "#E9573F", "emoji": "🩺"},
     "conduite": {"color": "#FFCE54", "emoji": "🟨"},
+    "evol": {"color": "#A0D468", "emoji": "📊"},
     "cat": {"color": "#A0826D", "emoji": "🟫"},
 }

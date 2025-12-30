@@ -208,6 +208,44 @@ label, .stMarkdown {
         overflow-y: visible !important;
     }
 }
+/* ===== NAV ARROW SPACING FIX ===== */
+
+/* Kill vertical margins around the nav block */
+.element-container:has(.nav-arrow-btn) {
+    margin-top: -20px !important;
+    margin-bottom: -20px !important;
+    padding: 0 !important;
+}
+
+/* Collapse the horizontal block itself */
+[data-testid="stHorizontalBlock"]:has(.nav-arrow-btn) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    min-height: unset !important;
+}
+
+/* Collapse columns holding arrows */
+[data-testid="column"]:has(.nav-arrow-btn) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Tighten the button itself */
+.nav-arrow-btn button {
+    margin: 0 !important;
+    padding: 4px 8px !important;
+    height: auto !important;
+    line-height: 1 !important;
+}
+
+/* Optional: slightly pull arrows closer to cards */
+.nav-arrow-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 </style>

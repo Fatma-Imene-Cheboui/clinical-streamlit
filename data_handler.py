@@ -24,14 +24,25 @@ def save_data(df: pd.DataFrame):
     df.to_csv(DATA_PATH, index=False)
 
 
+def get_doctor_note_indices(username: str) -> list:
+    """Get note indices assigned to a specific doctor"""
+    doctor_assignments = {
+        "Dr. Kadri": [0, 32, 53],
+        "Dr. Mohand Akli": [0, 32, 53],
+        "Dr. Khacef": [0, 32, 53],
+        "Dr. Himer": [0, 32, 53],
+        "Dr. Smith": list(range(0, 3)),
+        "Dr. Jhones": list(range(3, 7))
+    }
+    return doctor_assignments.get(username, [])
+
+
 def get_doctor_notes(df: pd.DataFrame, username: str) -> pd.DataFrame:
     """Get notes assigned to a specific doctor"""
-    if username == "Dr. Smith":
-        return df.iloc[0:3]
-    elif username == "Dr. Jhones":
-        return df.iloc[3:7]
-    else:
-        return pd.DataFrame()
+    indices = get_doctor_note_indices(username)
+    if indices:
+        return df.iloc[indices]
+    return pd.DataFrame()
 
 
 def update_audio_file(df: pd.DataFrame, note_id: str, file_path: str):

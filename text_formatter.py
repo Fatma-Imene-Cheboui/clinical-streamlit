@@ -9,39 +9,73 @@ from config import CARD_WIDTH_CHARS
 def format_clinical_text(text: str) -> str:
     """Format clinical text with colored section headers"""
     sections = {
-        r"(?im)^\s*(FDRCV\s+ET\s+)?ATCDS?\b\s*:?\s*": (
-            "<div class='section-header atcd'><span class='emoji'>🟦</span> ATCD</div><br>",
+        # Antécédents
+        r"(?im)^\s*(ATCDS?|ANT[EÉ]C[EÉ]DENTS?)\b\s*:?\s*": (
+            "<div class='section-header atcd'><span class='emoji'>🟦</span> Antécédents</div><br>",
             "#5D9CEC"
         ),
+
+        # Facteurs de risque cardio-vasculaire
+        r"(?im)^\s*(FDRCV|FACTEURS?\s+DE\s+RISQUE(S)?\s+CARDIO[-\s]?VASCULAIRE(S)?)\b\s*:?\s*": (
+            "<div class='section-header fdrcv'><span class='emoji'>🟥</span> Facteurs de risque cardio-vasculaire</div><br>",
+            "#ED5565"
+        ),
+
+        # Histoire de la maladie
         r"(?im)^\s*(HDM|HISTOIRE\s+DE\s+LA\s+MALADIE)\b\s*:?\s*": (
             "<div class='section-header hdm'><span class='emoji'>🟪</span> HDM</div><br>",
             "#AC92EC"
         ),
+
+        # Examen clinique
         r"(?im)^\s*EXAMEN\s+CLINIQUE\b\s*:?\s*": (
             "<div class='section-header exam'><span class='emoji'>🟩</span> Examen clinique</div><br>",
             "#4FC1E9"
         ),
+
+        # Bilan biologique
+        r"(?im)^\s*BILAN\s+BIO(LOGIQUE)?\b\s*:?\s*": (
+            "<div class='section-header bio'><span class='emoji'>🧪</span> Bilan biologique</div><br>",
+            "#48CFAD"
+        ),
+
+        # ECG
         r"(?im)^\s*ECG\b\s*:?\s*": (
-            "<div class='section-header ecg'><span class='emoji'>🟥</span> ECG</div><br>",
+            "<div class='section-header ecg'><span class='emoji'>📈</span> ECG</div><br>",
             "#ED5565"
         ),
+
+        # ETT
         r"(?im)^\s*ETT\b(\s+DES\s+URGENCES)?\b\s*:?\s*": (
-            "<div class='section-header ett'><span class='emoji'>🟧</span> ETT</div><br>",
+            "<div class='section-header ett'><span class='emoji'>🫀</span> ETT</div><br>",
             "#FC6E51"
         ),
+
+        # Coronarographie
         r"(?im)^\s*CORONAROGRAPHIE\b\s*:?\s*": (
-            "<div class='section-header coro'><span class='emoji'>🫀</span> Coronarographie</div><br>",
+            "<div class='section-header coro'><span class='emoji'>🩺</span> Coronarographie</div><br>",
             "#E9573F"
         ),
-        r"(?im)^\s*CONDUITE\s+TENUE\s+EN\s+SALLE\s+D['']URGENCE\b\s*:?\s*": (
-            "<div class='section-header conduite'><span class='emoji'>🟨</span> Conduite tenue en salle d'urgence</div><br>",
+
+        # Conduite tenue
+        r"(?im)^\s*CONDUITE\s+TENUE(\s+EN\s+SALLE\s+D['’]URGENCE)?\b\s*:?\s*": (
+            "<div class='section-header conduite'><span class='emoji'>🟨</span> Conduite tenue</div><br>",
             "#FFCE54"
         ),
-        r"(?im)^\s*CAT\b\s*:?\s*": (
-            "<div class='section-header cat'><span class='emoji'>🟫</span> CAT</div><br>",
+
+        # Évolution
+        r"(?im)^\s*[EÉ]VOLUTION\b\s*:?\s*": (
+            "<div class='section-header evol'><span class='emoji'>📊</span> Évolution</div><br>",
+            "#A0D468"
+        ),
+
+        # Conduite à tenir
+        r"(?im)^\s*(CAT|CONDUITE\s+[ÀA]\s+TENIR)\b\s*:?\s*": (
+            "<div class='section-header cat'><span class='emoji'>🟫</span> Conduite à tenir</div><br>",
             "#A0826D"
         ),
     }
+
 
     for pattern, (title, color) in sections.items():
         text = re.sub(pattern, title, text)
