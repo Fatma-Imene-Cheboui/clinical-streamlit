@@ -155,7 +155,6 @@ def render_additional_notes(selected_note_id: str, username: str, df):
     """Render additional notes text area and save button"""
     init_session_state()
 
-    st.markdown("<br>", unsafe_allow_html=True)
     col_note1, col_note2 = st.columns([3, 1])
 
     with col_note1:

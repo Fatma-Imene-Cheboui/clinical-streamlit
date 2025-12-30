@@ -48,13 +48,14 @@ MAIN_STYLES = """
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     padding: 1rem;
     border-radius: 16px;
-    margin-bottom: 0.75rem;
 }
 
 /* Desktop cards */
 .desktop-card {
-    height: calc(100vh - 320px);
-    overflow-y: auto;
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+    overflow-y: visible !important;
 }
 
 /* Mobile cards - hidden by default */
@@ -65,7 +66,6 @@ MAIN_STYLES = """
 .section-header {
     font-weight: 700;
     padding: 0.5rem 0.8rem;
-    margin: 0.5rem 0;
     border-radius: 8px;
     display: inline-block;
 }
@@ -202,8 +202,13 @@ label, .stMarkdown {
 /* Tablet adjustments */
 @media (min-width: 769px) and (max-width: 1024px) {
     .desktop-card {
-        height: calc(100vh - 300px);
+        height: auto !important;
+        min-height: unset !important;
+        max-height: unset !important;
+        overflow-y: visible !important;
     }
 }
+
+
 </style>
 """
