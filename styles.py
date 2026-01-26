@@ -58,10 +58,7 @@ MAIN_STYLES = """
     overflow-y: visible !important;
 }
 
-/* Mobile cards - hidden by default */
-.mobile-card {
-    display: none !important;
-}
+
 
 .section-header {
     font-weight: 700;
@@ -121,10 +118,7 @@ label, .stMarkdown {
         display: none !important;
     }
     
-    /* Hide navigation arrow buttons using the span markers */
-    .nav-arrow-btn {
-        display: none !important;
-    }
+    
     
     /* Hide parent elements containing nav buttons */
     [data-testid="column"]:has(.nav-arrow-btn) {
@@ -160,21 +154,7 @@ label, .stMarkdown {
         margin: 0 !important;
         padding: 0 !important;
     }
-    
-    /* Remove margin from elements near mobile cards */
-    .mobile-card:first-of-type {
-        margin-top: 0 !important;
-    }
-    
-    /* Show mobile cards */
-    .mobile-card {
-        display: block !important;
-        width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-        overflow-y: visible !important;
-        margin-bottom: 1rem !important;
-    }
+
     
     /* General mobile adjustments */
     .block-container {
@@ -208,44 +188,7 @@ label, .stMarkdown {
         overflow-y: visible !important;
     }
 }
-/* ===== NAV ARROW SPACING FIX ===== */
 
-/* Kill vertical margins around the nav block */
-.element-container:has(.nav-arrow-btn) {
-    margin-top: -20px !important;
-    margin-bottom: -20px !important;
-    padding: 0 !important;
-}
-
-/* Collapse the horizontal block itself */
-[data-testid="stHorizontalBlock"]:has(.nav-arrow-btn) {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    min-height: unset !important;
-}
-
-/* Collapse columns holding arrows */
-[data-testid="column"]:has(.nav-arrow-btn) {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-}
-
-/* Tighten the button itself */
-.nav-arrow-btn button {
-    margin: 0 !important;
-    padding: 4px 8px !important;
-    height: auto !important;
-    line-height: 1 !important;
-}
-
-/* Optional: slightly pull arrows closer to cards */
-.nav-arrow-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 
 </style>

@@ -17,7 +17,7 @@ def get_users() -> Dict[str, str]:
             "Dr. Kadri": "Kadri01",
             "Dr. Mohand Akli": "Mohaned02",
             "Dr. Khacef": "Khacef02",
-            "Dr. Himer": "Himer01"
+            "Dr. Himeur": "Himeur01"
         }
 
 

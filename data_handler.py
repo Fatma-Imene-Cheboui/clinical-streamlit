@@ -30,7 +30,7 @@ def get_doctor_note_indices(username: str) -> list:
         "Dr. Kadri": [0, 32, 53],
         "Dr. Mohand Akli": [0, 32, 53],
         "Dr. Khacef": [0, 32, 53],
-        "Dr. Himer": [0, 32, 53],
+        "Dr. Himeur": [0, 32, 53],
         "Dr. Smith": list(range(0, 3)),
         "Dr. Jhones": list(range(3, 7))
     }

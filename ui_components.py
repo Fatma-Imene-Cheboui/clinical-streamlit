@@ -100,55 +100,16 @@ def render_save_audio_button(selected_note_id: str, username: str, df):
 
 def render_content_cards(sections: List[str]):
     """
-    Render content cards
-    Desktop: paginated 3 cards
-    Mobile: all cards stacked (handled by CSS)
+    Render content cards - maximum 3 cards, equally distributed
     """
-    init_session_state()
-    num_cards = len(sections)
-
-    # Navigation controls - wrapped in a unique HTML element
-    if num_cards > VISIBLE_CARDS:
-        # Use HTML comment to mark the navigation section
-        st.markdown('<!-- NAV_START -->', unsafe_allow_html=True)
-        
-        nav_col1, _, nav_col3 = st.columns([1, 6, 1])
-
-        with nav_col1:
-            st.markdown('<span class="nav-arrow-btn">', unsafe_allow_html=True)
-            if st.button("◀", disabled=st.session_state.card_offset == 0, key="nav_prev"):
-                st.session_state.card_offset -= 1
-                st.rerun()
-            st.markdown('</span>', unsafe_allow_html=True)
-
-        with nav_col3:
-            st.markdown('<span class="nav-arrow-btn">', unsafe_allow_html=True)
-            max_offset = num_cards - VISIBLE_CARDS
-            if st.button("▶", disabled=st.session_state.card_offset >= max_offset, key="nav_next"):
-                st.session_state.card_offset += 1
-                st.rerun()
-            st.markdown('</span>', unsafe_allow_html=True)
-        
-        st.markdown('<!-- NAV_END -->', unsafe_allow_html=True)
-
-    # Desktop paginated view
-    start = st.session_state.card_offset
-    end = start + VISIBLE_CARDS
-    
-    cols = st.columns(min(VISIBLE_CARDS, len(sections[start:end])))
-    for i, (col, section) in enumerate(zip(cols, sections[start:end])):
+    # Simply render up to 3 cards without pagination
+    cols = st.columns(min(3, len(sections)))
+    for col, section in zip(cols, sections[:3]):
         with col:
             st.markdown(
-                f'<div class="note-section desktop-card">{section}</div>',
+                f'<div class="note-section">{section}</div>',
                 unsafe_allow_html=True
             )
-    
-    # Mobile all-cards view (hidden on desktop via CSS)
-    for i, section in enumerate(sections):
-        st.markdown(
-            f'<div class="note-section mobile-card" style="display: none;">{section}</div>',
-            unsafe_allow_html=True
-        )
 
 
 def render_additional_notes(selected_note_id: str, username: str, df):

@@ -126,7 +126,7 @@ def split_content_dynamically(text: str, max_height: int = 500) -> List[str]:
     PADDING = 32
     line_heights = [calculate_line_height(line) for line in lines]
     total_height = sum(line_heights) + PADDING
-    num_cards = max(1, -(-total_height // max_height))
+    num_cards = min(3, max(1, -(-total_height // max_height)))
     target_height_per_card = total_height / num_cards
     
     sections = []
