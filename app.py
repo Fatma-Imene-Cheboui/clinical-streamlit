@@ -4,7 +4,7 @@ Main application file for Clinical Notes Recording System
 import streamlit as st
 from utils import create_directories
 from auth import initialize_session_state, render_login_page, check_authentication, get_current_username
-from data_handler import load_data, get_doctor_notes, get_patient_notes, get_note_by_patient_and_type
+from data_handler import load_data, get_doctor_notes, get_patient_notes, get_note_by_patient
 from text_formatter import format_clinical_text, split_content_dynamically
 from ui_components import (
     render_patient_selector,
@@ -50,7 +50,7 @@ def main():
     with c1:
         selected_patient = render_patient_selector(doctor_notes, username)
     
-    # Get notes for selected patient (all should be admission notes)
+    # Get notes for selected patient
     patient_notes = get_patient_notes(doctor_notes, selected_patient)
     
     if patient_notes.empty:
@@ -64,11 +64,11 @@ def main():
         st.markdown("<br>", unsafe_allow_html=True)
         render_save_audio_button(selected_patient, username, df)
     
-    # Get the admission note (should only be one per patient)
-    note = get_note_by_patient_and_type(patient_notes, selected_patient, "admission", 0)
+    # Get the patient's note (first one, should only be one per patient)
+    note = get_note_by_patient(patient_notes, selected_patient)
     
     if note is None:
-        st.error(f"❌ No admission note found for patient {selected_patient}")
+        st.error(f"❌ No note found for patient {selected_patient}")
         return
     
     # Display the note content
