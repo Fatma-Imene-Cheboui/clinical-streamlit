@@ -9,15 +9,19 @@ def get_users() -> Dict[str, str]:
     """Get users from Streamlit secrets or use defaults"""
     try:
         return {
-            "Dr. Smith": st.secrets["passwords"]["dr_smith"],
-            "Dr. Jhones": st.secrets["passwords"]["dr_jones"]
+            "Dr. Kadri": st.secrets["passwords"]["dr_kadri"],
+            "Dr. Mohand Akli": st.secrets["passwords"]["dr_mohand_akli"],
+            "Dr. Khacef": st.secrets["passwords"]["dr_khacef"],
+            "Dr. Himeur": st.secrets["passwords"]["dr_himeur"],
+            "Dr. Benali": st.secrets["passwords"]["dr_benali"]
         }
     except KeyError:
         return {
             "Dr. Kadri": "Kadri01",
-            "Dr. Mohand Akli": "Mohaned02",
-            "Dr. Khacef": "Khacef02",
-            "Dr. Himeur": "Himeur01"
+            "Dr. Mohand Akli": "Mohand02",
+            "Dr. Khacef": "Khacef03",
+            "Dr. Himeur": "Himeur04",
+            "Dr. Benali": "Benali05"
         }
 
 
@@ -52,7 +56,7 @@ def render_login_page():
         """, unsafe_allow_html=True)
         
         username = st.selectbox("👤 Select your account", list(USERS.keys()))
-        password = st.text_input("🔒 Password", type="password")
+        password = st.text_input("🔑 Password", type="password")
         
         st.markdown("<br>", unsafe_allow_html=True)
         

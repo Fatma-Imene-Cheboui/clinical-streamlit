@@ -4,10 +4,10 @@ Main application file for Clinical Notes Recording System
 import streamlit as st
 from utils import create_directories
 from auth import initialize_session_state, render_login_page, check_authentication, get_current_username
-from data_handler import load_data, get_doctor_notes, get_note_by_id
+from data_handler import load_data, get_doctor_notes, get_patient_notes, get_note_by_patient_and_type
 from text_formatter import format_clinical_text, split_content_dynamically
 from ui_components import (
-    render_note_selector,
+    render_patient_selector,
     render_audio_recorder,
     render_save_audio_button,
     render_content_cards,
@@ -44,27 +44,40 @@ def main():
     
     st.markdown("<br>", unsafe_allow_html=True)
     
-    c1, c2, c3 = st.columns([2, 2, 1])
+    # Single row with controls: Patient, Audio Recorder, Save Button
+    c1, c2, c3 = st.columns([2, 3, 1.5])
     
     with c1:
-        selected = render_note_selector(doctor_notes, username)
+        selected_patient = render_patient_selector(doctor_notes, username)
+    
+    # Get notes for selected patient (all should be admission notes)
+    patient_notes = get_patient_notes(doctor_notes, selected_patient)
+    
+    if patient_notes.empty:
+        st.warning(f"⚠️ No notes found for patient {selected_patient}")
+        return
     
     with c2:
         render_audio_recorder()
-
-    with c3:
-        render_save_audio_button(selected, username, df)
     
-    note = get_note_by_id(doctor_notes, selected)
+    with c3:
+        st.markdown("<br>", unsafe_allow_html=True)
+        render_save_audio_button(selected_patient, username, df)
+    
+    # Get the admission note (should only be one per patient)
+    note = get_note_by_patient_and_type(patient_notes, selected_patient, "admission", 0)
+    
     if note is None:
-        st.error("Note not found!")
+        st.error(f"❌ No admission note found for patient {selected_patient}")
         return
     
+    # Display the note content
     formatted_text = format_clinical_text(note["raw_text"])
     sections = split_content_dynamically(formatted_text, max_height=500)
     render_content_cards(sections)
     
-    render_additional_notes(selected, username, df)
+    # Additional notes section
+    render_additional_notes(selected_patient, username, df)
     
     st.markdown("<br>", unsafe_allow_html=True)
 

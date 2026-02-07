@@ -3,7 +3,7 @@ Configuration file for Clinical Notes Application
 """
 
 # File paths
-DATA_PATH = "clinical_notes.csv"
+DATA_PATH = "1stBatch_50_admission_notes_balanced.csv"
 AUDIO_DIR = "audios"  # Local fallback only
 NOTES_DIR = "additional_notes"  # Local fallback only
 

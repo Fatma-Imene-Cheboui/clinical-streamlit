@@ -1,0 +1,3444 @@
+patientId,note_id,patient_id,note_type,datetime,raw_text,audio_file,additional_notes,validated,motif
+1,initialExaminations:17415225659552zu43qbb4,patients:1741522047876q44mgz261i,admission,2025-03-09 13:16:05,"Il s'agit de la patiente Chibout [firstName], agé de 76 Dans , Originaire et de demeurant a Djelfa autonome assuré social.
+Admis pour prise en charge d'une décompensation cardiaque gauche sur cardiopathie ischemique avec scintigraphie positives   
+FDRCV et ATCDs
+-Diabéte 
+-HTA 
+-STEMI en 2020 non documenté 
+-STEMI en inférieur semi récent hospitalisé a notre niveau le 28/01/2025 
+
+HISTOIRE DE LA MALADIE : 
+La patiente présente une dyspnée d'aggravation progressive depuis 15 jours la motivant a consulter a notre niveau Ce jour (le 09/03/2025) où le diagnostic a ete fait d'ou son admission 
+ Examen clinique :
+SG :
+- Patiente consciente coopérante en BEG
+- Constantes hémodynamiques :
+TA = 125/ 70mmHg, FC = 70 bpm   SpO2 = 91 % en AA
+- Extrémités chaudes
+- Diurèse conservée
+
+SF :
+-Dyspnée stade III a IV de la NYHA 
+
+SP :
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire : crépitants aux bases 
+-Pas de signe d'ICD
+- Pas de signes de TVP
+- Pouls présents symétriques
+Reste de l'examen clinique :Sans particularités
+
+ECG :
+- RSR a 85 bpm avec séquelles de nécrose en inférieurs 
+
+ETT : 
+-Valve aortique tricusps peu calcifiée siège d'une fuite modérée sans stenose
+-VG non dilatee hypertrophie de fonction systolique conservé 
+-Aspect de cardiopathie ischemique : hypokinésie de toute la couronne basale
+-PRVG élevées 
+-Cavites droites non dilatée non hypertrophié
+-VD de bonne fonction systolique
+-HTP de probabilité intermédiaire 
+-VCI non dilatee compliante
+-Pericarde sec
+Scintigraphie du 23/02/2025
+Examen tomoscintigraphique réalisé sous traitement anti angineux, au décours 
+d'une épreuve d'effort physique maximale (88% de la FMT), jugee positive 
+cliniquement, et négative électriquement, montre un myocarde hypo perfusé, 
+hypokinétique mais viable, intéressant la portion médio-basale de la jonction 
+inférolatérale, représentant 10-15% du vG (2/17segments), compatible dans le contexte
+avec des séquelles de nécrose non transmurale, avec ischémie d'effort modérée à sévère, 
+partiellement réversible, péri lésionnelle, au niveau de la portion médio-basale de la 
+paroi inférieure, représentant également 10-15% du VG(2/17segments).
+Toutefois, une atteinte pluri tronculaire, plus marquée au niveau du territoire SuS décrit, 
+est suspecté dans ce contexte de positivité clinique franche de l'épreuve d'effort 
+ BIOLOGIE  :
+ FNS:
+Gb:  mm3 HB:  g/dl . Plq: /mm3
+Na+:  meq/l   K+:  meq/l
+Urée       Créatinine  
+Glycémie à jeun : 0.78
+INR =1.00 TP=100% TCK= normal
+CAT en salle d'urgence 
+-Mise en condition : 2VVP 
+-Traitement déplétif à base de bolus de lasilix 
+-supplémentation en potassium 
+ CAT :
+
+-Hospitalisation 
+-Introduction du traitement déplétif avec supplémentation en potassium 
+-Optimisation du traitement de la cardiopathie ischemique 
+-Prévoir bilan complet 
+-Prévoir ETT d'évaluation ",,,False,STEMI
+2,initialExaminations:1739889881659q7cdoefrs,patients:1739544928048oumze1b33,admission,2025-02-18 15:44:41,"Il s'agit de la patiente Gasmi [firstName], agée de 76 ans demeurant à Ouled Fayet
+Admise a notre niveau pour PEC d'un STEMI en inferieur reçue a H3K1 de la douleur  ayant bénéficie d'une ATC primaire 
+FDR/ATCD :
+
+-Age/Menopause
+-HTA sous exforge 10/160mg
+-Diabete type 2 sous ADO glucophage 850*1, diamicron
+-Stemi en inferieur thrombolysé  le 14/02/2025 hospitaliser a notre niveau
+
+
+HDM:
+
+-La patiente a présenté ce jour une récidive angineuse la motivant a consulté a notre niveau où le diagnostic a été fait d’où son admission
+Examen clinique :
+SG
+Patiente consciente en etat général moyen
+TA: 130 /75 mmgh.    Sat : 98 %en AA.    FC : 60 Bpm
+
+SF : asthénie, angor classe 8/10 échelle EVA
+
+SP:
+Absence de signes d'insuffisance cardiaque gauche.
+Absence de signes d'insuffisance cardiaque droite.
+Absence de signes de TVP
+Absence d'OMI
+Pouls présents et symétriques.
+Le reste de l'examen est sans particularités
+
+ECG 
+: RSR a 60bpm, SUS  décalage en inférieur de 2 mm, miroir en Latéral haut 
+
+
+ETT des urgences:
+
+- Aorte initiale non dilatee
+- Valve aortique tricusps fine sans fuite ni stenose
+- VG non dilatée non hypertrophie de bonne fonction systolique FEVG 60% SLG -16%
+- Legere hypokenisie de la paroi infero septale et inferieur
+- PRVG non élevée
+- OG non dilatée
+- pas de visualusation de thombus ni d'anevrysme ce jour
+- IM minime
+- Cavites droites non dilatees
+- VD de bonne fonction systolique
+- HTP de faible probabilite Vmax IT 2.3 m/s PAPs 22+05mmHg
+- VCI non dilatee compliante
+- Pericarde sec
+Bilan d'urgence: lancé 
+
+GB HB PLQ 
+urée créat 
+Na K 
+Troponines 
+Conduite tenue en salle d'urgence
+
+-Mise en condition
+-2 VVP
+-Surveillance électrique stricte
+-Patiente monter au bloc 
+
+
+Traitement actuelle : 
+plavix 75mg 1 comprimé  à 20:00:00
+Exforge 1 comprimé  à 10:00:00
+Aspirine cp 100mg 1 comprimé  à 20:00:00
+crestor 20mg 1 comprimé  à 21:00:00
+bysolex 5mg 1/2 comprimé à 09:00:00
+
+
+CAT:
+
+-Hospitalisation en USIC
+-Surveillance clinique et électrique
+-Optimisation du traitement de cardiopathie ischémique
+-Prévoir ETT de contrôle
+",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/patient2_motif_STEMI_doctor_Dr._Kadri_date_20260206_210153.wav,,False,STEMI
+3,admissions:1723306827571rgyef49ep,patients:1723306618457kgh0ps2tn,admission,2024-08-10 17:20:27,"Il s'agit du patient [lastName] [firstName] âgé de 84 ans ; D à Zeralda ; assurée; autonome
+admis à notre niveau pour la PEC d'un STEMI en circonferentiel H2 K1 non compliqué thrombolysé à H2 de la douleur par schéma Elaxim ( demi dose ) avec succès 
+
+
+FDRCV/ATCDS : 
+HTA depuis 15ans sous Coaprovel 150/12.5mg
+AVC ischémique il y a 04ans 
+Colopathie fonctionelle
+Notion d'allergie saisonnière sous Antihistaminique
+HDM :
+Le début de la symptomatologie remonte a ce jour marqué par un angor de novo a 15h motivant le patient a consulté une polyclinique ""Al Alaouia""  a Birtouta qui l'oriente a notre niveau sans transport médicalisé ou le diagnostic a été posé d'ou son admission
+A l’admission
+
+Patient conscient coopérant , état général moyen , pale 
+TA : 131/73 mmHg    Fc : 85 bpm   SpO2 : 98% en AA  
+Extrémités chaudes ; diurèse conservée  
+SF : Angor classé 10/10 selon l'EVA
+SP :
+Bruits du cœur audibles sans souffle ni bruit surajouté 
+Auscultation pulmonaire libre
+Pas de signe d'insuffisance cardiaque gauche ni droite
+Pas de signe de TVP
+
+ECG : RSR à 80bpm Sus décalage ST circonférentiel, ESV retard droit
+Echographie trans thoracique :
+ 
+Aorte initiale non dilatée 
+VG non dilaté ni hypertrophié,
+ FEVG 45%
+ 
+Aspect de cardiopathie ischémique avec 
+hypokinésie de toutes les parois ( Medians et apicales ) 
+PRVG limites
+Iao minime
+Cavités droites non dilatées, VD fonction limite 
+HTAP de faible probabilité 
+VCI compliante non dilatée 
+Péricarde sec
+
+
+Bilan biologique
+ :
+Gb: 7530 mm3 HB: 14.-g/dl . Plq: 230000/mm3
+Urée: 0.52g/l  Créat : 12.2mg/l
+Na+: 140meq/l K+: 4.09meq/l
+CRP:neg
+Gly a jeun: 1.35g/l
+INR 1.68 TCK nle
+
+Troponines 68.2  
+Conduite tenue :
+ 
+- Mise en condition : DD , VVP , bilan d'urgence , doses de charge reçues (1cp plavix, Lovenox 0.6ui ) 
+après avoir éliminer le CI de la thrombolyse ; le patient a été thrombolysé par schéma d'Elaxim (demi dose )  
+évolution à 30 min : Diminution de la douleur, RIVA
+évolution à 60 min : RIVA avec des complexes de fusion et de capture ou on note une diminution de plus de 50% du sus décalage 
+évolution à 90 min : Disparition de la douleur, Disparition du sus décalage ( patient toujours en RIVA avec des complexes de captures )
+conclusion : succés de la TL
+
+
+CAT :
+
+- Hospitalisation en USIC
+- scope ECG/TA continu
+- surveillance clinique et électrique
+- introduction du traitement de la CP
+- Prévoir coronarographie de contrôle
+",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/Dr._Kadri_3_admission_20260206_203711.wav,,False,STEMI
+4,initialExaminations:1762344401067abd48ppme,patients:1760026324107e0ys6osl,admission,2025-11-05 13:06:41,"C'est l patient Chakrane Rabeh agé de 37ans, Deumeurant à Tissemsilt.
+Autonome et assuré social.
+Admis à notre niveau pour control angiographique 
+
+
+ATCDs et FDRCV :
+- STEMI ASA H4 K1le 09/10/2025 la coronarographie retrouve :
+* Lésion non significative hétérogène de l'artère interventriculaire antérieure proximale, flux TIMI 3.
+
+Decisons :
+ 2 cp de plavix pendant 1 mois, Contrôle angiographique a distance 
+Examen clinique à l'admission :
+SG :
+Patient conscient cooperant,EG conservé.
+TA =130/80mmHg, SpO2 = 97%en AA
+Extrémités chaudes, Diurèse conservée
+SF : Asymptomatique au repos .
+SP:
+-Auscultation pulmonaire libre.
+-Pas de signes d'ICD.
+-Pas de signes de TVP ni OMI.
+
+
+ECG :
+
+RSR à 65 bpm , BID pas troubles de la repolarisation
+.
+ETT : 
+
+- Aorte initiale non dilatée
+- Valve aortique sans sténose ni fuite
+- VG non dilate non hypertrophie de bonne fonction systolique FEVG (SBP)= 66%
+- Légère hypokinésie en antérieur antero latérale
+- PRVG non élevée
+- OG non dilatée
+- Valve mitrale sans fuite ni sténose
+- Cavités droites non dilatées
+- HTP de faible probabilité
+- VD de bonne fonction systolique
+- VCI compliante non dilatée
+- Péricarde sec
+.
+Bilan biologique : 
+demandé, refusé par l'infermière Nadia  
+.
+CAT :
+- hospitalisation en salle 
+- surveillance clinique 
+- coronarographie prévu demain ",,,False,STEMI
+5,initialExaminations:1761303801970i1rr8cg04,patients:1761302610893igx225bt6k,admission,2025-10-24 12:03:21,"Mr Boucherit [firstName], agé de 67 ans ,demeurant à ( )
+autonome assuré social.
+
+Admise pour la PEC d'un STEMI en entérieurr ; H1KI
+
+FDRCV et ATCDs :
+- RAS
+
+HISTOIRE DE LA MALADIE :
+Angor de novo à 10:30 motivant le patient à consulter au PU médical
+orientation à notre niveau d'ou son admission
+
+EXAMEN D'ADMISSION :
+SG :
+- Patient conscient coopérant en EG conservé
+
+* TA = 110/75 mmHg, FC = 66  bpm SpO2 = 97% en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+-angor 7/10 EVA ; Sueurs
+SP :
+- Pas de signes d'Insuffisance cardiaque 
+
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+
+Reste de l'examen clinique :Sans particularités
+
+ECG :
+RSR à 70 bpm
+
+Sus décalage en antérieur avec image en miroir en Inférieur
+
+ETT des urgences :
+
+-FEVG consevée
+- hypokinésie en antérieur ; anterolatéral
+- PRVG non élevées.
+- VD non dilaté de bonne fonction 
+- Cavités droites non dilatées
+- VCI non dilatée compliante
+- Péricarde sec
+
+BIOLOGIE :
+Gb: 15600 mm3 HB:16  g/dl . Plq: 239000/mm3
+Urée: g/l Créat : 9.42 mg/l
+Na+:142  meq/l K+: 4.08 meq/l
+CRP: 0.9
+troponine 25
+TP 81%
+
+
+CAT:
+Mise en condition
+VVP
+Dextro : 2.40
+dose de charge
+
+Après avoir éliminer les contre indication; thrombolysé avec schéma d'actilyse
+Evolution
+à 30 mn
+à60mn
+à90 mn
+ 
+CAT :
+
+- Hospitalisation en USIC
+- Scope continu
+- Surveillance clinique et électrique
+- Éducation thérapeutique
+- Introduction du traitement de la cardiopathie ischémique
+- Prévoir ETT de controle
+- prévoir coronarographie",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/patient5_motif_STEMI_doctor_Dr._Kadri_date_20260206_203417.wav,,False,STEMI
+6,admissions:1723061862529iw305vjf1,patients:1723055058497k86wekx6pk,admission,2024-08-07 21:17:42,"Il s'agit de Mr [lastName] Madjid âgé de 57 ans ; demeurant à sidi abdellah AS + père de 2 EVBP 
+admis à notre niveau pour la PEC d'un STEMI en inferieur Reçu à H03 de la douleur K1 non compliqué
+ATCD :
+- coronarien connu : stenté en 2011 au cnms , ponté en 2021 à KARDIA
+- DT2 depuis 25 ans sous insulinothérapie
+- BPCO
+- Opérée de la cataracte
+FDCV :
+- âge / sexe / DT2 / Obésité morbide 
+HDM :
+Le patient a présenté ce jour à 15 h un angor de novo le motivant à consulter à notre niveau arrivé à 19:15 h ou le diagnostic a été posé et d'où son admission 
+Examen à l'admission :
+Patient conscient coopérant en bon état général 
+TA : 140/80 mmHg   Fc : 75 bpm  SpO2 : 98% en AA  Gly : 2.5
+SF : DT rétro sternales classée 10/10 sur l'EVA
+SP :
+Bruits du cœur audibles et perceptibles sans souffle ni bruit surajouté 
+pas de signe d'insuffisance cardiaque droite ni gauche
+pas de signe de TVP
+pouls presents et symétrique
+ECG 
+: rythme sinusal régulier à 75 bpm séquelles de nécrose en antero septo apical , sus décalage en inferieur avec image en miroir en latéral haut
+ETT : 08/08/2024
+- Aorte initiale non dilatée
+- VG non dilaté ni hypetrophié, de bonne fonction systolique FEVG (SBP) 50 %, 
+- Légère hypokinesie en inferoseptal et inférieur (B+M)
+- Pas de dilatation cavitaire
+- VD de bonne fonction
+- HTP de faible probabilité.
+- VCI compliante non dilatée
+- Péricarde sec
+
+conduite tenue :
+- mise en condition : DD , Scope continu ,VVP , doses de charge
+patient thrombolysé par schéma d'actilyse aprés elimination des contrindications de la thrombolyse
+Evolution à 60/90 min : disparition du sus décalage ; disparition de la douleur -- succés de la TL
+CAT :
+-  hospitalisation en USIC
+- Scope continu
+- traitement de la cardiopathie ischémique
+- Bilan complet / ett
+- prevoir coro de controle
+- bilan cpct diabete 
+- surveillance ",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/patient6_motif_STEMI_doctor_Dr._Khacef_date_20260206_210920.wav,,False,STEMI
+7,initialExaminations:1760824470797b4qal7gltg,patients:1760817153755idgbz8p0o,admission,2025-10-18 22:54:30,"Il s'agit du patient Brahami [firstName], agé de 57ans , demeurant à Staoueli , autonome assuré social.
+Admis pour la PEC d'un STEMI en anterieur etendu H4K1 non compliqué thrombolysé avec succès par schéma Actilyse
+.
+
+FDRCV et ATCDs :
+
+Tabac 30PA
+.
+
+HISTOIRE DE LA MALADIE :
+
+Le début de la symptomatologie remonte a ce jour marqué par un angor de novo motivant le patient a consulter l eph de staoueli qui l'oriente a notre niveau par transport médicalisé d'ou son admission
+.
+
+EXAMEN D'ADMISSION :
+
+SG :
+- Patiente consciente coopérante en BEG
+- Constantes hémodynamiques :
+* TA = 125/78 mmHg, FC = 65bpm SpO2 = 98% en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+-Angor typique 8/10 EVA
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique : Sans particularités
+.
+
+ECG :
+
+- RSR a 65bpm, sus décalage ST en antérieur étendu avec image en miroir en inferieur
+.
+
+ETT des urgences :
+
+- Aorte initiale non dilatée
+- VG non dilaté non hypertrophié de fonction systolique conservé
+- Aspect de cardiopathie ischemique avec hypokinésie sévère de la couronne apicale et l'apex
+- Absence de visualisation de Thrombus ce jour 
+- PRVG non élevées.
+- Absence de vices valvulaire significatives
+- Cavités droites non dilatées
+- VD de bonne fonction systolique
+- HTP de faible probabilité
+- VCI non dilatée compliante
+- Péricarde sec
+.
+
+BIOLOGIE :
+
+Gb: 13500mm3 HB: 13.9g/dl . Plq: 268000/mm3
+Créat : 5.67mg/l
+CRP:neg
+INR 1 TP 100% TCK nle
+Troponines 172
+.
+
+Conduite tenue en salle d'urgence
+
+- Mise en condition
+- 02 VVP
+- Scope et surveillance en salle de soin
+- Dose de charge reçu
+.
+Après avoir éliminer les CI de la thrombolyse le patient a été thrombolysé par Schéma Actilyse
+Evolution a 30min : Diminution de la douleur , persistance du sus décalage
+Evolution a 60min : Diminution de la douleur , RIVA
+Evolution a 90min : Disparition de la douleur , Diminution de plus de 50% du sus décalage
+
+
+Conclusion : 
+Succés de Thrombolyse
+
+
+CAT :
+
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Éducation thérapeutique
+- Introduction du traitement de la cardiopathie ischémique
+- Prévoir coronarographie
+- Prévoir ETT de contrôle",,,False,STEMI
+8,admissions:1732984343626dsyfj1ctkf,patients:1732984269455an1mbsnrc,admission,2024-11-30 17:32:23,"Il s'agit du patient Hamzaoui [firstName], agé de 52 ,  demeurant à Souidania ,marié, autonome non assuré social.
+Admis pour la PEC d'un STEMI Semi recent en Anterolatéral compliqué d'un probable thrombus apical
+
+
+FDRCV et ATCDs :
+
+HTA méconnu
+Tabac actif 6PA sevré il y a 01mois
+
+HISTOIRE DE LA MALADIE :
+
+28/11/2024 Installation d'un angor de novo motivant le patient a consulté l eph de Souidania ou il fut traité symptomatiquement pour son pic hypertensif ( l'ecg n'a pas été fait ) puis orienté en cardiologie mais le patient n'est pas partis par manque de transport
+30/11/2024 Le patient a consulté a notre niveau ou le diagnostic a été fait d'où son admission
+
+
+EXAMEN D'ADMISSION : 
+
+SG :
+- Patient conscient coopérant en BEG
+- Constantes hémodynamiques :
+        * TA = 170/90 mmHg, FC =  bpm
+        * FR = 16 cpm, SpO2 = 98% en AA
+        * T = 37°c
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+-Asymptomatique au repos
+-Absence d'autres signes fonctionnels cardiaques
+SP :
+ - Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique :Sans particularités
+.
+
+ECG : 
+
+- RSR a 80 bpm, Pr a 0.16s , QRS fins, HVG systolique, séquelles de nécrose en Antérolatérale avec sus décalage ST en regard
+.
+
+ETT des urgences :
+
+- Aorte initiale non dilatée
+- VG hypertrophié de fonction systolique conservée
+- Aspect de cardiopathie ischemique hypokinésie de la couronne apical
+- PRVG non élevée.
+- Doute sur Thrombus apical
+
+- Pas de vices valvulaires significatifs
+- VD non dilaté de bonne fonction systolique
+- Cavités droites non dilatées
+- HTP de faible probabilité
+- VCI non dilatée compliante 
+- Péricarde sec
+.
+
+BIOLOGIE :
+
+Gb: 18700 mm3 HB: 13.4g/dl . Plq: 282000/mm3
+Urée: 0.51 g/l  Créat : 10.4mg/l
+Na+:137meq/l K+: 2.5meq/l
+CRP: 14.23
+INR 1 TP 100% TCK nle
+Gly a jeun: 0.94 g/l
+Troponines 606 puis 666
+.
+
+Conduite tenue en salle d'urgence
+
+- Mise en condition 
+- 02 VVP 
+- Scope et surveillance en salle de soin
+CAT :
+
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Éducation thérapeutique
+
+- Introduction du traitement de la cardiopathie ischémique
+- Loxen a la SAP
+Supplémentation potassique
+ - Prévoir Bilan de l'HTA secondaire 
+
+- Prévoir ETT de controle
+
+- Prévoir Scintigraphie myocardique a distance",,,False,STEMI
+9,initialExaminations:17405035852465lzcit9uu,patients:1740503386073hxf11yfc3k,admission,2025-02-25 18:13:05,"Il s'agit du GHENIAT Ali âgé de 64 ans, non assuré , autonome 
+Admis pour PEC d'un STEMI ASA  K1 H4 de la douleur thrombolysé avec succès
+.
+ATCD 
+: 
+ - Tabac 5 PA 
+- tabac a chiqué
+.
+ 
+histoire de la maladie : 
+Le patient présente une angor d’effort depuis deux mois, ce jour devant l’apparition d’angor de repos à 14h persistant le patient consulte à l’Epsp de bouloughin puis orienté par transport médicalisé à notre niveau. 
+.
+Examen clinique :
+ 
+Patient conscient coopérant en bon état général.
+TA:  158/90 mmgh./ Sat : 98 %en AA  / Fc = 75 bpm 
+SF : 
+- douleur thoracique 8/10 échelle numérique simple 
+SP:
+- Absence de signes d'insuffisance cardiaque droite ou gauche 
+- Absence de signes de TVP
+- Pouls présents et symétriques.  
+- Le reste de l'examen est sans particularités 
+.
+
+ECG 
+: RSR à 80 bpm, courant de lésion sous épicardique en ST en ASA avec miroir en inférieur  
+.
+
+ETT des urgences:
+ 
+ - VG non dilaté hypertrophié de fonction systolique conservée 
+- PRVG non élevées 
+- Pas de vices valvulaires significatifs 
+- aspect de cardiopathie ischémique: hypokinésie en inféro- septale et antéro-septale. 
+- HTP de probabilité faible 
+- VCI non dilatée compliante 
+- Péricarde sec
+.
+
+Bilan d'urgence : 
+Gb: 14400 mm3 HB: 14.6 g/dl . Plq: 226 000/mm3
+Urée: 0.26 g/l Créat : 9.55 mg/l
+Na+: 142 meq/l K+: 4.3 meq/l
+CRP: neg INR 1 TP 100%
+Glycémie :1.36 g/l
+.
+  Conduite tenue en salle d'urgence
+
+- Mise en condition
+- 2 VVP
+- doses de charge reçues
+- début de thrombolyse par schéma d’actylise a 18h   
+- a 30 min : persistance de la douleur et du sus décalage, le patient a présenté un malaise vagale avec hypotension a 88/54 et bradycardie a 45 bpm jugulé par atropine 
+- a 60 min : régression de la douleur 6/10, et diminution du sus décalage 
+- a 90 min : regression du sus décalage avec installation d'onde T négative, disparition de la douleur 
+.
+CAT 
+:
+- Hospitalisation en USIC
+- Surveillance clinique et électrique
+- Introduction du traitement de cardiopathie ischémique faite de DAPT/BB/IEC/statine/esoproton
+- prévoir coronarographie de contrôle  -Prévoir ETT de contrôle",,,False,STEMI
+10,initialExaminations:1756945941388mtbrz6vy7,patients:1756944374027ltjru6e7s,admission,2025-09-04 01:32:21,"Il s'agit du patient [lastName] [firstName] , agé de 75 ans , demeurant à Cheraga, autonome assuré social.
+Admis pour la PEC d'un STEMI en antérieur étendu H3K1 non compliqué thrombolysé avec succès par schéma Actilyse   
+
+
+FDRCV et ATCDs :
+Age/sexe
+Tabagisme actif sevré il y a 02 ans
+
+
+HISTOIRE DE LA MALADIE :
+
+Le début de la symptomatologie remonte au jour de son admission marqué  par l'apparition d'un angor  de novo motivant le patient a consulté au niveau de l'epsp de Staoueli puis adressé a notre niveau ou le dg a été posé d'ou son admission 
+
+
+EXAMEN D'ADMISSION : 
+
+SG :
+- Patient conscient coopérant en BEG
+- Constantes hémodynamiques :
+        * TA = 120/ 70mmHg, FC =75  bpm SpO2 =95  % en AA
+- Extrémités chaudes
+- Diurèse conservée
+.
+
+SF :
+
+-Angor typique 6/10 EVA
+. 
+SP :
+ - Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre 
+Reste de l'examen clinique : Sans particularités
+
+
+ECG : 
+
+- RSR a 75 bpm, sus décalage ST avec q de nécrose en regard  en antérieur étendu avec image en mirroir en inféro basal 
+
+
+ETT des urgences :
+
+- VG non dilaté non hypertrophié de fonction systolique estimé a 40 %
+- Aspect de cardiopathie ischemique avec hypokinésie apicale et de couronne apicale  en antérieur antéro septal 
+- PRVG non élevées.
+- VD de bonne fonction systolique 
+- VCI non dilatée compliante 
+- Péricarde sec
+
+
+BIOLOGIE 
+:
+Gb:16900 mm3 HB:15.5 g/dl . Plq:158000 /mm3
+Urée: 0.28 g/l  Créat :10  mg/l
+Na+:141 meq/l K+: 3.80 meq/l
+CRP:neg
+INR 1.12  TP 84% TCK nle
+Gly a jeun: 1.44g/l
+Troponines 301
+ 
+Conduite tenue en salle d'urgence
+
+- Mise en condition 
+- 02 VVP 
+- Scope et surveillance en salle de soin
+- Dose de charge reçu 
+
+Après avoir éliminer les CI de la thrombolyse le patient a été thrombolysé par Schéma Actilyse
+.
+  Evolution a 30min : persistance du sus décalage  st 
+douleur thoracique en régression
+.
+Evolution a 60min :
+tendance a la regression partielle du segment st 
+Disparition de la douleur 
+Evolution a 90min :
+régression du sus décalage st plus de 50% avec négativation des ondes T 
+Disparition de la douleur 
+.
+
+Conclusion :
+ Succès de Thrombolyse 
+.
+
+
+CAT 
+:
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Éducation thérapeutique
+- Introduction du traitement de la cardiopathie ischémique
+- Prévoir coronarographie de control 
+- Prévoir ETT de contrôle
+
+",,,False,STEMI
+11,initialExaminations:1763321976397d9sk43yo3,patients:17633219388708h1rqkttz,admission,2025-11-16 20:39:36,"Il s'agit du patient [lastName] [firstName], âgé de 78 ans ,demeurant à Alger (Alger centre ),
+autonome assuré social .
+Admis pour la prise en charge d'un NSTEMI a très haut risque (Sous décalage diffus sus en AVR)
+
+
+FDRCV et ATCDs :
+- Age /Sexe masculin
+- HTA sous Exval 160/10 mg + Moxonidine 0.4 mg depuis 20 ans 
+- Diabète type 02 sous ADO depuis 20 ans bien equilibré
+- AVC ischemique en 2020 non séquellaire 
+
+
+HISTOIRE DE LA MALADIE :
+Le début de la symptomatologie remonte a la veille  , marquée par l'apparition d'une douleur thoracique angineuse typique  , Ce jour devant  la persistance et l'aggravation de la   symptomatologie le patient a consulté a l'EPSP de Zeralda  ; qui l'ont  orienté  par la suite a notre niveau ou le diagnostic a été posé d'où son hospitalisation
+
+
+
+EXAMEN D'ADMISSION :
+
+SG :
+- Patient conscient coopérant en EG conservé
+- Constantes hémodynamiques :
+* TA = 170/ 84 mmHg, FC = 90 bpm SpO2 = 97% en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+- Douleur thoracique angineuse typique 
+-Notion de vomissements 
+
+
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche 
+- Pas de signes d'hypoperfusion périphériques
+- Pas de signes de TVP
+- Pouls présents symétriques
+- Auscultation cardiaque: BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire: libre
+
+ECG:  RSR a 90 bpm
+sous décalage diffus du segment ST avec sus en  AVR 
+Ondes T négatives en apico-lateral 
+
+ETT des urgences :
+-VG  non dilaté  hypertrophie de bonne  fonction systolique 
+- PRVG non élevées
+- Pas de RAC
+- Hypokinésie en Ant /Antero-septal/Antero-lateral  en Medio-Basal 
+- Pointe large hypokinétique 
+- Cavités droites non dilatées
+- VD de bonne fonction systolique
+-Péricarde sec
+
+
+BIOLOGIE :
+Gb: 13.6 mm3    HB: 14.4g/dl .        Plq: 181000/mm3 
+Urée: 0.5g/l        Créat :16 mg/l       (DFG a 44 ml/min)
+Na+:135meq/l       K+:4.8 meq/l
+TP 95%               INR : 1.05             TCK nle
+Glycémie : 4.20 g/l
+Troponines: 524 ng/l
+
+
+
+
+Conduite tenue en salle d'urgence:
+
+- Mise en condition
+- 02 VVP
+- Scope et surveillance en salle de soin
+- Bilan d'urgence lancé
+- Insulinothérapie (05UI SC+05UI en IV)
+- Dose de charge reçu (250 mg d'aspirine en IVD+ 0.6 ml de HBPM+300 mg de clopidogrel) 
+
+
+CAT :
+
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Introduction du traitement de la cardiopathie ischémique 
+- Prevoir un bilan complet
+- Prévoir une coronarographie
+- Prévoir une ETT de controle",,,False,NSTEMI
+12,initialExaminations:1740614083460nvq3y8gl,patients:1740613852078zcr1relca,admission,2025-02-27 00:54:43,"C'est le Chami [firstName] , de 56ans m
+Demeurant  BEO.
+Assuré social. 
+Admise pour la PEC d'un NSTEMI à haut risque troponines posifives .
+FDRCV et ATCDs : 
+STEMI en inférieur hospitalisé au niveau du CNMS en Octoble 2017: Lésions tri tronculaires : stenté sur la Cx avec décision de PAC IVA diag(compte rendu avec CD de la coronarographie demandés)
+HISTOIRE DE LA MALADIE :
+Douleur au moindre effort depuis quelques semaines .
+Ce jour à 19h  , douleur persistante, le patient a consulté au niveau du CNMS ou le diagnostic a été posé, le patient a été libéré par faute de place.
+Il a consulté à notre niveau d'où son admission. 
+Examen clinque : 
+SG : 
+- Patient conscient coopérant en EG conservé. 
+- Constantes hémodynamiques : 
+* TA =  140/90mmHg, FC =113bpm , 
+SpO2 = 94% en AA.
+ - Extrémités chaudes
+ - Diurèse conservée 
+SF : Dyspnée stade II à IV de la NYHA légère orthopnee. 
+SP : - crepitants au niveau des bases pulmonaires. 
+- Pas de signes de TVP
+ - Pouls présents symétriques
+ - BDC audibles, pas de BSA, ni de souffles - Auscultation pulmonaire libre.
+Reste de l'examen clinique :Sans particularités 
+ECG : tachy cardie sinusale a 113bpm, sous décalage diffus du segment ST , sus decalage en AVR.
+ETT :
+FEVG conservée. 
+PRVG élevées.
+Aspect de cardiopathie ischémique avec hypokinesie au niveau de la couronne apicale.
+VD de bonne fonction. 
+VCI non dilatée compliante.
+Pericarde sec.
+ .
+BIOLOGIE : lancée 
+HB: 14.4g/dl . 
+GB:16000/mm3
+Plq: 188000/mm3
+Urée:0.29g/l Créat :9 mg/l 
+Na+:134meq/l K+:3.9meq/l 
+CRP:mg/l
+ INR : TP : % 
+Gly : g/l
+Troponines:43.68 ng/ml(N<14)
+. 
+CAT : 
+- Hospitalisation en USIC
+-Scope Cardio-tensionnel.
+-Surveillance clinique et électrique . -Éducation thérapeutique
+-Optimisation  du traitement de la cardiopathie ischémique .
+-Traitement depletif.
+- Prévoir ETT de controle ",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/patient12_motif_NSTEMI_doctor_Dr._Kadri_date_20260206_210026.wav,,False,NSTEMI
+13,initialExaminations:1740517222409zlofmbiiw,patients:17405160345949hev9zt4i,admission,2025-02-25 22:00:22,"Il s'agit de la patiente [lastName] [firstName], âgée de 61 ans, demeurant à Médéa ( Ksar el Bokhari ), autonome assurée social.
+Admise pour complément de prise en charge d'une urgence hypertensive a type de NSTEMI à haut risque avec Troponines positives
+
+
+FDRCV et ATCDs :
+
+- hypertendu mal suivi ( traitement arrêté depuis quelques mois )
+- Diabète sous Glucophage 850 mg + insuline
+- IRC sous RHD 
+
+
+HISTOIRE DE LA MALADIE :
+
+la patiente a présenté un angor de repos le 23/02/2025, la motivant à consulter chez un cardiologue liberal Dr OTMANI qui l'oriente a l'EPH de Ksar el bokhari ou le diagnostique est posé et la patiente est hospitalisée, le 25/02/2025 la patiente est transferé par transport medicalisé a notre niveau pour complement de prise en charge.
+
+
+EXAMEN D'ADMISSION :
+
+SG :
+- Patiente consciente coopérante, état général moyen  
+- Constantes hémodynamiques :
+* TA = 140/82 mmHg, FC = 100 bpm SpO2 = 98 % en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+-un léger fond douloureux, pas de dyspnée ni orthopnée 
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- fins crépitants au base 
+- Reste de l'examen clinique :Sans particularités
+
+
+ECG 
+: RSR à 101 bpm, QRS fin, sous décalage diffus du segment ST, avec sus décalage en AVR
+
+
+ETT
+:
+- HVG concentrique
+- Bonne cinétique du VG
+- fonction systolique VG conservée FEVG 55.4%
+- Pressions de remplissage VG élevées au repos.
+- IM grade II excentrée
+- dilatation biauriculaire vide d'échos
+- VD et VCI non dilatés
+- IT grade I
+- HTAP avec PAPS 50 MMHG
+- Péricarde sec
+- épanchement pleural droit de petite a moyenne abondance et gauche de petite abondance
+.
+BIOLOGIE 25/02/2025 
+:
+Gb: 7.6 mm3 HB: 10.7 g/dl . Plq: 202 000 /mm3
+Urée: 0.73 
+g/l  Créat : 20.3 mg/l
+Na+: 142 meq/l K+: 4.3 meq/l
+CRP: neg
+Troponines 148
+
+
+Conduite tenue en salle d'urgence : 
+
+- Mise en condition
+- 02 VVP
+- Scope et surveillance en salle de soin
+- dose de décharge reçu a leur niveau  
+
+
+CAT 
+:
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Éducation thérapeutique
+- introduction du traitement de la cardiopathie ischemique + traitement déplétif 
+- Prévoir coronarographie
+- Prévoir ETT de contrôle",,,False,NSTEMI
+14,initialExaminations:1738845337518hcmcf340m,patients:1738845301637bs69ve3tcl,admission,2025-02-06 13:35:37,"Il s'agit du patient âgé de 54 ans (30/04/1971) Demeurant à Sidi Abdellah  assuré autonome marié  
+Admise pour  pec d'un 
+NSTEMI avec sus décalage non persistant en inferieur ayant bénéficié d'une ATC primaire 
+.
+FDR ATCD : 
+Sans ATCDs 
+Tabagisme actif 30 paquet/ année 
+.
+Histoire de la maladie :  
+Angor de repos intermittent depuis hier 
+Devant l'aggravation de la symptomatologie ce jour à 10h motivant le patient à consulter dans cadre de l'urgence à EPH Zeralda ou le diagnostic de Stemi a été posé 
+Puis transporté à notre niveau par transport médicalisé d'où son admission pour pec 
+.
+A son arrivée : 
+Patient conscient coopérant en EG conservée
+TA= 140/80 mmHg 
+Sat=98%sous AA  
+Fc=  75 bpm
+Diurèse conservée 
+Extrémités chaudes  
+Apyrétique 
+SF: 
+- Asymptomatique au repos 
+SP: 
+Absence de signes ICD/ICG 
+Absence de signes de TVP 
+Pouls présents symétriques.
+Auscultation cardiopulmonaire :
+Bdc audibles sans bsa ni souffle 
+Le reste de l'examen est sans particularités 
+.
+ECG à Zeralda : 
+RSR à 75 bpm sus décalage en inférieur 
+Avec image en miroir en latéral haut 
+Sans troubles de  conduction 
+.
+ECG à notre niveau : 
+RSR à 70 bpm sans TDC ni TDR 
+.
+ETT d'urgence : 
+aorte initiale non dilatée
+FEVG conservée 
+Aspect de cardiopathie ischémique avec hypokinésie inférieure inferoseptal inferolateral B+M
+PRVG non élevées 
+Cavités droites non dilatées 
+VD de bonne fonction 
+HTP de  faible probabilité 
+Péricarde sec 
+.
+Biologie d'urgence: 
+HB= 16.1g/dl   GB=10800g/l  plq=351000g/l
+Urée = 0.15 creat=7
+Na+=135 K+=5.11
+TP=82% TcK= nrml  INR=1.15
+Glycémie =2.57g/l
+Troponine= 30.5
+.
+CAT: 
+- mise en condition : 2VVP , scope continu 
+-Bilan biologique d'urgence lancé 
+-Dose de charge reçue à Zeralda 
+-Le patient a été présenté  à l'équipe de KT et monté au Bloc pour ATC primaire à 13h00
+.
+CAT : 
+Hospitalisation en Usic 
+Scope cardio-tensionnel 
+Surveillance clinique et électrique continu 
+Introduction du traitement de la CPI
+Prévoir un bilan biologique complet
+Prévoir une ETT de contrôle ",,,False,NSTEMI
+15,admissions:1730472336002x2nwyzj6r,patients:1730471266924eoaf1azw,admission,2024-11-01 15:45:36,"Il s'agit du patient [lastName] [firstName] , agé de 70 ans,  demeurant à Bouzereah ,marié,  autonome assuré social.
+Admis pour la PEC d'une urgence hypertensive a type de NSTEMI à haut risque avec Troponines positives 
+
+FDRCV et ATCDs :
+-Age/Sexe
+-Tabac sevré il y'a 19 ans 
+
+HISTOIRE DE LA MALADIE :
+La symptomatologie est marqué par l'apparition d'un angor de novo intermittent hier (le 31/10/2024) 
+Devant la persistance de la symptomatologie le patient consulte au PU médical qui l'oriente a notre niveau où le diagnostic a été fait d'où son admission 
+
+EXAMEN D'ADMISSION : 
+SG :
+- Patient conscient coopérant en BEG
+- Constantes hémodynamiques :
+        * TA = 210/110 mmHg,      FC = 75  bpm     SpO2 = 98% en AA
+- Extrémités chaudes
+- Diurèse conservée
+
+SF :
+-Angor typique 4/10 EVA irradiant au dos et aux épaules 
+-Absence d'autres signes fonctionnels cardiaques
+SP :
+ - Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre 
+
+Reste de l'examen clinique :Sans particularités
+
+ECG : 
+- RSR a 75 bpm, avec un léger sous décalage en apico-latéral et présence d'une onde U
+
+ETT des urgences :
+- Aorte initiale non dilatée
+- Aspect de cardiopathie ischemique hypokinésie en inféro-septal  et en inférieur (B+M)
+- PRVG non élevée.
+- Pas de vices valvulaires significatifs
+- VD non dilaté de bonne fonction systolique
+- Cavités droites non dilatées
+- HTP de faible probabilité
+- VCI non dilatée compliante 
+- Péricarde sec
+
+BIOLOGIE :
+Gb: 14000 mm3     HB: 13.3 g/dl .     Plq: 231000 /mm3
+Urée: 0.47 g/l  Créat : 8.60 mg/l
+Na+: 138 meq/l   K+: 3 meq/l
+CRP:neg
+INR 1 TP 100% TCK nle
+Troponines 28.6 → 218 → 711
+
+Conduite tenue en salle d'urgence
+- Mise en condition 
+- 02 VVP
+ 
+- Scope et surveillance en salle de soin
+- Loxen a la SAP 
+- Dose de charge reçu (04 cp de Plavix + 0.8 cc de Lovenox + 250mg d'aspirine en IV)
+-Supplémentation en potassium 
+
+CAT :
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Éducation thérapeutique
+- Introduction du traitement de la cardiopathie ischémique
+-Prévoir ionogramme de controle 
+- Prévoir coronarographie
+- Prévoir ETT de controle
+
+",,,False,NSTEMI
+16,admissions:MTcwOTc1MzM5NjAzNTg4MzY_,patients:MTcwOTc1MTgwNzQyNDQxNTI_,admission,2024-03-06 20:29:56," - Il s'agit du patient [lastName]ramdan  , agé de 54 ans (01/12/1969), Originaire et demeurant à BAB eloued , autonome non assuré social.
+Admise pour la PEC d'un NSTEMI à haut risque troponines positives 
+FDRCV et ATCDs :
+-Tabagique 10P/A 
+HISTOIRE DE LA MALADIE
+La symptomatologie remonte ce matin  marqué par une douleur thoracique avec sensation de constriction retro sternal irradiant au membre supérieur gauche, ceci conduit la malade à consulter chez un interniste libéral Dr YACINI  qui l'orientent à son tour à notre niveau d'où son admission pour prise en charge.
+EXAMEN D'ADMISSION : 
+EXAMEN CLINIQUE
+SG :
+- Patient conscient coopérant en BEG
+- Constantes hémodynamiques :
+        * TA = 140/90 mmHg, FC = 90 bpm
+        * FR = 13 cpm, SpO2 = 98 % en AA
+        * T = 37°c
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+- Douleurs thoracique type constrictive  
+- pas d'autres signes fonctionnels cardiaques
+SP :
+- BDC audibles, pas de BSA, ni de souffles
+- Pas de signes d'ICG (Pas de râles crépitants)
+- Pas de signes d'ICD (Pas d'OMI)
+- Pas de signes de TVP
+- Pouls présents symétriques
+Reste de l'examen clinique :
+- Sans particularités
+TLT 
+sans anomalie 
+ECG : 
+- Rsr a 70 bpm, Pr [0.12-0.20], onde T biphasique en antero-septal   .
+ETT des urgences :
+- Aorte initiale non dilatée
+- Aspect de cardiopathie ischemique hypokinésie de la couronne apical 
+- PRVG non élevée.
+- Pas de vices valvulaires significatifs
+- VD non dilaté de bonne fonction systolique
+- Cavités droites non dilatées
+- HTP de faible probabilité
+- VCI non dilatée compliante 
+- Péricarde sec
+BIOLOGIE :
+FNS : 
+- Hb =14.5  g/dl
+- GB = 7.39
+x10°3
+- PLT = 250
+x10°3
+Hémostase :
+- TP =100 %
+- TCK = 
+- INR = 1
+Ionogramme : 
+- Na =140 mmol/l
+- K = 4.10 mmol/l
+Bilan rénal :
+- Urée = 0.18 g/l
+- Créatinine =8.14 mg/l 
+Troponine :  33341   665*N     
+Glycémie : 1 g/l
+CRP : 
+CAT en salle d'urgence
+- Mise en condition 
+- 02 VVP 
+- Scope et surveillance en salle de soin
+- Dose de charge reçu (04 cp de Plavix + 0.8 cc de Lovenox + 250mg d'aspirine en IV)
+CAT :
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Éducation thérapeutique
+- Prévoir ETT de controle
+- Prévoir coronarographie ",,,False,NSTEMI
+17,initialExaminations:1750579684319g9dd9lxmik,patients:1750579027621iwdzq7f0wl,admission,2025-06-22 09:08:04,"Il s'agit de la patiente Bouterssana Benamar, agéede 64 ans( 17/01/1961),demeurante à Laghaout( ) , autonome assurée social.
+Admise pour complement de PEC d'un NSTEMI à haut risque avec Troponines positives
+.
+
+FDRCV et ATCDs :
+
+- Age/sexe
+- DT2 depuis 2018 sous ADOé ( dernier HBA1C= 6.5%)
+- HTA depuis 2011 sous APROVASC 300/5mg , 
+- HBP
+- Hospitalisé 18/06/2025 au niveau de l'EPH de LAGHAOUT pour PEC d'un NSTEMI à haut risque TP
+.
+
+HISTOIRE DE LA MALADIE :
+
+Le début de la symptomatologie remonte à 5 jours avant l'admission  marqué par l'installation d'un angor intermittent lui motivant à consulté au niveau de l'EPH de Laghouat où le dgc a été posé et le patient est fut hospitalisé à leur niveau pendant 05 jours  ,
+Un accord d'hospitalisation est donné pour ce jour (Pr Delassi) , et le patient est fut évacué par transport médicalisé d'où son admission pour PEC 
+
+
+EXAMEN D'ADMISSION :
+
+SG :
+- Patiente consciente coopérante en BEG
+- Constantes hémodynamiques :
+* TA = 112/ 70mmHg, FC = bpm SpO2 = 87% en AA 94% sous 6l d'O2
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+- asmptomtatique au repos
+- Dyspnée stade II de NYHA 
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire : Libre 
+Reste de l'examen clinique : Sans particularités
+
+
+ECG :
+
+- RSR à 64 bpm,sous décalage du segment ST en latéral haut
+
+
+ETT des urgences :
+
+- Aorte initiale non dilatée
+- VG non dilaté non hypertrophié de bonne fonction systolique
+- Hypokinésie du segment moyen et apical du paroi antérieure ,
+- PRVG élevées. 
+- IM grade II
+- Cavités droites non dilatées
+- VD de bonne fonction systolique
+- HTP de faible intermédiaire 
+- Péricarde sec
+
+
+BIOLOGIE 
+:
+Gb:5.030mm3 HB:15.4 g/dl . Plq: 276000/mm3
+Urée: 0.43 g/l Créat :8 mg/l
+Na+:1432meq/l K+: 4 meq/l
+CRP:neg
+INR 1.02 TP9% TCK nle
+Gly :1.05
+troponines 1218
+CRP 47
+.
+
+Conduite tenue en salle d'urgence
+
+- Mise en condition
+- 02 VVP
+- Scope et surveillance en salle de soin
+.
+
+CAT 
+:
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Éducation thérapeutique
+- Optimisation du traitement de la cardiopathie ischémique
+- Discuter coronarographie
+- Prévoir ETT de controle
+
+
+",,,False,NSTEMI
+18,admissions:17336699072387pone2n9pf,patients:1733668581127id88nt2vc,admission,2024-12-08 15:58:27,"Mr Cherifi [firstName], âgé de 65 ans, demeurant à El Berouaguia , assuré social.
+
+Admis pour PEC D'un NSTEMI à très haut risque , sus décalage non persistant en inférieur
+
+
+FDRCV et ATCDS :
+- Age /  Sexe masculin.
+
+
+
+HISTOIRE DE LA MALADIE :
+angor de novo hier  à 13h motivant le patient à consulter à l'EPSP de proximité; ECG montrant un sus décalage en inférieur; ayant disparu apres dose de charge
+le patient à consulter le matin chez Dr Fergani qui l'a orienter à l'EPH pour PEC , il a été évacué à notre niveau d'ou son admission
+
+
+EXAMEN D'ADMISSION :
+EXAMEN CLINIQUE
+SG :
+- Patient conscient coopérant en état général conservée
+-
+TA = 135/70 mmHg ; FC = 78 bpm SpO2 = 98 % en AA
+
+SF :
+- Asymptomatique au repos 
+
+SP :
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre aux 02 champs pulmonaires
+- Pas de signes d'IC
+- Pouls présents symétriques
+Reste de l'examen clinique :
+- Sans anomalies
+
+
+ECG 
+ECG hier RSR ; sus décalage en inférieru
+RSR à 75 bpm ,sans trouble de conduction ni de repolarisation
+
+
+ETT D'URGENCE :
+- VG non dilaté non hypertrophié de bonne fonction systolique
+- Hypokinésie en inférieur 
+- FEVG conservé
+- PRVG normales
+- Pas de vice valvulaire significatif
+- HTP de faible probabilité
+- Cavités droites et VCI non dilatées
+
+
+
+BIOLOGIE 07/12/2024 :
+FNS :
+- Hb = 15 g/dl
+- GB =9800 /mm3
+- PLT 261000 /mm3
+
+Hémostase :
+- TP =94% 
+Ionogramme : lancé non fait
+Bilan rénal :
+- Créatinine = 7.mg/l.
+CONDUITE TENUE EN SALLE D'URGENCE :
+Patient monté au Bloc pour Coronarographie
+
+
+CAT :
+- Hospitalisation en usic
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Introduction du traitement de la cardiopathie ischémique 
+- Prévoir une coronarographie",,,False,NSTEMI
+19,initialExaminations:17560386683375ahao974sf,patients:1753614546657bw1yykd1f,admission,2025-08-24 13:31:08,"Il s'agit du patient Hadji ali agé de 67 ans Djamel, demeurant à Média  , autonome non assurée social.
+Admis pour une coronarographie programmé sur scintigraphie positif
+
+FDRCV et ATCDs :
+-SCA NSTEMi stenté il ya une années non documenté 
+
+EXAMEN D'ADMISSION :
+SG :
+- Patient conscient coopérant en état général conservé.
+- Constantes hémodynamiques :
+* TA = 110 / 77 mmHg, FC = 75 bpm SpO2 = 98 % en AA
+- Extrémités chaudes et diurèse conservée
+SF :
+- angor d'effort Class III de la CCS 
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique : Sans particularités
+
+ECG :
+- RSR a 75 bpm, t neg en PE 
+
+ETT 10/2024 : 
+Ventricule gauche non dilaté non hypertrophie. Akinesie de segment basal et moyen de la paroi inferieure. Fonction systolique VG conservée, FE VG à 55%. PRVG indéterminés+ OG dilatée. IAO grade I, IM grade I dégénératives Cavités droites non dilatées. HTP. Avec PAPS à 50 Péricarde sec. Berrouaghia
+Scintigraphie :
+ Cet examen tomoscintigraphique réalisé, sans traitement anti angineux, au décours d'une épreuve d'effort physique sous maximale (80% de la FMT), jugée positive cliniquement et électriquement, est en faveur d'ischémie d'effort modérée à sévère, partiellement réversible, au niveau du territoire inférieur étendue à la jonction inféro- latéro-apicale, représentant 25-30% du VG (3/17segments). Par ailleurs, La FEVG est conservée aux alentours de 55%, et un VTS sus normal à 53ml, avec un TID (transient ischemic dilatation) évalué à 1.29 (N<1.2), et visualisation de la paroi libre du VD, témoignant de la sévérité de l'atteinte,
+
+BIOLOGIE 18/08/2025 :
+Gb: 7 700mm3 HB: 15 g/dl . Plq: 260000/mm3
+Urée: 0.37 g/l Créat : 16 mg/l
+Na+: 136meq/l K+: 4.14 meq/l
+CRP : neg
+INR 1.1 TP 81%
+Gly a jeun: 1.44g/l
+hba1c 7
+crp 16
+.
+
+
+CAT :
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Prévoir coronarographie",,,False,NSTEMI
+20,initialExaminations:1763166505179b46juqezt,patients:1763164448214r2jyqomxhh,admission,2025-11-15 01:28:25,"Il s'agit du patient Larbi Becissa Fettoum, âgé de 78 ans ,originaire et demeurant à Cheraga ( Alger), autonome assurée social.
+Admis pour la PEC d'un NSTEMI à très haut risque "" sous décalage diffus du segment ST sus décalage en AVR""
+.
+FDRCV
+ :
+- âge
+- Diabète sous ADO mal équilibré ( dernier HBA1C =10%)
+- HTA sous statine, nicardipine
+ATCDs
+ :
+- RAS 
+Comorbidités :
+- Suivi pour cataracte (chirurgie en 2022 )
+.
+HISTOIRE DE LA MALADIE
+ :
+Le début de la symptomatologie remonte avec 15 jours, marqué par l'apparition d'un angor d effort sans consultation.
+Ce jour , devant la réapparition d'un angor de repos , la patiente a consulter  a notre niveau où le diagnostic a été posé  d’où son admission pour prise en charge
+.
+EXAMEN D'ADMISSION :
+SG :
+- Patient conscient coopérant en EG conservé
+- Constantes hémodynamiques :
+* TA = 170/90 mmHg un cp , FC = 90 bpm SpO2 = 97% en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+- angor de repos 5/10 sur EVA
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique sans particularités
+.
+ECG:
+- RSR à 91 bpm , sous décalage du segment ST diffus , sus décalage en AVR 
+.
+ETT des urgences :
+- Aorte initiale non dilatée
+- VG non dilaté peu hypertrophié de bonne fonction systolique
+- cinétique globale conservé 
+- PRVG non élevées.
+- Absence de vices valvulaire significatives
+- Cavités droites non dilatées
+- VD de bonne fonction systolique
+- VCI non dilatée compliante
+- Péricarde sec
+.
+BIOLOGIE 14/11/2025:
+Gb:6720 mm3 HB: 11.8g/dl . Plq:259000 /mm3
+Urée:0.44 g/l Créat : 10.6mg/l
+Na+: 129 meq/l K+: 3.10meq/l supplémenté avec ionogramme de controle
+CRP:0.91
+Gly:3.01
+INR1.02 TP 88% TCK nle
+Troponines 25.6 ng/l puis 37.9
+.
+Conduite tenue en salle d'urgence:
+- Mise en condition
+- 02 VVP
+- Scope et surveillance en salle de soin
+- Dose de charge reçu
+.
+CAT :
+- Hospitalisation en USIC
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Introduction du traitement de la cardiopathie ischémique
+- Éducation thérapeutique
+- Prévoir coronarographie 
+- Prévoir ETT et biologie de controle",,,False,NSTEMI
+21,admissions:1730974950910nofhhr62c,patients:1730974388965zaepycwz6,admission,2024-11-07 11:22:30,"Il s'agit du patient [lastName]A mer  âgé 89 ans , AS, demeurant à Djelfa, AS ,admis à
+notre niveau pour  une PEC d’un BAVc paroxystique syncopal
+FDRCV / ATCDs :
+-Age 
+-sexe
+-HTA sous monothérapie
+
+-HBP sous :
+
+
+HDM :
+mois
+L’histoire de la maladie remonte à 2
+ avant l’admission ; le patient a fait une syncope le motivant
+a consulter chez son médecin cardiologue Dr :ARAB ou le dg a été fait puis orienté à notre
+niveau d’où son admission
+
+
+Examen ce jour :
+
+
+SG : Patient conscient coopérant EG conservé
+TA :138 /78mmgh          FC : 65 bpm       SpO2 : 97 %
+
+
+SF :Patient asymptomatique au repos
+SP : BDC audibles sans souffles ni BSA
+
+
+Pas de signes d'IC gauche ni droite
+
+
+Pas de signes de TVP
+
+
+Pouls présents symétriques
+
+
+Le reste de l'examen est sans particularités
+
+
+ 
+
+
+ECG : bloc tri fasciculaire
+
+
+HOLTER ECG : bloc tri fasciculaire avec
+passage en BAV complet , de multiples asystolies dont la plus longue est de 08
+secondes , pas de passage en ACFA .
+
+
+ETT 
+
+
+ 
+
+
+Biologie:
+
+
+Gb:5.8 m3 HB:14 g/dl . Plq:138 /mm3
+
+
+Urée:0.48/l 
+Créat : 12mg/l
+
+
+Na+:meq/l K+: meq/l
+
+
+CRP:neg
+
+
+Gly a jeun: 0.98g/l
+
+
+HBA1c: %
+
+
+INR TCK nle
+
+
+Sérologies négatives
+
+
+ 
+
+
+CAT :
+
+
+Scope CT avec surveillance clinique et
+électrique  
+
+
+Prévoir l’implantation du pacemaker
+
+",,,False,BAV
+22,admissions:172304999776593cpnbsxl,patients:17230496287255sre5qt8f,admission,2024-08-07 17:59:57,"Il s'agit du patient DERBICHE Abdelalim, âgé de 83ans (22/07/1941), Originaire et demeurant à Alger (Bouzareah), autonome assuré social.
+
+Admis pour prise en charge d'un BAV 2/1 paroxystique symptomatique type asthénie
+
+
+FDRCV et ATCDs :
+
+- Age/ sexe
+- HTA
+- DNID 
+- Adénome de la prostate
+- Pneumopathie non documenté
+
+
+HISTOIRE DE LA MALADIE :
+
+- Le patient se faisait suivre chez son médecin traitant (Dr Ait Belkacem) pour des palpitations et l'oriente à notre niveau pour Holter ECG qui n'objective aucun troubles de conduction.
+- Ce jour devant l'apparition d'une asthénie le patient se présente à notre nveau où l'ECG obective à BAV 2/1 conduisant à son admission pour prise en charge.
+
+
+EXAMEN D'ADMISSION :
+
+EXAMEN CLINIQUE
+
+SG :
+- Patiente consciente coopérant en état général conservée
+- Constantes hémodynamiques :
+
+     * TA = 100/60 mmHg ; FC = 40 bpm s'accélèrent a leffort  
+     * FR = 12cpm, SpO2 = 99% en AA
+     * T = 37°c
+
+- Extrémités chaudes
+- Diurèse conservée
+
+SF :
+- Asymptomatique au repos
+
+SP :
+- BDC audibles, pas de BSA, ni de souffles
+- Pas de signes d'ICD (Pas d'OMI)
+- Pas de signes de TVP
+- Pouls présents symétriques
+
+Reste de l'examen clinique :
+- Sans anomalies
+
+ECG : BAV 2 pour 1 à Qrs fins  avec fvm à 35bpm 
+BIOLOGIE : 07/08/2024 :
+FNS :
+- Hb = 12.8 g/dl
+- GB = 8670 /mm3
+- PLT = 172 000 /mm3 
+
+ Hémostase :
+- TP = 100 %
+
+Ionogramme :
+- Na = 145 mmol/l
+- K = 4.10 mmol/l
+
+Bilan rénal :
+- Urée = 0.51 g/l
+- Créatinine = 14.1 mg/l.
+
+Glycémie : 1.13
+CRP 71
+Troponines négatives
+HOLTER ECG 17/07/2024 : 
+- Rythme sinusal permanent sur tout le nycthémère, FC moy à 85 bpm, FC max à 130bpm, FC min à 47 bpm. Absence de trouble de l'excitabilité supr-ventriculaire.
+- Présence de 9533 ESV monomorphe avec 1 triplets et 22 doublets sans accès de TVNS ni de TV. Absence de trouble de la conduction auriculoventriculaire ni de troubles de la conduction intraventriculaire.
+- Absence de pause  
+ETT 07/08/2024 : 
+- Aorte initiale non dilatée
+- VG non dilaté ni hypetrophié, FEVG (SBP) 50 %, 
+- IM minime
+- Pas de dilatation cavitaire
+- VD de bonne fonction
+- HTP de faible probabilité.
+- VCI compliante non dilatée
+- Péricarde sec
+CAT :
+
+- Hospitalisation en USIC
+- Surveillance cardio-tensionnelle continue
+- Isuprel en Stand By
+- Discussion l'implantation de PMK
+- 
+",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/Dr._Kadri_22_admission_20260206_201734.wav,,False,BAV
+23,initialExaminations:1751541808979szn4dhn45,patients:1751541744442ertfbvtc3,admission,2025-07-03 12:23:28,"C'est la patiente Fertoul [firstName]; agé de 56ans 
+ 
+(09/09/1969) , autonome demeurante a Alger (Souidania), Admis à notre niveau pour prise en charge d'un BAV II mobitz 1 syncopale.
+ 
+ 
+FDRCVS et ATCDS
+- Age/sex 
+- Gastrite 
+HDM:
+la patiente a présenté une asthénie il ya 2 mois jours motivant la patiente a consulter chez son interniste (DR Sayad a souidania) où le diagnostique a été poser puis orienté a notre niveau pour suite de PEC
+À l'admission:
+SG :
+- Patiente consciente coopérante en BEG
+- Constantes hémodynamiques :
+* TA = 150/105 / mmHg, FC = 50 bpm
+* FR =16 cpm, SpO2 = 98 % en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+-Asthénie
+-Absence d'autres signes fonctionnels cardiaques
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique :Sans particularités
+ECG :
+- BAV 2 eme degré monitz 1, a QRS fins fvm a 50 BPM
+ 
+ 
+ETT: (21/05/2025)
+VG non dilaté non hypertrophié de fonction systolique a FE = 67%
+PRVG non élevées
+Absence de valvulopathie significative
+HTP de faible probabilité
+ Péricarde libre
+Biologie Lancé
+Gb: mm3 HB: g/dl . Plq: /mm3
+Urée: g/l Créat : mg/l
+Na+:meq/l K+: meq/l
+CRP:neg
+INR 1 TP 100% TCK nle
+Gly a jeun: g/l
+Troponines
+CAT en salle :
+- mise en condition : 2 VVP
+- Isuprel en standby
+- Bilan d'urgence lancé
+CAT:
+- Hospitalisation au Service
+- Surveillance clinique et électrique++++
+- Surveillance télémétrique++++
+- Isuprel en standby
+- Prevoir implantation de pacemaker",,,False,BAV
+24,initialExaminations:1758538121421dh6xizshwf,patients:1758537365408c263xk6tz,admission,2025-09-22 11:48:41,"ll s'agit du patient [lastName] Ali âgé de 88 ans (24/01/1937), autonome demeurant a Alger centre
+- Admis à notre niveau pour prise en charge d'un BAV complet à QRS larges fréquence ventriculaire moyenne a 40 bpm symptomatique a type d'asthénie
+
+
+FDRCVS et ATCDS
+
+- HTA
+- Insuffisance rénale chronique correctement suivie
+- Hernie scrotale non opérée
+- Insuffisance mitrale par rupture d'un cordage de la GVM d'indication opératoire posée mais refusée par le malade
+- Maladie aortique modérée à prédominance de sténose
+
+
+HISTOIRE DE LA MALADIE :
+
+- Depuis 10J : le patient rapporte la notion d'asthénie importante, la persistance de celle ci conduit à ce qu'il consulte chez un cardiologue libéral ( Dr )
+- Devant la constatation d'un BAV complet, décision d'orienter le malade à notre niveau
+- Arrivé à notre niveau devant le tableau clinique global du patient le patient a été admis pour prise en charge.
+.
+
+EXAMEN A L'ADMISSION :
+
+EXAMEN CLINIQUE :
+SG :
+- Patient conscient coopérant en BEG
+- Constantes hémodynamiques :
+* TA = 160/78 mmHg, FMV = 40 bpm, SpO2 = 97 % en AA
+- Extrémités chaudes
+- Diurèse conservée
+
+SF :
+- Asthénie, 
+- Absence d'autres signes fonctionnels cardiaques
+
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+
+Reste de l'examen clinique : hernie inguino-scrotale volumineuse
+
+ECG :
+- BAV complet a QRS larges a type de retard droit fvm a 40 bpm
+
+
+ETT des urgences 22/09/2025 :
+
+- Aorte initiale non dilatée
+- VG de fonction systolique conservée
+- PRVG non élevées
+- IM par rupture de la GVM
+- Maladie aortique modérée à prédominance de sténose
+- VD de bonne fonction
+- HTP de forte probabilité Vmax 3.9 m/s
+- VCI non dilatée compliante
+- Péricarde sec
+.
+
+BILAN BIOLOGIQUE : 22/09/2025 
+FNS :
+- Hb = 13 g/dl
+- GB = 6110 
+- PLT = 98 000
+
+Hémostase :
+- TP = 52 %
+- INR = 1,61
+- TCK = 32
+.
+ Ionogramme :
+- Na = 145 mmol/l
+- K = 4,27 mmol/l
+.
+Bilan rénal :
+- Urée = 0,58 g/l
+- Créatinine = 15 mg/l
+.
+Glycémie : 1 g/l
+ 
+.
+
+Conduite tenue en salle de soin :
+
+- Scope cardio-tensionnelle
+- 02 VVP avec sondage urinaire
+- Isuprel en stand by
+.
+
+CAT :
+
+- Hospitalisation en USIC
+- Surveillance clinique et électrique++
+- Surveillance télémétrique++
+- Prévoir implantation de pacemaker
+- Arrêter les B Bloquant pendant 48h",,,False,BAV
+25,initialExaminations:1756989642099uwgzzxr6q,patients:1756989541137jky3doxuv,admission,2025-09-04 13:40:42," s'agit du patient Rahmani [firstName], âgé de 68 ans , demeurant actuellement à alger Staouali , autonome , assurée social.
+Admis pour PEC d'un BAV complet à QRS larges Fmv 40 bpm.
+ .
+
+ATCD/FDR
+ : 
+HTA depuis 20 ans sous Exirb
+DT2 depuis 20 ans sous ADO
+Hypothyroïdie sous Levothyrox 
+ 
+Examen clinique à l'admission :
+
+Patient conscient coopérant, EG conservé
+Sur le plan hémodynamique :
+TA :110/60 mmhg , FC :40 bpm, SpO2 : 95%
+Pas d'anis tension
+Extrémités chaudes
+Diurèse conservée
+SF :
+Asthénie profonde 
+Vertige 
+SP :
+BDC audibles , pas de souffles ni BSA
+Auscultation pulmonaire : libre
+Pas de signes d'ICD
+Pas de signes de TVP
+Pouls présents symétrique pas d'anisophygmie.
+.
+Le reste de l'examen clinique : sans particularités
+.
+
+ECG
+ : 
+ Bav complet a QRS larges fmv 40 bpm .
+
+
+ETT des urgences :
+
+Aorte initiale athéromateuse non dilatée
+Prothese aortique en place siège d'une fuite para-prothetique minime sans stenose
+VG dilaté hypertrophié de fonction systolique alterée FEVG(SBP) = 25%
+Hypokinesie globale
+Prothese mitrale en place non stenosante non fuyante
+OG dilaté vide d'échos
+Cavités droites peu dilatéesde fonction systolique conservee
+Sonde de CRT en place
+IT grade III
+HTP de probabilité intermédiaire
+VCI dilatée peu compliante
+Pericarde sec
+
+
+Biologie
+ :
+Gb: mm3 HB:g/dl . Plq: 000 /mm3
+Créat : mg/l /Urée : g/l ,
+Na+: meq/l K+: meq/l
+Gylcémie : g/l
+TP :% INR :
+Troponine : ng/l
+
+
+
+CAT
+ :
+- Hospitalisation en salle
+- Surveillance clinique et électrique
+- prévoir implantation de PMK ce jour.  ",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/Dr._Khacef_patient25_motif_BAV_initialExaminations_1756989642099uwgzzxr6q_date_20260206_212653.wav,,False,BAV
+26,initialExaminations:175386438637928c8udfqo,patients:1753864237470rjyrc65h5,admission,2025-07-30 09:33:06,"Il s’agit de la patiente agée de [lastName] [firstName] agée de 67 ans , demeurante Laghouat (Aflou), autonome assurée
+Admise à notre niveau pour exploration électrophysiologique d'un BBG complet avec notion de syncope traumatique.
+.
+
+FDRCVS :
+- HTA depuis 2013 sous Telmisartan/hydrochlorothiaside 80/12.5 mg
+
+
+Histoire de la maladie :
+- mai 2025 : la patiente présente un épisode de perte de connaissance avec traumatisme crânial évoquant une syncope
+.
+
+À l'admission :
+
+SG :
+- Patiente consciente coopérante en BEG
+- Constantes hémodynamiques :
+        * TA = 125 / 75 mmHg, FC = 85 bpm
+        * FR = 14 cpm, SpO2 = 98 % en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+- épisode isoléde syncope en mai 2025 
+- Absence d'autres signes fonctionnels cardiaques
+SP :
+ - Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+- Reste de l'examen clinique : Sans particularités
+
+
+ECG :
+ 
+- RSR a 75 bpm, BBG complet qui était absent au anciens ECG dernier en 04/2025
+.
+Holter ECG 15/06/2025 : 
+rythme sinusal
+freuqnec moyenne à 72 maximale 150 minimale 53 bpm 
+rares extrasystoles atriales un doublet 
+pas de TSV pas de fibrillation atriale
+rares extrasystoles ventriculaires monomorphes couplage long pas de TV 
+pas de pause 
+pas de BAV bloc intraventriculaire permanent
+
+
+ETT :
+
+- Aorte initiale non dilatée
+- VG non dilaté non hypertrophié de bonne fonction systolique 
+- PRVG non élevées.
+- Absence de vices valvulaire significatives
+- Cavités droites non dilatées
+- VD de bonne fonction systolique 
+- HTP de faible probabilité
+- VCI non dilatée compliante 
+- Péricarde sec
+
+
+Biologie 28/07/2025 : 
+
+Gb: 4700 mm3 HB: 12.6 g/dl . Plq: 315000 /mm3
+Urée: 0.46 g/l  Créat : 8.5 mg/l
+Na+: 141 meq/l K+: 4.1 meq/l
+CRP: neg
+troponine : 8
+INR 1 TP 100% TCK nle
+Gly a jeun: 1.55 g/l
+
+
+Conduite tenue en salle d'urgence :
+
+- Mise en condition 
+- 02 VVP 
+- Scope et surveillance en salle de soin
+
+
+CAT :
+
+- Hospitalisation en salle 
+- Surveillance clinique et électrique
+- Prévoir EEE
+",,,False,BAV
+27,initialExaminations:1759399156250mqnvtl0xc,patients:1756193438172nsghvsr3y,admission,2025-10-02 10:59:16,"Il s'agit du patient Benmeziane [firstName] âge de 53 ans , 
+Autonome assuré
+Admis pour PEC d'un BAV complet a l'effort 
+a QRS fins a 34 bpm .
+.
+ATCD personnels: hta
+FDR: 
+Obésité 
+ATCD familiaux : frère jumeau implanté par un pacemaker pour BAV complet a 15 bpm a 50ans
+.
+Histoire de la maladie:
+Le patient se plaint d'une asthénie et dyspnée d'effort depuis un peu plus de 6mois 
+Une exploration CV à été faite notamment coro scanner et ETT revenant négatives 
+Une scintigraphie myocardique est demandée, durant l'épreuve d'effort le patient fait un BAV complet 
+a QRS fins a 34 bpm .
+Dou son orientation pour stimulation définitive 
+.
+Examen clinique 
+Patient conscient coopérant stable HD
+TA 128/80 mmhg FC 70 bpm au repos 
+Pas d'angor 
+eupneique au repos 
+Dyspnée d'effort stade II NYHA
+Pas de signes d'ic 
+Bd audibles sans souffles
+Pouls présents et symétriques 
+.
+ECG : RSR a 70 bpm BBD avec TDR secondaires 
+.
+ETT : FEVG conservé ; pas de vices valvulaire majeur ; PRVG non élevées ; HTAP de faible probabilité , Péricarde sec
+.
+Coro scanner pas de sténoses significatives 
+.
+le patient a bénéficié d'une épreuve d'effort ce jour aya t mis en évidence un trouble conductifs a type de BAV complet au pic de l'effort .
+.
+Biologie : CORRECTE
+.
+CAT:
+Hospitalisation en salle 
+Bilan complet
+Prévoir implantation de PCM double chambre ce jour mode DDD",,,False,BAV
+28,initialExaminations:1747050565613wwdnjebhi,patients:1747050449876cfolqnan,admission,2025-05-12 12:49:25,"Il s'agit du patient Alem [firstName] agé de 71 ans, demeurant a Cheraga, autonome assuré. 
+Admis à notre niveau pour prise en charge d'un BAV 2/1 à QRS larges fréquence ventriculaire moyenne a 45 bpm avec passage en BAV Mobitz 2 paroxystique,symptomatique a type de d'Asthénie 
+.
+
+FDRCVS et ATCDS
+
+HTA depuis 30ans sous Quadrithérapie bien équilibrée 
+DT2 depuis 30ans sous ADO bien équilibré
+Drépanocytose hétérozygote
+.
+
+HDM:
+Le début de la symptomatologie remonte a 10jours a type de vertiges et d'asthénie motivant le patient a consulter son cardiologue Dr Laraba qui demande un holter ECG posant le diagnostic puis orienté a notre niveau pour suite de prise en charge d'où son admission  
+.
+
+À l'admission:
+
+SG :
+- Patient conscient coopérant en BEG
+- Constantes hémodynamiques :
+        * TA = 150/60 mmHg, FC = 45 bpm
+        * FR = 18 cpm, SpO2 = 98% en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+-Asthénie
+-Absence d'autres signes fonctionnels cardiaques
+SP :
+ - Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique :Sans particularités
+
+
+ECG :
+ 
+- BAV 2/1 QRS larges a type de retard droit FVM a 45 bpm 
+
+.
+Holter ECG
+-Aspect de Bloc auriculo-Ventriculaire du 2eme degré MOBITZ II quasi-permanent sur les 24h d'enregistrement avec une conduction de 2/1 en majorité.
+- La fréquence ventriculaire moyenne est de 45 btm/mn. La fréquence ventriculaire maximale est de 104 btm/mn durant la phase active et la fréquence ventriculaire minimale est de 32 btm/mn durant la phase de sommeil et lors du passage en bloc de 2eme degré MOBITZ II avec une conduction de 3/1.
+-Absence de BAV complet.
+-Absence d'ESV ou d'ESSV.
+-Absence de pause supérieure à 03 secondes. Pause ventriculaire maximale est à 2.6 sec dûe au BAV. 
+.
+ETT:
+ 
+- Aorte initiale non dilatée
+- VG non dilaté non hypertrophié de bonne fonction systolique
+- PRVG non élevées.
+- Absence de vices valvulaire significatives
+- Cavités droites non dilatées
+- VD de bonne fonction systolique 
+- HTP de faible probabilité
+- VCI non dilatée compliante 
+- Péricarde sec
+ 
+
+Biologie
+ 
+Gb: 5080mm3 HB: 11.9g/dl . Plq: 241000/mm3
+Urée: 0.37g/l  Créat :12 mg/l
+Na+: 128meq/l K+: 4.6meq/l
+CRP:neg
+INR 1 TP 100% TCK nle
+Gly a jeun: 2.73g/l
+Troponines négative
+
+
+CAT
+
+- Hospitalisation en USIC
+- Surveillance clinique et électrique++
+- Surveillance télémétrique++
+- Isuprel en standby
+- Prévoir implantation de pacemaker
+",,,False,BAV
+29,initialExaminations:1760747180441t10x1h35t,patients:1725526725139y0vayggsdf,admission,2025-10-18 01:26:20,"Il s'agit du patient [lastName] Fatima Zohra , âgé de 60 ans , Originaire et demeurant à Alger (Bousmail), autonome assuré social.
+
+Admise pour BAV complet sur dysfonction de PMK épicardique 
+
+FDRCV et ATCDs :
+- Age/ ménopause
+- BAV de 2ème degré implanté en 2019 à notre niveau 
+-Le 06/2024 hospitalisé à notre niveau pour extériorisation de boitier de PMK avec surinfection de la sonde ayant nécessité une extraction chirurgical du matériel avec implantation d un PMK épicardique au niveau des CASTOR.
+.
+HISTOIRE DE LA MALADIE :
+Le debut de la symptomatologie est marquée par l'apparition de vertige depuis 02J 
+Ce jour devant la persistance de la symptomatologie la patiente consulte a notre niveau où une dysfonction de son PMK a été objectiver d'où son admission 
+
+EXAMEN D'ADMISSION :
+EXAMEN CLINIQUE
+SG :
+- Patiente consciente coopérant en état général conservée
+- Constantes hémodynamiques :
+* TA = 170/90 mmHg ; FMV = 35 bpm SpO2 = 99% en AA
+- Extrémités chaudes
+- Diurèse conservée
+
+SF :
+- Vertige
+-Pas de notion de syncope ni de lipothymie 
+
+SP :
+- Pansement propre, sans saignement ni ecchymoses.
+- BDC audibles, pas de BSA, ni de souffles
+- Pas de signes d'ICD (Pas d'OMI)
+- Pas de signes de TVP
+- Pouls présents symétriques
+
+Reste de l'examen clinique :
+- Sans anomalies
+.
+ECG : BAV complet a QRS large retard droit avec des spikes non conduit 
+
+ETT : 
+- Aorte initiale non dilatée, 
+-valves aortiques tricusps sans fuite ni sténose
+-VG non dilate ni hypertrophie de bonne fonction systolique FEVG SBP 66% SGL -22% 
+- IT minime à Grade I.
+- OG non dilatée
+- PRVG non élevées 
+-Cavités droites non dilatées
+- VD de bonne fonction systolique
+- HTP de faible probabilité VCI non dilatée compliante
+- Péricarde sec
+
+La patiente est monté au bloc pour SEES 
+
+CAT :
+- Hospitalisation en salle
+- Scope cardio-tensionnel continue
+-Surveillance clinique et électrique
+-Discuter l'implantation d'un PMK endocardique  ",,,False,BAV
+30,initialExaminations:17433427122593jd05hmjo,patients:1743295591552vwgqd9rpo,admission,2025-03-30 14:51:52,"Il s'agit du patient Aguelmine [firstName] agé de 85 ans, demeurant a Ain benian, Autonome assuré .
+Admis à notre niveau pour prise en charge d'un BAV complet à QRS larges fréquence ventriculaire moyenne a 30 bpm symptomatique a type de syncope avec point de réception frontal
+ FDRCVS et ATCDS
+ HTA depuis 10ans sous Aprovasc 300/5mg et Aspirine 100mg 
+DT2 depuis 10ans Sous metformine et Diaglinide 0.5mg
+Epilepsie sous Dépakine 
+Notion d'épanchement pleural évacué a 02 reprises ( 1984 et en 2005 )
+
+Histoire de la maladie :
+1er épisode syncopale il y a 02mois sans consultation, 2eme épisode syncopale il y a 05jours a Toudja ayant consulté la polyclinique de proximité ou un ECG a été fait objectivant le BAV mais sans suite mis sous traitement de la colopathie fonctionnelle.
+3eme épisode syncopale traumatique avec réception faciale ce jour motivant le patient a consulter l'EPH de BAINEM ou le patient fut évacué a notre niveau ou le diagnostic fut posé d'où son admission
+À l'admission: 
+SG : 
+ Patient conscient coopérant en  EG moyen 
+ TA = 120/75 mmHg  
+FC = 30 bpm   48-50 bpm sous Isuprel       
+SpO2 = 94% en AA
+Extrémités chaudes 
+Diurèse conservée (patient non sondé )
+SF : Vertiges;  Syncope traumatique avec point de réception frontal 
+ 
+SP : 
+- Ecchymose péri-orbitaire gauche 
+- Pas de signes d'Insuffisance cardiaque droite ou gauche 
+- Pas de signes de TVP
+ - Pouls présents symétriques
+ - BDC audibles
+- Râles ronflants a l'auscultation pulmonaire 
+.
+ ECG :  BAV complet a QRS larges a type de retard droit fvm a 30 bpm 
+.
+ETT: 
+VG de fonction systolique 
+PRVG non élevées 
+Absence de vice valvulaires significatifs 
+ VD de bonne fonction 
+HTP de faible probabilité
+ VCI non dilatée compliante 
+ Péricarde sec.
+.
+Evolution:
+Durant la surveillance le patient a présenté plusieurs épisodes convulsifs généralisés  durant quelques secondes avec reprise de conscience 
+Scanner cérébral:  Trait de fracture peu déplacé du mure antérieure du sinus frontal a gauche 
+                               Deux plages franchement hypodenses cortico-souscorticales frontales bilatérales effaçant les sillons corticaux et responsable d'une différenciation substance blanche substance grise sans effet de masse d'allure séquellaire 
+.
+le patient a fait plusieurs épisodes de vomissements fécaloïdes motivant notre équipe à le présenter au pu chirurgie o
+u une urgence chirurgicale a été éliminée
+Avis Chirurgie :
+Echographie abdomino-pelvienne ; pas de syndrome occlusif 
+scanner abdominal injecté : absence de signes d'infarctus mésentérique
+une urgence chirurgicale a été éliminé ce jour.
+.
+Biologie 30/03/2025:
+Gb:14200 mm3    HB:13.4 g/dl .      Plq: 358000/mm3
+Urée: 0.99 g/l      Créat :19 mg/l 
+Na+:129meq/l       K+: 6.32 meq/l
+INR  1.18    TP 79  % 
+Gly a jeun: 3.35 g/l.
+CRP= 16
+Groupage : O+
+.
+le patient a présenté une désorientation temporo-spatiale et des hallucinations  visuelles , nous avons contacté l'équipe de réa med pour un avis 
+Avis réa médicale:
+Mise en condition 
+Monitorage non invasif
+Oxygénotherapie pour Spo2 sup a 95%
+Introduction de Gardenal a dose préventive 4Mg/kg/j     150mgx2/j en IVL
+Maintien du traitement antiépiléptique 
+Avis Neurologie pour ajustement thérapeutique 
+Avis neurochirurgie
+Sondage vesical et quantification de la diurese 
+BU si CC+  faire une gazométrie artérielle
+Traitement medical de l'hyperkaliemie : 1 amp de Ca 2+  20 cc de SSI 0.9 IVL (2-3 min)  + couple insuline glucose 
+ionogramme de controle apres correction 
+Refaire un bilan nutritionnel complet 
+Introduction de l'antibiotherapie   claforan 1gx3 Flagyl 500mgx3
+Avis nephro 
+.
+CAT 
+-Hospitalisation en USIC
+-Surveillance clinique et électrique++
+-Surveillance télémétrique++ 
+-Isuprel en perfusion  
+-Le patient est monté au bloc pour la pose d'une sonde de stimulation temporaire 
+-Prévoir en un avis neurochirurgie 
+-Discuter la stimulation definitive par Pacemaker. 
+.
+Traitement actuel : 
+Freegaz 01cp×3 
+Effidigest 01cp×3 
+Charbonel plus 01cp×3 
+Mg2+ 500mg 01cp/j 
+Valproate chrono 1cp/j 
+Cicolina 0.1g/IM 1cp/j 
+Aspirine cardio 1cp/j 
+Diaglinide 0.5mg 1cp×2/j 
+Aprovasc 1cp/j ",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/Dr._Benali_patient30_motif_BAV_initialExaminations_17433427122593jd05hmjo_date_20260206_215407.wav,,False,BAV
+31,initialExaminations:1747751546666vnbh4849d,patients:174775132638363xzxh2w8,admission,2025-05-20 15:32:26,"C'est le  patient  Bedouhene [firstName] agé 77ans
+ Assuré, 
+Admis à notre niveau pour une coronarographie programmée sur écho de stress pharmacologique positive 
+.
+FDRCV et ATCDs :
+-Age sexe masculin
+-HTA suivi chez Dr Hachemaoui
+.
+Examen clinique :
+SG :
+- Patient conscient coopérant en état général conservé.
+- Constantes hémodynamiques :
+TA = 140/ 70mmHg ; FC=70 bpm  SpO2 = 97% en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF: angor d'effort classe II de la CCS 
+SP :
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre.
+- Pas de signes d'ICG ni ICD.
+- Pas de signes de TVP
+- Pouls perçus symétriques 
+Reste de l'examen normal
+.
+ECG : RSR a 70 bpm, sans TDR
+.
+BIOLOGIE
+HbA1c 5.4%
+LDL 1.48
+Tp 85%
+Créat 7.5 urée 0.31
+Hb 15 plq 171000 gb 7900
+COVID - 
+.
+ETT :
+Ventricule gauche non dilaté et peu hypertrophié
+- Fonction contractile segmentaire et globale normale. FEVG 68% (methose Simpson)
+Pressions de remplissage ventricule gauche basses, Profil diastolique type I
+- Dilatation modérée de l'OG
+- Valve mitrale peu remaniée, IM minime (Garde I)
+- Aorte initiale athéromateuse, Valves aortiques fibreuses sans rétrécissement significatif
+- Cavités droites non dilatées. Absence d'HTP
+-Absence d'épanchement péricardique
+.
+Écho de stress :
+Etat de base: cinétique VG homogène
+Faible dose: Akinésie de 3 segments/17; 5+11+16 (infero basal, médiane apical) Akinésie des segments infero latéro basal et médian (4+10)
+Pic dose: Amelioration de la cinétique avec FEVG 78%
+Récupération: retour à l'état de base
+ECG pic dose: RSR à 150/mn
+Conclusion: Echo de stress à la dobutamine menée à 90% de la FMT:
+Positive cliniquement et électriquement au niveau de 5 segments/17 (correspondant au territoire de la coronaire droite)
+.
+CAT: 
+Prévoir Coronarographie demain",,,False,Coronarographie programmée
+32,initialExaminations:1756737327861ni0jr9xd7,patients:1756737324210vxhawir0w,admission,2025-09-01 15:35:27,"Il s'agit de la patiente [lastName]  [firstName] agée de 79 ans , AS, autonome, demeurant à Alger ( Cheraga ), admis à notre niveau pour Coronarographie programmée
+.
+
+FDRCV / ATCDs :
+
+- HTA
+- insuffisance cardiaque a FEVG altyerée 35 % 
+.
+
+Examen ce jour :
+
+SG :
+Patiente consciente coopérante EG conservé
+TA : 110/80mmgh FC : 76 bpm SpO2 : 97 %
+SF :
+Patient asymptomatique au repos
+SP : 
+BDC audibles sans souffles ni BSA
+Pas de signes d'IC gauche ni droite
+Pas de signes de TVP
+Pouls présents symétriques
+Le reste de l'examen est sans particularités
+
+
+ECG :
+
+RSR a 80 bpm, QS en ASA 
+
+
+ETT 30/06/2025 :
+Aorte initiale non dilatée
+- Valves aortique tricusp sans fuite ni stenose
+- VG non dilate non hypertrophie de fonction systolique alteree FEVG 35%
+- Dyskinesie septale
+PRVG non elevees
+- IM grade 2
+Dilatation biatriale
+- VD de bonne fonction systolique
+IT fonctionelle grade 3
+HTP de faible probabilite
+Péricarde sec
+- VCI non dilatee compliante
+.
+Scintigraphie myocardique 06/08/2025 :
+-Aspect tomoscintigraphique en faveur d'une ischémie myocardique d'effort pour une épreuve d'effort maximale revenue négative cliniquement et électriquement de topographie apicale et antérolatérale totalisant 03/17 segments soit 18% de la surface du VG explorée.
+-Par ailleurs, perfusion homogène sur le reste du VG
+
+.
+
+Biologie 28/08/2025  :
+
+Gb : 8.6 mm3 HB: 14.5 g/dl . Plq : 246 000 /mm3
+Urée: 0.7 g/l Créat : 19 mg/l DFG a 36
+Na+: 145 meq/l K+: 4.5 meq/l
+CRP : 0.01 neg
+Gly a jeun: 1.25 /l
+TSH:  1.45
+HBA1c : 6.2  %
+INR 1.18 TCK nle
+Sérologies négatives
+Traitemet actuel : 
+biopexa 5 mg 2*/ jour 
+furozal 40 mg 3*/ jour
+Valens 10 mg   / jour 
+Elerax 25 mg   / jour 
+candesartan 4 mg / jour 
+isoptyl
+kaligon 
+
+
+CAT :
+
+- Scope CT avec surveillance clinique et électrique
+- hydratation Prudente 
+- Prévoir Coronarographie demain
+",,,False,Coronarographie programmée
+33,admissions:1733568049057kgahvujys,patients:1720783313869owvz19v95i,admission,2024-12-07 11:40:49,"Il s'agit du patient [lastName] [firstName], âgé de 53ans (19/01/1971), Originaire et demeurant à Alger (Baba hassen), marié et père de 5 EVBP,  peu autonome ( boiterie du membre inférieur gauche ), assuré social.
+
+Admis pour une coronarographie programmée suite a une scintigraphie positive
+
+
+FDRCV et ATCDs :
+- Age Sexe.
+- SEP suivi (actuellement sans traitement sous consignes de son neurologue traitant)
+- STEMI en latéral haut  en juillet 2024
+
+
+HISTOIRE DE LA MALADIE :
+Le patient a été hospitalisé a notre niveau en juillet 2024 pour prise en charge d'un STEMI en latéral haut non compliqué avec succès de thrombolyse non complété par une coronarographie sortant avec un test d'ischémie a distance revenant positif  d'où son admission pour une coronarographie programmée 
+
+
+EXAMEN D'ADMISSION :
+
+EXAMEN CLINIQUE
+SG :
+- Patient conscient coopérant en état général conservée
+- Constantes hémodynamiques :
+      * TA = 133/70 mmHg ; FC = 75 bpm
+      * FR = 14 cpm, SpO2 = 98 % en AA
+      * T = 37°c
+- Extrémités chaudes
+- Diurèse conservée
+
+SF :
+- Asymptomatique au repos
+
+SP :
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre aux 02 champs pulmonaires
+- Pas de signes d'ICD (Pas d'OMI)
+- Pas de signes de TVP
+- Pouls présents symétriques
+ Reste de l'examen clinique :
+- Sans anomalies
+
+
+ECG d'admission :
+ Rsr à 75bpm, PR = 0.12, QRS fins ESV sans troubles de conductions sans troubles de repolarisations
+
+
+ETT : 12/07/2024
+- VG non dilaté DTD = 53 mm, DTS = 34 mm
+- Hypokinésie de la paroi antérieure et de la pointe
+- FEVG SBP 45 %
+- Remplissage VG normal
+- IM minime
+- IT minime
+- HTP de faible probabilité PAPS 27
+- Cavités droites et VCI non dilatées
+- Pas de thrombus ni d'anévrisme
+SCINTIGRAPHIE 10/2024 :
+Aspect tomoscintigraphique d'une cardiopathie ischémique avec séquelles de nécrose
+intéressant l'apex, la paroi antérieure et la jonction antéro-septale apicale et médiane
+représentant
+ 06 segments/17
+ avec 
+ischémie résiduelle périlésionnelle sur 03 segments.
+Absence d'arguments tomoscintigraphiques en faveur d'une ischémie myocardique franche sur
+le reste des parois explorées pour une épreuve d'effort démaquillée maximale positive
+cliniquement et litigieuse électriquement. 
+BIOLOGIE 07/12/2024 :
+FNS :
+- Hb = 12.7  g/dl
+- GB = 6190/mm3
+- PLT= 233000  /mm3 
+
+Hémostase :
+- TP = 76 
+- INR = 1.2
+
+Ionogramme :
+- Na =141 mmol/l
+- K = 4 mmol/l
+
+Bilan rénal :
+- Créatinine =9.18  mg/l.
+CRP = 8.9 
+
+
+CAT :
+- Hospitalisation en salle
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Bilan biologique lancé 
+- Prévoir une coronarographie 
+",,,False,Coronarographie programmée
+34,initialExaminations:1739189230537m3tubez1h,patients:17391871804788rgyg7211,admission,2025-02-10 13:07:10,"Il s'agit du patient Bouhila Ali agé de 52 ans 
+admis à notre niveau pour Coronarographie programmée
+. 
+FDRCV / ATCDs :
+-Age/Sexe 
+-HTA 
+-DID
+-SCC ayant bénéficié d'un monopontage AMIG-IVA le 20/10/2021
+-NSTEMI le 18/10/2024 hospitalisé a l'hopital de guelma 
+.
+Examen ce jour :
+SG : Patient conscient coopérant EG conservé 
+TA : 140/90 mmgh FC : 60 bpm SpO2 : 97 %
+SF :Patient asymptomatique au repos 
+SP : BDC audibles sans souffles ni BSA
+Pas de signes d'IC gauche ni droite
+Pas de signes de TVP
+Pouls présents symétriques
+Le reste de l'examen est sans particularités
+.
+ECG : RSR a 60 bpm avec sous décalage en infero-latéral 
+.
+
+ETT
+  
+ASPECT DE CARDIOPATHIE ISCHEMIQUE AVEC FE VG 56 %.
+IM ISCHEMIQUE GRADE I
+OG NON DILATEE
+PAS DE VALVULOPATHIES AORTIQUE SIGNIFICATIVES.
+LES PRESSIONS DE REMPLISSAGE ELEVEES.
+PROBABILITE D HTP FAIBLE. 
+PERPICARDE : SEC.
+.
+Scintigraphie 
+Aspect scintigraphique compatible dans ce contexte avec une ischémie myocardique d'effort, de topographie apicale, étendue en inféro-apicale, touchant enviror-18%ade la surface du VG.
+.
+Echodoppler des TSA et membres inférieurs 
+TSA
+Les troncs supra aortiques sont perméables sans images de sténoses ou de plaques de surcharge athéromateuse hémodynamiquement significatives
+Membres inférieurs 
+pas de signes d'artériopathie atheromateuse hémodynamiquement significative
+pas d'anomalie veineuse profonde droit et gauche
+.
+Biologie du 09/02/2025
+Gb: mm3 HB: g/dl . Plq: /mm3
+Urée: g/l  Créat : 11.33 mg/l
+Na+:meq/l K+: meq/l
+CRP:neg
+Gly a jeun: 1.45 g/l
+HBA1c: 7.8 %
+INR 1.21 
+TSH 1.67
+Sérologies négatives
+.
+CAT :
+Scope CT avec surveillance clinique et électrique
+Arrêt ADO et switch vers insulinothérapie
+Consentement signé
+Prévoir Coronarographie demain
+",,,False,Coronarographie programmée
+35,admissions:17330501633297pa2nbqoj,patients:1733050067343vg5l6nz93j,admission,2024-12-01 11:49:23,"Il s'agit du patient [lastName] Ali, âgé de 66 ans (10/08/1958), Originaire et demeurant à Annaba (annaba, oued kouba), marié et père de 03 EVBP, autonome assuré social.
+
+Admis pour Coronarographie programmée
+
+
+FDRCV et ATCDs :
+
+- Age/ sexe
+- DT2 sous insuline et ADO
+- Hospitalisé le 14/11/2024 au CHU de Annaba pour Syndrome coronaire aigue type NSTEMI
+.
+ 
+EXAMEN D'ADMISSION :
+
+EXAMEN CLINIQUE
+
+SG :
+- Patient conscient coopérant en état général conservée
+- Constantes hémodynamiques :
+
+* TA =  / mmHg ; FC = 70 bpm
+* FR = 13 cpm, SpO2 = 98 % en AA
+* T = 37°c
+
+- Extrémités chaudes
+- Diurèse conservée
+
+SF :
+- Asymptomatique au repos
+
+SP :
+- Auscultations pulmonaire libre
+- BDC audibles, pas de BSA, ni de souffles
+- Pas de signes d'ICD (Pas d'OMI)
+- Pas de signes de TVP
+- Pouls présents symétriques
+
+Reste de l'examen clinique :
+- Sans anomalies
+
+
+ECG :
+ Rsr à 75bpm
+
+
+ETT : 
+
+- Echocardiographie doppler dans la limite de la normale ce jour. 
+- VG non dilaté avec une bonne fonction systolique FE à 74%.
+- Bonne fonction VD, TAPSE à 23 mm.
+- Troubles de la relaxation E/A<1
+  - Péricarde sec.
+.
+BIOLOGIE : 
+
+FNS :
+- Hb = 13.6 g/dl
+- GB = 7390  
+- PLT = 301 000
+
+Hémostase :
+- TP =90  %
+
+
+Ionogramme : 
+- Na = 138 mmol/l
+- K = 4.76  mmol/l
+
+Bilan rénal :
+- Urée = 0.20 g/l
+- Créatinine = 9 mg/l
+
+Bilan lipidique :
+- Cholestérol total =1.91
+- HDL =0.28
+- LDL =1.58
+- TG =1.88
+
+CRP =0.70
+Glycémie :  g/l
+HBA1c =  
+Sérologies négatives
+
+
+COROSCANNNER  : 26/03/2024
+Maladie coronarienne diffuse, compliquée de:
+Sténose serrée de toute l'IVA I.
+Sténose post-ostiale critique de D1.
+Sténoses serrées et critiques de la CX.
+Catégorie d'évaluation CAD-RADS 4B.
+Score calcique coronarien selon Agatston à 645.  
+.
+EPREUVE D'EFFORT 19/11/2024
+- EPREUVE D EFFORT MAQUILLEE MAXIMALE JUSQUA 81% DEL FMT (SELON BROWNER) MENEE SELON LE PROTOCOLE DE BRUCE JUSQUAU 02 EME PALIER:
+- POSITIVE CLINIQUEMENT ET ELECTRIQUEMENT
+- DYSPNEE A LA FIN DU 01ER PALIER
+- SOUS DECALAGE ST HORIZANTALE DE PLUS DE 01 MM EN V5 V6 TA NORMALE AU REPOS AVEC REPONSE EXAGEREE A L EFFORT
+.
+CAT :
+
+- Hospitalisation en salle
+- Scope Cardio-tensionnel continu
+- Surveillance clinique et électrique
+- Réhydratation en IV
+- Prévoir coronarographie.",,,False,Coronarographie programmée
+36,initialExaminations:17536864013241vuh3vobt,patients:1753685572777gzcm0pxbu,admission,2025-07-28 08:06:41,"Il s'agit du patient latoui saoula âgé de 75 ans ( 21/12/1950 ) , Originaire et Demurante à Alger ; assurée autonome.
+Admis à notre niveau pour coronarographie programmée pré TAVI.
+ .
+
+ATCD /FDRs: 
+HTA Sous canderax
+Hypothyroïdie 
+Asthme 
+Porteuse de PMK 
+ .
+
+Examen clinique a l'admission:
+
+Patiente consciente coopérante en état général conservé
+TA: 130/70 mmgh.
+Sat : 99 % en AA ;
+FC :60   bpm
+SF:
+Dyspnée d'effort stade III de NYHA 
+Sp:
+BDC audible 
+Souffle meso systolique au foyer aortique. 
+Absence de signes d'insuffisance cardiaque droite.
+Absence de signes de TVP
+Absence d'OMI
+Pouls présents et symétriques.
+Le reste de l'examen : sans anomalies
+.
+
+ECG
+ :
+RES a 60  bpm  .
+
+
+Échographie transthoracique: 
+Aorte initiale non dilatée 
+Valve aortique tricusps calcifiée siège d'un rétrecissement serré (S 0.83 cm2 Vmax 3.9 m/s, Gmoy 40 mmhg) et une fuite modérée 
+VG non dilaté, hypertrophié de bonne fonction systolique FEVG SBP 58% GLS - 13.3% 
+PRVG élevées 
+Valve mitrale remaniée siège d'une fuite grade I sans sténose 
+Dilatation bi atriale 
+VD de bonne fonction systolique 
+IT moyenne 
+Sonde de PMK en place 
+HTP de forte probabilité PAPS 57 mmhg 
+VCI non dilatée compliante 
+Pericarde sec
+Angioscanner Pré Tavi:
+Calcifications minimes du bord libres des cusps de la valve aortique.
+
+Anneau aortique (Phase 20%):
+
+- Diamètres: 20,9/27,6 mm. D-mean: 24,2 mm.
+
+- Surface: 442,5 mm². D-area: 23,7 mm.
+
+- Périmètre: 76,3 mm. D-perim: 24,3 mm.
+
+Anneau aortique (Phase 35%):
+
+- Diamètres: 20,5 / 26,1 mm. D-mean: 23,3 mm.
+
+- Surface: 425,0 mm². D-area: 23,3 mm.
+
+- Périmètre: 74,6 mm. D-perim: 23,8 mm.
+
+Hauteur des ostia coronaires satisfaisante.
+
+Accès périphérique transfémoral assez satisfaisant de façon bilatérale
+ .
+
+Bilan biologique :
+Groupage O+
+GB=7200
+Hb=13 g/l
+PLQ=159 000
+urée=0.8 créat= 10
+TP=80 % INR=1 TCK 0.9
+Glycémie à jeun = 1.01 g/l 
+CRP=4.16 mg/l 
+Sérologie hépatite/ covid = négatives
+TRT actuel 
+:
+Zostine
+Biopexa
+Furosal
+Canderax 
+Valens 
+ . 
+ 
+CAT
+
+-Hospitalisation en salle
+-Surveillance clinique et électrique
+-Prévoir Coronarographie
+-Hydratation avec bilan rénal post coro
+",,,False,Coronarographie programmée
+37,initialExaminations:17645967871901lte22b2w,patients:1764595945606n3p5182l7,admission,2025-12-01 14:46:27,"Motif d'hospitalisation:
+ Coronarographie programmée
+.
+
+FDR / Antécédents:
+
+-HTA sous bipreterax 5/1,25, superstat 10mg ,aspirine 100mg
+- Suivi pour SCC sous traitement médical exploré par coroscannner
+
+
+EXAMEN D'ADMISSION :
+
+SG :
+- Patiente consciente coopérante en BEG
+- Constantes hémodynamiques : * TA = 130/70 mmHg, FC = 70bpm SpO2 = 98 % en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+asymptomatique au repos
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique : Sans particularités
+
+
+-ECG :
+
+- RSR a 70bpm,PR=0,16sec , T négative en ASA
+BIOLOGIE :
+GB : 10 400  HB : 13.5   PLQ : 256 000
+TP : 100  TCK : 32.6
+Urée : 0.42  Créat : 7
+Na + : 136   K+ : 3.52 
+Chol tot : 1.78   TG : 1.46  HDL : 0.47  LDL : 1.02
+GAJ : 1.72 
+
+.
+
+Échocardiographie:
+
+-VG non dilaté non hypertrophié de bonne fonction FE=64%
+-Cinétique segmentaire et globale du VG normale.
+-Absence de vices valvulaires significatifs (IM minime RAo lache). SOG=16 cm2.
+-Pressions pulmonaires normales. PAPS=20+5 mmHg
+-Péricarde sec.
+-Echodoppler des TSAO :
+-Réseau peu infiltré EIM 0.8mm pas de sténoses significatives.
+
+Coroscanner 19/08/2025:
+
+sténose serrée de l'IVA1.
+ CORONAROGRAPHIE 13/11/2025 :
+ Lésions bitronculaires.
+-Sténose significative longue, calcifiée de l'artère interventriculaire antérieure proximale et moyenne, englobant I'origine de la première diagonale (lésion de bifurcation)
+-Lésion non significative de l'artère circonflexe proximale.
+-Lésion non significative de l'artère circonflexe moyenne.
+-Sténose significative de l'artère circonflexe distale
+Avec : 
+-Succès d'angioplastie de l'artère circonflexe distale. Implantation d'un stent actif.
+-Angioplastie différée de l'IVA 
+  CAT :
+- Hospitalisation au service 
+- scope cardio tensionnel continu
+- Prévoir coronarographie demain ",,,False,Coronarographie programmée
+38,initialExaminations:17609588297324asuqjhtk,patients:1760958160730i15imu65x,admission,2025-10-20 12:13:49,"Il s'agit du patient Guerrag Maamar agé de 70 ans OD a Chelef 
+Admis a notre niveau pour coronarographie programmée 
+Atcds et Fdrcvs: 
+-HTA 
+-Diabète 
+-NSTEMI le 
+Examen a l''admission
+Patient conscient coopérant
+Etat général conservé 
+TA 170/80 mmHg  Fc 66 bpm   Spo2 98 AA
+
+SF:
+- asymptomatique au repos
+SP:
+- BDC audibles 
+- Pas de BSA ni souffles
+- Auscultation pulmonaire libre
+- Pouls présents symétriques
+- Absence de signes d'ic droite ou gauche
+
+ECG :
+RSR a 55 bpm
+
+Biologie du 
+- HB 13.5  PLT  284000  GB 9100 
+ - Na -135  K 4.21
+- uree 0.44  creat 12.57
+  - Serologies negatives
+-HBa1c 7.7%
+ -TSH  1.22  
+ETT  
+VG non dilaté et non hypertrophie 
+Hypokinésie sévère des segments apical et moyen de la parois antéro-latéral 
+Fonction systolique préservée avec FE a 54 % 
+PRVG non élevées 
+OG non dilatée 
+Pas de vices valvulaire significatifs. 
+Cavitées droites non dilatées. 
+HTP de probabilité faible; 
+VCI non dilatée et compliante. 
+Pericarde sec.
+Coronarographie du 19/07/2025 
+Résultats : réseau coronaire calcifié 
+TCG :sténose serrée ostéale 
+IVA:sténoses serrées étagées avec un bon lit d'ava Diagonales : de calibre moven siège d'une sténose sotéale 
+CX :sténose serrée a sa partie movenne
+1ère Margianle : Occlusion chronique avec reprise homolatérale Rentrop 3
+2ème Marginale : sténose serrée proximale
+CD : sténose serrée ostéale suivi d'une sténose a sa partie moyenne et 2 sténose a sa partie distale avec bon lit d'avale.
+IVP:saine.
+Décision : revascularisation chirurgicale complète.
+EFR 
+EFR REVELE UNE RESTRICTION PULMONAIRE SEVERE AVEC UN VEMS A1.18L/MN A 40% DE SA THEORIOUE RENDANT L ANESTHESIE gEnERALE LIMiTE INTERERT DUNE RACHIS ANRESTHESIE
+CAT:
+- Hospitalisation au service
+- Prevoir coronarographie demain.
+- Surveillance clinique et éléctrique  ",,,False,Coronarographie programmée
+39,admissions:1735392696965ym7jythp4g,patients:1735389351600hq1u96pzc,admission,2024-12-28 14:31:36,"C'est le  patient  Medani Ali , agée de 71 ans né le 11/08/1953  , Originaire et demeurant à Alger assuré social autonome et admis à notre niveau pour coronarographie programmée
+ATCDS/ FDRCV : 
+Age
+Sexe masculin 
+Diabétique type2 depuis 2013 sous ADO+INSULINE 
+SCA type Stemi inférieur  avec extension électrique au VD compliqué de Fa avec BAV 1er degré transitoire thrombolysé (stenté au niveau de la CD a notre niveau)
+
+
+
+
+HISTOIRE DE LA MALADIE : 
+Le patient coronarien connu de plaignait de dyspnée d'effort classe 3 d'aggravation progressive.
+Son cardiologue traitant Dr S.Boukhari demande une scintigraphie myocardique revenant positive d'où son admission 
+ 
+EXAMEN A SON ARRIVÉE : 
+Patient conscient coopérant
+Etat général bon
+Bonne coloration cutanéo muqueuse 
+Stable sur Le plan hémodynamique avec 
+TA =130/80  mmhg ; FC: 60bpm ; SpO2 98 %
+Examen cardiovasculaire : 
+BDC audibles 
+Auscultation pulmonaire libre
+Absence d'œdème des membres inférieurs
+Pouls perceptibles de façon bilatéral et perceptibles  
+Le reste de l'examen sans particularité
+
+
+
+ECG à l'admission : RSR a 60btm avec présence de séquelles en inferieur sans troubles de conduction 
+
+
+ETT 
+-VG hypertrophié, non dilaté 
+-fonction systolique conservée avec FE=50-55% 
+-hypokinésie inféro--basale 
+-absence de dilatations cavitaires 
+-Pressions de remplissage non élevées
+-HTAP peu probable 
+-pas de vices valvulaires significatives 
+-Péricarde sec 
+
+
+Scintigraphie myocardique 08/10/2024
+Cet examen tomoscintigraphique réalisé, sans traitement antiangineux, au décours d'une épreuve d'effort physique maximale(95% de la FMT), jugée négative cliniquement, et électriquement, est en faveur de séquelles de nécrose transmurale, au niveau de la portion basale des parois inférieure et inféro-septale, représentant 10-15% du VG (2/17segments), avec un myocarde péri lésionnel hypo perfusé et hypokinétique mais viable, au niveau du reste du territoire semblant être irrigué par la CD, représentant 15-20% du VG(3/17segments).
+• Par ailleurs, absence d'arguments scintigraphiques évocateurs d'ischémie au niveau des autres territoires.
+• La FEVG est conservée aux alentours de 53%, avec un VTS <50ml.
+
+
+Bilan Biologique 1/10/2024 
+Hb =12.3  g/dl ; Plq = 156000 ; GB =7000
+Na+ =135 meq/l ; K+ =4.30  meq/l ; 
+Urée = 0.32  g/l ; Créât =8.48 mg/l 
+Hb1ac=7.55 % 
+Glycémie à jeun = 1.97g/l 
+TP= 86 % TCK=Nrml 
+TSHus = 1.930
+CRP=neg 
+cholT=0.80  LDL=0.33  HDL=0.26  TG=1.03
+troponine=2.90
+microalb=neg 
+Sérologie virale = neg 
+Sérologie covid = neg 
+
+
+Traitement actuel:
+aspec cp 100mg 1cp/j 
+bysolex cp 5mg   1cp/j 
+triatec cp 2.5mg   1cp/j 
+tahor cp 80 mg     1cp/j 
+insuline lente 32UI
+glucophage cp 850   1cp*3/j 
+
+
+
+CAT : 
+Hospitalisation du patient au service
+Surveillance clinique et électrique avec scope en continu 
+Prévoir et préparation du patient a la coronarographie",,,False,Coronarographie programmée
+40,admissions:1736259235307wejfk7e6m,patients:1736258775054izeptux5k,admission,2025-01-07 15:13:55,"Il s'agit du patiente Belfoudil [firstName] agé de 71 ans , AS, demeurant à Medea , admis à notre niveau pour Coronarographie programmée 
+FDRCV / ATCDs :
+HTA
+DT2
+
+Examen ce jour :
+
+SG : Patient conscient coopérant EG conservé 
+TA : /mmgh FC :  bpm SpO2 : 97 %
+SF :Patient asymptomatique au repos 
+SP : BDC audibles sans souffles ni BSA
+Pas de signes d'IC gauche ni droite
+Pas de signes de TVP
+Pouls présents symétriques
+Le reste de l'examen est sans particularités
+
+
+ECG 
+: RSR à 50 bpm, sans trouble de repolarisation 
+ 
+ETT:
+FEVG 65% , Dilatation de l'OG, IM modérée primaire, IAo grade I
+
+
+Coriscanner le 22/12/2022 :
+Plaque calcifiée ostiale du TCG d'allure serrée (> 50%) (le Blooming artéfact empêche une évaluation précise).
+Sténose serrée (60-70%) de la CX proximale sur une plaque calcifiée.
+Sténose intermédiaire (50-60%) de l'IVA moyenne sur une plaque calcifiée.
+Examen classé CAD-RADS 4B, par ailleurs :
+Calcification coronaires modérées (Score calcique ≈ 400 UH).
+Absence de pont myocardique.
+Absence de signes d'embolie pulmonaire et de dissection aortique
+Coroscanner le 17/01/2023 :
+ Plaque calcifiée intermédiaire du Tronc commun.
+ Biologie:
+ Gb:5.8 mm3 HB:13.5 g/dl . Plq: 185/mm3
+Urée:0.36 g/l  Créat : 12.7mg/l
+Na+:143meq/l K+: 4.3meq/l
+CRP:neg
+Gly a jeun:1.02 g/l
+HBA1c:6.7 %
+INR TCK nle
+Sérologies : IgG Positive
+
+CAT :
+Scope CT avec surveillance clinique et électrique  
+Prevoir Coronarographie demain
+",,,False,Coronarographie programmée
+41,initialExaminations:17451381055750p0jqnm5w,patients:174513767063626f6aifoi,admission,2025-04-20 09:35:05,"Il s'agit de  patient  agé de 1955 ans demeurant  a Kolea tipaza  autonome assuré
+Admis à notre niveau pour Changement de boitier d'un PMK .
+.
+
+FDRCVS et ATCDS
+
+-implanté de PMK en 20214 chez Dr belhoucine .
+-HTA 
+-DT2 sous glucophage et insuline .
+
+À l'admission:
+SG :
+- Patient conscient coopérant en BEG
+- Constantes hémodynamiques :
+* TA = 140/70 mmHg, FC = 40 bpm
+* FR = 22 cpm, SpO2 = 91% en AA
+- Extrémités chaudes
+- Diurèse conservée
+SF :
+-Absence d'autres signes fonctionnels cardiaques
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique :Sans particularités
+.
+
+ECG 
+:
+- RES A 60 BPM 
+.
+
+Biologie : lancé 
+
+Gb: 8920 mm3 HB: 12.5g/dl . Plq: 325000/mm3
+Urée: 0.39g/l Créat : 8.64mg/l
+Na+: 142 meq/l K+: 4.09meq/l
+CRP:neg
+INR 1 TP 100% TCK nle
+Troponines 21
+.
+CAT
+- Hospitalisation en USIC
+- Surveillance clinique et électrique++
+- Surveillance télémétrique++
+- prevoir changement de boitier de PMK ce jour .
+",,,False,Changement de boitier
+42,initialExaminations:1738832905664htpmuzrjc,patients:1738832773006hzqf1xe4qi,admission,2025-02-06 10:08:25,"Il s’agit de la patiente Saidi Fatima, âgée de 80ans (19/02/1962) , O/D à Elbiar (Alger); assurée
+admise a notre niveau pour un changement de boîtier en fin de vie
+FDRCV / ATCDs :
+Age et sexe.
+HTA sous tensoprel.
+PMK VVI en 2016.
+Hypothyroidie sous levothyrox.
+Prothétique mitral sous sintrom.
+HISTOIRE DE LA MALADIE :
+- C'est dans le cadre de son suivi en rythmologie que la décision de changement de boîtier a été prise suite à la constatation d'une durée de vie limitée (pacemaker en fin de vie).
+Examen clinique: 
+À son arrivée : 
+État de conscience conservé 
+Sur le plan hémodynamique
+PA= 146/75 mmHg 
+FC =55bpm
+SpO2= 94% en AA
+SF: Asthénie et faiblesse
+SP: BDC audibles ; sans souffle
+pas des bruits surajoutées
+Pas de signes d'IC droite ni gauche 
+Pas de signes de TVP 
+Pouls perceptibles bilatérales 
+ 
+- Extrémités chaudes.
+ - Diurèse conservé.
+ECG : RES a fvm 55bpm.
+Biologie : lancé
+Hb: g/dl ;   
+ 
+Gb: 00 ;     
+ 
+Plq:  000
+GAJ: g/l
+Urée:  g/l ;     
+ 
+Créat: mg/l
+Na+:  meq/l ;      
+ 
+K+:  meq/l
+INR: ;   
+ 
+Tp: % ;   
+ 
+TCK: 
+Trt :
+Tensoprel 25mg *2/j
+Bisoprolol 5mg 1cp+1/2
+Furozal 40mg
+CAT: 
+- Hospitalisation en Salle.
+- Surveillance clinique et électrique avec scope continu.
+- Prévoir changement la boîtier.",,,False,Changement de boitier
+43,admissions:1735027148954wlem915sh,patients:1735026944762y04i4rbta,admission,2024-12-24 08:59:08,"Changement de boitier
+06
+Il s’agit de la patiente Nait Hammoud [firstName], âgée de 63ans (19/02/1962 , O/D à (Souk Ahres); assurée
+admise a notre niveau pour un changement de boîtier en fin de vie
+
+FDRCV / ATCDs :
+Age et sexe.
+PMK VVI en 2016.
+Ostéoporose.
+
+HISTOIRE DE LA MALADIE :
+- C'est dans le cadre de son suivi en rythmologie que la décision de changement de boîtier a été prise suite à la constatation d'une durée de vie limitée (pacemaker en fin de vie).
+
+Examen clinique: 
+À son arrivée : 
+État de conscience conservé 
+Sur le plan hémodynamique
+TA= 146/84 mmHg 
+FC =75bpm
+SpO2= 97% en AA
+
+SF: Asthénie et faiblesse
+SP: BDC audibles;  souffle d'IT au foyer tric.
+pas des bruits surajoutées
+Pas de signes d'IC droite ni gauche 
+Pas de signes de TVP 
+Pouls perceptibles bilatérales 
+ 
+- Extrémités chaudes.
+ - Diurèse conservé.
+
+ECG : RES a fvm 75bpm.
+
+Biologie : lancé 
+FNS: 
+Hb: g/dl ;    Gb: 00 ;      Plq: 000
+GAJ: g/l
+Bilan rénal: 
+Urée:  g/l ;      Créat: mg/l
+Ionogramme sanguin:
+Na+:  meq/l ;       K+:  meq/l
+Bilan d’hémostase:
+INR:  ;    Tp: % ;    TCK: 
+
+ETT: 
+FE conservé.
+VG non dilaté, hypertrophié de fonction systolique.
+Valve mitrale et aortique fins sans valvulopathies.
+Cavités droites non dilatés; de bonne fonction systolique; TASPE: 22 mm
+IT grade II-III
+HTP de probabilité intermédiaire
+VCI dilaté compliante 
+Péricarde sec
+
+CAT: 
+- Hospitalisation en Salle
+- Surveillance clinique et électrique avec scope continu
+- Prévoir changement la boîtier.",,,False,Changement de boitier
+44,initialExaminations:17466922390394vcp14d4j,patients:1746692232169l1trlplj6,admission,2025-05-08 09:17:19,"Il s'agit du patient Boubakour Mohamed agé de 71 ans, Originaire et Demurant a chlef ; assuré autonome.
+Admis à notre niveau pour changement de boîtier.
+
+
+ATCD /FDRsCV
+:
+DT2 depuis 2018 sous ADO
+HTA depuis 2006 sous
+Implantation d'un PMK en 2006
+HBP
+Cécité unioculaire depuis 1979
+Hémiparalysie faciale en 2007
+  .  .
+
+Examen clinique a l'admission:
+
+Patiente consciente coopérante en état général conservé
+TA: 157/ 68 mmgh.
+Sat : 98 %en AA ;
+FC :  Bpm
+SF :
+Asymptomatique au repos
+Sp:
+BDC audible sans souffle ni BSA
+Absence de signes d'insuffisance cardiaque droite.
+Absence de signes de TVP
+Absence d'OMI Pouls présents et symétriques.
+Le reste de l'examen : 
+Cécité unioculaire
+Hémiparalysie faciale 
+ .
+
+ECG
+ :
+RES  a 60  bpm sans TDC ni TDR
+.
+
+Echographie trans thoracique :
+
+- Ventricule gauche non dilaté non hypertrophié 
+- Pressions de remplissage du Ventricule gauche normales
+- Absence de vice valvulaire mitrale ou aortique 
+- Ventricule droite non dilaté de bonne fonction 
+- Péricarde libre
+. 
+ 
+Bilan biologique complet :lancé
+
+GB=
+ Hb=
+ PLQ=
+ urée= 
+créat=
+ Na+= 
+K+= 
+ TP= %
+ INR= 
+ Glycémie à jeun =
+g/l HB1AC = % 
+ .
+
+TRT actuel :
+ 
+Fludex 1.5 mg
+Exval 10/160 mg
+Tamsir 0.4 mg
+Diamicron 60 mg
+Glucophage 1000 mg  2cp/j
+Prostamed 5 mg 
+ 
+CAT
+-Hospitalisation en salle
+-Surveillance clinique et électrique
+-Prévoir changement de boîtier ",,,False,Changement de boitier
+45,admissions:1729759307431cjnfm3317,patients:1729759159275tdtzb8wglh,admission,2024-10-24 09:41:47,"Il s'agit de la patiente [lastName] Regahia, âgée de 80 ans ,demeurant à Dely Brahim autonome assurée socialement.
+
+
+Admis pour Changement de boitier de PMK en fin de vie
+
+
+FDRCV et ATCDs :
+- HTA depuis 30 ans sous Hytacand 16/12.5mmg
+- DT2 depuis 30 ans Sous ADO
+- BAV complet à QRS fins symptomatique admise à notre niveau le 05/06/2016 , ayant bénéficié de PMK monochambre en VVI ( Medtronic Sensia)
+HDM:
+c'est dans le cadre de son suivi régulier que la patiente est admise pour changement de boitier de PMK en fin de vie
+
+EXAMEN CLINIQUE
+
+
+- Patiente consciente coopérante en état général conservée
+
+* TA = 136/79 mmHg ; FC = 60 bpm  SpO2 = 98 % en AA
+
+SF :
+- Asymptomatique au repos
+SP :
+
+- BDC audibles, pas de BSA, ni de souffles
+- Pas de signes d'ICD (Pas d'OMI)
+-Auscultations pulmonaire libre
+ 
+- Pouls présents symétriques
+
+Reste de l'examen clinique : - Sans anomalies
+
+ECG : RES à 60 bpm
+
+ETT :
+
+VG non dilaté, de bonne fonction systolique.
+sonde de stimulation en place
+ PRVG non élevées
+absence de vices valvulaires significatifs
+Cavités droites non dilatées. VD de bonne fonction
+HTP de faible probabilité
+péricarde sec
+
+BIOLOGIE :
+:- Hb =12.10 g/dl- GB =6780- PLT = 234 000
+TP 100%
+HbA1c : 7.8 %
+- Na = 139 mmol/l
+- K = 4.93 mmol/l
+
+- Urée = 0.38 g/l- Créatinine = 9 .2mg/l
+CRP = négative 
+ 
+CAT :
+- Hospitalisation en salle
+- Scope Cardio-tensionnel continu 
+- Prévoir changement de boitier",,,False,Changement de boitier
+46,initialExaminations:1760001699882k5guyfqjp,patients:1760001638877zv0tl2ap7,admission,2025-10-09 10:21:39,"Il s'agit du patient ata [firstName] agé de 92 ans 
+Motif : Changement de boitier
+Antécédents médicaux :
+- HTA
+- DT2
+-FA sous thrombix 
+Examen clinique à admission :
+SG :
+- Patient désorientée non coopérant
+- Constantes hémodynamiques :
+* TA = 140/75 / mmHg, FC = 40 bpm, SpO2 = 98 % en AA
+SF :
+Asymptomatique au repos
+SP :
+- Pas de signes d'Insuffisance cardiaque droite ou gauche
+- Pas de signes de TVP
+- Pouls présents symétriques
+- BDC audibles, pas de BSA, ni de souffles
+- Auscultation pulmonaire libre
+Reste de l'examen clinique :Sans particularités
+ECG :
+- RES a 60 bpm
+ETT:
+VG non dilaté peu hypertrophié de fonction systolique a FE conservée.
+Aspect de cardiopathie ischemique
+PRVG non élevées
+Cavités droites de bonne fonction
+Péricarde sec
+Biologie:
+Correct",,,False,Changement de boitier
+47,initialExaminations:174064861433018g3zopgf,patients:174064237508755z5iqfro,admission,2025-02-27 10:30:14,"
+Il s'agit du patient Hassounet ALi, âgée de 63ans , Originaire et demeurant à Biskra , autonome assurée social. Admise pour Changement de boitier en DDI
+
+FDCV :
+-	Age / sexe 
+HISTOIRE DE LA MALADIE :
+le patient s'est présenté ce jour au niveau de la consultation de rythmologie . Un PMK VVI en fin de vie est constaté ( 1 mois ) et le patient est admis pour changement de boitier
+.
+ EXAMEN D'ADMISSION :
+ EXAMEN CLINIQUE SG : 
+- Patiente consciente coopérante en état général moyen
+ - Constantes hémodynamiques :      * TA = 130/90mmHg ; FC = 66 bpm  SpO2 = 98 % en AA .
+ - Extrémités chaudes
+ - Diurèse conservée
+ SF :-asymptomatique 
+SP :
+- BDC audibles,
+ - Auscultation pulmonaire libre aux 02 champs pulmonaires
+ - Pas de signes d'ICD (Pas d'OMI) 
+- Pas de signes de TVP 
+- Pouls présents symétriques 
+Reste de l'examen clinique : - Sans anomalies
+ ECG: Rythme électro-stimulé  à 66 bpm; 
+ ETT : 
+
+-	VG non dilaté non hypertrophié de fonction systolique altérée
+- Cinétique globale homogène
+-	Pas de valvulopathie hémodynamiquement significative
+-	VD non dilaté de bonne fonction systolique
+-	HTAP de faible probabilité
+-	Péricarde sec.
+
+BIOLOGIE : 20/02/2025
+
+FNS : - Hb = 12.3 g/dl - GB = 9.22mm3 
+           - PLT = 483000/mm3
+Bilan rénal : - Urée = 0.59 / g/l - Créatinine =21  mg/l 
+
+CAT 
+:
+-	Hospitalisation en hospitalisation
+-	Surveillance +++
+- Prévoir Upgrading : PMK DDI
+",,,False,Changement de boitier
+48,initialExaminations:1756980107596g2ehiap5g,patients:1756979751833cx9mudtj0k,admission,2025-09-04 11:01:47,"s'agit du patient Boualleg [firstName] , âgé de 60 ans , demeurant actuellement à alger , autonome , assuré social.
+Admis pour changement de boîtier. 
+ .
+
+ATCD/FDR
+ : 
+Implantation de PMK en 2011 en France 
+ 
+Examen clinique à l'admission :
+
+Patient conscient coopérant, EG conservé
+Sur le plan hémodynamique :
+TA :110/60 mmhg aux 2 bras , FC :70 bpm, SpO2 : 95%
+Pas d'anis tension
+Extrémités chaudes
+Diurèse conservée
+SF : 
+Asthénie 
+SP :
+BDC audibles , pas de souffles ni BSA
+Auscultation pulmonaire : libre
+Pas de signes d'ICD
+Pas de signes de TVP
+Pouls présents symétrique pas d'anisophygmie.
+.
+Le reste de l'examen clinique : sans particularités
+.
+
+ECG
+ :
+RES à 60 bpm
+ .
+
+ETT des urgences : 
+Aorte initiale athéromateuse non dilatée 
+Prothese aortique en place siège d'une fuite para-prothetique minime sans stenose 
+VG dilaté hypertrophié de fonction systolique alterée FEVG(SBP) = 25% 
+Hypokinesie globale 
+Prothese mitrale en place non stenosante non fuyante 
+OG dilaté vide d'échos 
+Cavités droites peu dilatéesde fonction systolique conservee 
+Sonde de CRT en place 
+IT grade III 
+HTP de probabilité intermédiaire 
+VCI dilatée peu compliante 
+Pericarde sec
+ 
+ Biologie
+ :
+Gb: mm3 HB:g/dl . Plq: 000 /mm3
+Créat : mg/l /Urée : g/l ,
+Na+: meq/l K+: meq/l
+Gylcémie : g/l
+TP :% INR :
+Troponine :  ng/l 
+
+
+CAT
+ :
+- Hospitalisation en salle
+- Surveillance clinique et électrique
+- prévoir changement de boîtier ce jour.  ",,,False,Changement de boitier
+49,initialExaminations:1749738395944ysv7knh3w,patients:1749738354040iipp7yete,admission,2025-06-12 15:26:35,"Il s'agit du patient Laarabi Mohamed Seghir, âgé de 67ans, Originaire et demeurant à Bouira (Kadiria), autonome assuré social.
+
+Admise pour Changement de boitier
+
+FDRCV et ATCDs :
+- RAS
+
+HISTOIRE DE LA MALADIE :
+- Patiente admise à notre niveau pour changement de boitier en fin de vie.
+
+EXAMEN D'ADMISSION :
+EXAMEN CLINIQUE
+
+SG :
+- Patiente consciente coopérant en état général conservée
+- Constantes hémodynamiques :
+
+* TA = 100/60 mmHg ; FC = 60 bpm
+* FR = 12cpm, SpO2 = 99% en AA
+* T = 37°c
+
+- Extrémités chaudes
+- Diurèse conservée
+
+SF :
+- Asymptomatique au repos
+
+SP :
+- BDC audibles, pas de BSA, ni de souffles
+- Pas de signes d'ICD (Pas d'OMI)
+- Pas de signes de TVP
+- Pouls présents symétriques
+
+Reste de l'examen clinique :
+- Sans anomalies
+
+ECG : RES à 60bpm
+
+BIOLOGIE : 12/06/2025 ; correct
+
+CAT :
+- Hospitalisation en salle
+- Préparation pour un changement de boiter (rasage et toilette)
+- Changement de boitier.",https://xckddbwofcqzuvszfcuv.supabase.co/storage/v1/object/public/recordings/audio/Dr._Benali_patient49_motif_Changement_de_boitier_initialExaminations_1749738395944ysv7knh3w_date_20260206_214554.wav,,False,Changement de boitier
+50,admissions:1731574381933v4bcr9h07,patients:1731574310742io57nrnp2i,admission,2024-11-14 09:53:01,"Mme [lastName] fatma 87 ans  assurée autonome OD beb eloued
+Admise pour changement de Boitier 
+ATCD/FDRCV:
+Age et ménopause
+HTA DEPUIS 10 ans sous Lopress 
+Hypothyroïdie 
+AVC ischémique il y 6 ans sans séquelles 
+PMK monochambre sur BAVc il y a 08 ans
+A son arrivée: 
+patiente consciente coopérante en BEG eupnéique 
+TA: 120/70 mmhg   SAt 97% en AA 
+SF: asthénie 
+SP; 
+BDC audibles sans BSA ni souffle 
+Pas de signe d'IC ni TVP 
+Pouls présent 
+le reste de l'examen est sans particularité 
+ECG
+: RSR à 60 bpm alternant avec un RES 
+Biologie
+; correcte
+ETT
+; 
+aorte initiale non dilatée
+valve aortique tricusps calcifiée sans sténose; siege d'une fuite minime 
+VG hypertrophié non dilaté avec FEVG conservée 
+PRVG normale 
+Pas de valvulopathie mitrale significative 
+OG dilaté vide d'écho 
+VD de bonne fonction systolique 
+IT grade I 
+HTP de faible probabilité 
+VCI compliante non dilatée
+Péricard sec 
+CAT
+: 
+H en salle 
+Mise en condition 
+Scope CT 
+Prévoir changement de boitier ce jour",,,False,Changement de boitier

@@ -1,168 +1,282 @@
 """
 UI components for Clinical Notes Application
+Fixed: Removed note_type, proper upsert without on_conflict parameter
 """
 
 import streamlit as st
 from datetime import datetime
-from typing import List
 import time
+from typing import List
 
-from config import VISIBLE_CARDS
-from utils import safe_filename, upload_audio_file, upload_notes_file
-from data_handler import update_audio_file, update_additional_notes, save_data
+from utils import (
+    safe_filename,
+    upload_audio_file,
+    upload_notes_file,
+    get_supabase_client,
+)
 
+# -------------------------------------------------
+# Session state
+# -------------------------------------------------
 
 def init_session_state():
-    """Initialize session state variables"""
-    if "recorded_audio" not in st.session_state:
-        st.session_state.recorded_audio = None
+    defaults = {
+        "recorded_audio": None,
+        "additional_notes_text": "",
+        "selected_patient_id": None,
+        "audio_saved_time": None,
+        "notes_saved_time": None,
+    }
+    for k, v in defaults.items():
+        if k not in st.session_state:
+            st.session_state[k] = v
 
-    if "audio_saved_msg" not in st.session_state:
-        st.session_state.audio_saved_msg = None
+
+# -------------------------------------------------
+# Supabase helpers
+# -------------------------------------------------
+
+def get_patient_activity(patient_id: int):
+    """Get activity record for a patient from Supabase"""
+    try:
+        supabase = get_supabase_client()
+        resp = (
+            supabase
+            .table("clinical_activity")
+            .select("audio_path, notes_path")
+            .eq("patient_id", str(patient_id))
+            .execute()
+        )
+        return resp.data or []
+    except Exception as e:
+        print(f"[DEBUG] Error fetching patient activity: {e}")
+        return []
+
+
+def patient_is_completed(patient_id: int) -> bool:
+    """Check if patient has audio completed (notes not required)"""
+    activity = get_patient_activity(patient_id)
+    if not activity:
+        return False
+
+    # Only check for audio - notes are optional
+    # There might be multiple records if multiple doctors, so check any
+    has_audio = any(
+        bool(record.get("audio_path") and len(str(record.get("audio_path", "")).strip()) > 0)
+        for record in activity
+    )
     
-    if "audio_saved_time" not in st.session_state:
-        st.session_state.audio_saved_time = None
-
-    if "notes_saved_msg" not in st.session_state:
-        st.session_state.notes_saved_msg = None
-    
-    if "notes_saved_time" not in st.session_state:
-        st.session_state.notes_saved_time = None
-
-    if "additional_notes_text" not in st.session_state:
-        st.session_state.additional_notes_text = ""
-
-    if "card_offset" not in st.session_state:
-        st.session_state.card_offset = 0
+    print(f"[DEBUG] Patient {patient_id}: has_audio={has_audio}")
+    return has_audio
 
 
-def render_note_selector(doctor_notes, username: str) -> str:
-    """Render note selection dropdown"""
-    note_ids = doctor_notes["note_id"].tolist()
-    return st.selectbox(
-        f"📝 Select Clinical Note — {username}",
-        note_ids
+# -------------------------------------------------
+# Patient selector (Supabase-driven checkmarks)
+# -------------------------------------------------
+
+def render_patient_selector(doctor_notes, username: str) -> int:
+    """Render patient selector with completion status from Supabase"""
+    init_session_state()
+
+    patient_ids = sorted(doctor_notes["patientId"].unique().tolist())
+    options = []
+
+    for pid in patient_ids:
+        row = doctor_notes[doctor_notes["patientId"] == pid].iloc[0]
+        motif = row.get("motif", "Unknown")
+        motif_short = motif.split()[0] if motif else "Unknown"
+
+        completed = patient_is_completed(pid)
+        icon = "✅" if completed else "⭕"
+        options.append(f"{icon} Patient {pid} ({motif_short})")
+
+    label_to_id = {label: pid for label, pid in zip(options, patient_ids)}
+
+    selected_label = st.selectbox(
+        f"👤 Select Patient — {username}",
+        options,
+        key="patient_selector"
     )
 
+    selected_id = label_to_id[selected_label]
+    st.session_state.selected_patient_id = selected_id
+    return selected_id
+
+
+# -------------------------------------------------
+# Audio recording + save
+# -------------------------------------------------
 
 def render_audio_recorder():
-    """Render audio recording input"""
-    audio = st.audio_input("🎤 Record audio", key="audio_input")
-
-    if audio is not None:
+    """Render audio input widget"""
+    audio = st.audio_input("🎤 Record audio")
+    if audio:
         st.session_state.recorded_audio = audio.getvalue()
 
 
-def render_save_audio_button(selected_note_id: str, username: str, df):
-    """Render save audio button and handle upload"""
+def render_save_audio_button(patient_id: int, username: str, df):
+    """Save audio file to Supabase storage and track in database"""
     init_session_state()
-
-    recorded_audio = st.session_state.get("recorded_audio")
+    supabase = get_supabase_client()
+    audio_bytes = st.session_state.recorded_audio
 
     if st.button("💾 Save Audio", use_container_width=True):
 
-        if not recorded_audio:
+        if not audio_bytes:
             st.warning("⚠️ No audio recorded")
             return
 
-        safe_doctor_name = safe_filename(username)
+        # Get patient info
+        row = df[df["patientId"] == patient_id].iloc[0]
+        motif = row.get("motif", "unknown")
+        note_id = row.get("note_id", "unknown")
+
+        # Build filename with FOLDER included
+        safe_doctor = safe_filename(username)
+        safe_motif = safe_filename(motif)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"audio/{safe_doctor_name}_{selected_note_id}_{timestamp}.wav"
+        
+        filename = (
+            f"{safe_doctor}_"
+            f"patient{patient_id}_"
+            f"{safe_motif}"
+            f"{note_id}_.wav"
+        )
+        
+        # IMPORTANT: Include folder in the path passed to upload
+        full_path = f"audio/{filename}"
+
+        print(f"[DEBUG] Uploading audio:")
+        print(f"        Patient ID: {patient_id}")
+        print(f"        Full path: {full_path}")
+        print(f"        File size: {len(audio_bytes)} bytes")
 
         try:
-            _, link = upload_audio_file(filename, recorded_audio)
+            # Upload to Supabase storage
+            _, public_url = upload_audio_file(full_path, audio_bytes)
+            
+            print(f"[DEBUG] Upload successful, public URL: {public_url}")
 
-            update_audio_file(df, selected_note_id, link)
-            save_data(df)
+            # Upsert into clinical_activity table
+            # Supabase will handle upsert based on primary key (patient_id, doctor_username)
+            supabase.table("clinical_activity").upsert({
+                "patient_id": str(patient_id),
+                "doctor_username": username,
+                "note_id": note_id,
+                "motif": motif,
+                "audio_path": public_url,
+                "updated_at": datetime.now().isoformat(),
+            }).execute()
+            
+            print(f"[DEBUG] Upserted record for patient {patient_id}")
 
-            st.session_state.audio_saved_msg = link
-            st.session_state.audio_saved_time = time.time()
+            # Clear state and show success
             st.session_state.recorded_audio = None
-
+            st.session_state.audio_saved_time = time.time()
             st.rerun()
 
         except Exception as e:
             st.error(f"❌ Save failed: {e}")
+            print(f"[DEBUG] Save error: {e}")
+            import traceback
+            traceback.print_exc()
 
-    msg = st.session_state.get("audio_saved_msg")
-    msg_time = st.session_state.get("audio_saved_time")
-    
-    if msg and msg_time:
-        elapsed = time.time() - msg_time
-        if elapsed < 3:
-            st.success("✅ Audio saved successfully")
-            time.sleep(0.1)
-            st.rerun()
+    # Show success message temporarily
+    if st.session_state.audio_saved_time:
+        if time.time() - st.session_state.audio_saved_time < 2:
+            st.success("✅ Audio saved")
         else:
-            st.session_state.audio_saved_msg = None
             st.session_state.audio_saved_time = None
 
 
+# -------------------------------------------------
+# Additional notes + save
+# -------------------------------------------------
+
+def render_additional_notes(patient_id: int, username: str, df):
+    """Render notes text area and save ONLY to Supabase storage (not DB)"""
+    init_session_state()
+
+    col1, col2 = st.columns([3, 1])
+
+    with col1:
+        text = st.text_area(
+            "📝 Additional Notes",
+            value=st.session_state.additional_notes_text,
+            height=120,
+        )
+        st.session_state.additional_notes_text = text
+
+    with col2:
+        st.markdown("<br>", unsafe_allow_html=True)
+
+        if st.button("💾 Save Notes", use_container_width=True):
+
+            if not text.strip():
+                st.warning("⚠️ Notes are empty")
+                return
+
+            # Get patient info
+            row = df[df["patientId"] == patient_id].iloc[0]
+            motif = row.get("motif", "unknown")
+
+            # Build filename with FOLDER included
+            safe_doctor = safe_filename(username)
+            safe_motif = safe_filename(motif)
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            
+            filename = (
+                f"{safe_doctor}_"
+                f"patient{patient_id}_"
+                f"motif_{safe_motif}_"
+                f"date_{timestamp}_notes.txt"
+            )
+            
+            # Include folder
+            full_path = f"notes/{filename}"
+
+            print(f"[DEBUG] Uploading notes to storage only:")
+            print(f"        Patient ID: {patient_id}")
+            print(f"        Full path: {full_path}")
+
+            try:
+                # Upload to Supabase storage ONLY
+                _, public_url = upload_notes_file(full_path, text.encode("utf-8"))
+                
+                print(f"[DEBUG] Notes upload successful, public URL: {public_url}")
+
+                # DO NOT touch the database — only store in bucket
+                # supabase.table("clinical_activity").upsert({...}) <-- removed
+
+                # Clear state and show success
+                st.session_state.additional_notes_text = ""
+                st.session_state.notes_saved_time = time.time()
+                st.rerun()
+
+            except Exception as e:
+                st.error(f"❌ Upload failed: {e}")
+                print(f"[DEBUG] Upload error: {e}")
+                import traceback
+                traceback.print_exc()
+
+    # Show success message temporarily
+    if st.session_state.notes_saved_time:
+        if time.time() - st.session_state.notes_saved_time < 2:
+            st.success("✅ Notes saved")
+        else:
+            st.session_state.notes_saved_time = None
+
+
+# -------------------------------------------------
+# Content cards (unchanged)
+# -------------------------------------------------
+
 def render_content_cards(sections: List[str]):
-    """
-    Render content cards - maximum 3 cards, equally distributed
-    """
-    # Simply render up to 3 cards without pagination
+    """Render clinical note content in cards"""
     cols = st.columns(min(3, len(sections)))
     for col, section in zip(cols, sections[:3]):
         with col:
             st.markdown(
                 f'<div class="note-section">{section}</div>',
-                unsafe_allow_html=True
+                unsafe_allow_html=True,
             )
-
-
-def render_additional_notes(selected_note_id: str, username: str, df):
-    """Render additional notes text area and save button"""
-    init_session_state()
-
-    col_note1, col_note2 = st.columns([3, 1])
-
-    with col_note1:
-        notes_text = st.text_area(
-            "📝 Additional Notes",
-            value=st.session_state.additional_notes_text,
-            height=100
-        )
-        st.session_state.additional_notes_text = notes_text
-
-    with col_note2:
-        st.markdown("<br>", unsafe_allow_html=True)
-
-        if st.button("💾 Save Notes", use_container_width=True):
-
-            if not notes_text.strip():
-                st.warning("⚠️ Please enter some notes first")
-                return
-
-            safe_doctor_name = safe_filename(username)
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"notes/{safe_doctor_name}_{selected_note_id}_notes_{timestamp}.txt"
-
-            try:
-                _, link = upload_notes_file(filename, notes_text.encode("utf-8"))
-
-                update_additional_notes(df, selected_note_id, link)
-                save_data(df)
-
-                st.session_state.notes_saved_msg = link
-                st.session_state.notes_saved_time = time.time()
-                st.session_state.additional_notes_text = ""
-
-                st.rerun()
-
-            except Exception as e:
-                st.error(f"❌ Upload failed: {e}")
-
-    msg = st.session_state.get("notes_saved_msg")
-    msg_time = st.session_state.get("notes_saved_time")
-    
-    if msg and msg_time:
-        elapsed = time.time() - msg_time
-        if elapsed < 3:
-            st.success("✅ Notes saved successfully")
-            time.sleep(0.1)
-            st.rerun()
-        else:
-            st.session_state.notes_saved_msg = None
-            st.session_state.notes_saved_time = None
