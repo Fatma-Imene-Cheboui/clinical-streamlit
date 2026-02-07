@@ -1,6 +1,5 @@
 """
 Utility functions for the Clinical Notes Application - Supabase Version
-FIXED: Preserve folder structure in uploads
 """
 import re
 import os
@@ -20,9 +19,29 @@ def get_supabase_client():
 
 def safe_filename(name: str) -> str:
     """Convert string to safe filename (only alphanumeric, dash, underscore, dot)"""
-    safe_name = re.sub(r'[^\w\-_.]', '_', name)
-    print(f"[DEBUG] safe_filename: original='{name}' -> safe='{safe_name}'")
-    return safe_name
+    return re.sub(r'[^\w\-_.]', '_', name)
+
+
+def get_supabase_config():
+    """Get Supabase configuration from secrets or environment"""
+    try:
+        import streamlit as st
+        url = st.secrets["supabase"]["SUPABASE_URL"]
+        key = st.secrets["supabase"]["SUPABASE_KEY"]
+        bucket = st.secrets["supabase"]["BUCKET_NAME"]
+        return url, key, bucket
+    except:
+        url = os.environ.get("SUPABASE_URL")
+        key = os.environ.get("SUPABASE_KEY")
+        bucket = os.environ.get("SUPABASE_BUCKET", "recordings")
+        
+        if not url or not key:
+            raise Exception(
+                "Supabase configuration not found. "
+                "Please set up credentials in Streamlit secrets or environment variables."
+            )
+        
+        return url, key, bucket
 
 
 def upload_file_to_supabase(filename: str, file_bytes: bytes, 
@@ -46,13 +65,6 @@ def upload_file_to_supabase(filename: str, file_bytes: bytes,
     else:
         final_path = safe_filename(filename)
     
-    print(f"[DEBUG] Uploading file to Supabase:")
-    print(f"        Bucket: {bucket}")
-    print(f"        Original path: {filename}")
-    print(f"        Final path: {final_path}")
-    print(f"        Mimetype: {mimetype}")
-    print(f"        File size: {len(file_bytes)} bytes")
-    
     upload_url = f"{url}/storage/v1/object/{bucket}/{final_path}"
     headers = {
         "Authorization": f"Bearer {key}",
@@ -62,44 +74,22 @@ def upload_file_to_supabase(filename: str, file_bytes: bytes,
     
     response = requests.post(upload_url, headers=headers, data=file_bytes)
     
-    print(f"[DEBUG] Supabase response: {response.status_code} - {response.text}")
-    
     if response.status_code not in [200, 201]:
         raise Exception(f"Upload failed: {response.status_code} - {response.text}")
     
     public_url = f"{url}/storage/v1/object/public/{bucket}/{final_path}"
-    
-    print(f"[DEBUG] Public URL: {public_url}")
     
     return final_path, public_url
 
 
 def upload_audio_file(filename: str, file_bytes: bytes) -> Tuple[str, str]:
     """Upload audio file to Supabase"""
-    print(f"[DEBUG] upload_audio_file called with filename: {filename}")
     return upload_file_to_supabase(filename, file_bytes, mimetype='audio/wav')
 
 
-def get_supabase_config():
-    """Get Supabase configuration from secrets or environment"""
-    try:
-        import streamlit as st
-        url = st.secrets["supabase"]["SUPABASE_URL"]
-        key = st.secrets["supabase"]["SUPABASE_KEY"]
-        bucket = st.secrets["supabase"]["BUCKET_NAME"]
-        return url, key, bucket
-    except:
-        url = os.environ.get("SUPABASE_URL")
-        key = os.environ.get("SUPABASE_KEY")
-        bucket = os.environ.get("SUPABASE_BUCKET", "recordings")
-        
-        if not url or not key:
-            raise Exception(
-                "Supabase configuration not found. "
-                "Please set up credentials in Streamlit secrets or environment variables."
-            )
-        
-        return url, key, bucket
+def upload_notes_file(filename: str, file_bytes: bytes) -> Tuple[str, str]:
+    """Upload text notes to Supabase"""
+    return upload_file_to_supabase(filename, file_bytes, mimetype='text/plain')
 
 
 def check_audio_exists_in_supabase(filename_pattern: str) -> bool:
@@ -138,14 +128,9 @@ def check_audio_exists_in_supabase(filename_pattern: str) -> bool:
         
         return False
         
-    except Exception as e:
+    except Exception:
         # If there's an error checking, return False
         return False
-
-
-def upload_notes_file(filename: str, file_bytes: bytes) -> Tuple[str, str]:
-    """Upload text notes to Supabase"""
-    return upload_file_to_supabase(filename, file_bytes, mimetype='text/plain')
 
 
 def create_directories():
@@ -156,6 +141,7 @@ def create_directories():
 
 
 def get_activity(patient_id, username):
+    """Get activity record for a patient from Supabase"""
     supabase = get_supabase_client()
     res = (
         supabase.table("clinical_activity")
@@ -167,8 +153,8 @@ def get_activity(patient_id, username):
     return res.data
 
 
-def upsert_activity(patient_id, username,
-                    audio_path=None, notes_path=None):
+def upsert_activity(patient_id, username, audio_path=None, notes_path=None):
+    """Upsert activity record in Supabase"""
     payload = {
         "patient_id": patient_id,
         "doctor_username": username,
@@ -177,6 +163,6 @@ def upsert_activity(patient_id, username,
         payload["audio_path"] = audio_path
     if notes_path:
         payload["notes_path"] = notes_path
+    
     supabase = get_supabase_client()
-
     supabase.table("clinical_activity").upsert(payload).execute()

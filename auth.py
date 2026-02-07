@@ -13,15 +13,15 @@ def get_users() -> Dict[str, str]:
             "Dr. Mohand Akli": st.secrets["passwords"]["dr_mohand_akli"],
             "Dr. Khacef": st.secrets["passwords"]["dr_khacef"],
             "Dr. Himeur": st.secrets["passwords"]["dr_himeur"],
-            "Dr. Benali": st.secrets["passwords"]["dr_benali"]
+            "Dr. New": st.secrets["passwords"]["dr_new"]
         }
     except KeyError:
         return {
             "Dr. Kadri": "Kadri01",
             "Dr. Mohand Akli": "Mohand02",
-            "Dr. Khacef": "Khacef03",
-            "Dr. Himeur": "Himeur04",
-            "Dr. Benali": "Benali05"
+            "Dr. Khacef": "Khacef02",
+            "Dr. Himeur": "Himeur01",
+            "Dr. New": "New01"
         }
 
 

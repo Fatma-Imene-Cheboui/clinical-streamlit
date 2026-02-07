@@ -1,6 +1,5 @@
 """
 UI components for Clinical Notes Application
-Fixed: Removed note_type, proper upsert without on_conflict parameter
 """
 
 import streamlit as st
@@ -48,8 +47,7 @@ def get_patient_activity(patient_id: int):
             .execute()
         )
         return resp.data or []
-    except Exception as e:
-        print(f"[DEBUG] Error fetching patient activity: {e}")
+    except Exception:
         return []
 
 
@@ -66,7 +64,6 @@ def patient_is_completed(patient_id: int) -> bool:
         for record in activity
     )
     
-    print(f"[DEBUG] Patient {patient_id}: has_audio={has_audio}")
     return has_audio
 
 
@@ -139,23 +136,16 @@ def render_save_audio_button(patient_id: int, username: str, df):
         filename = (
             f"{safe_doctor}_"
             f"patient{patient_id}_"
-            f"{safe_motif}"
+            f"{safe_motif}_"
             f"{note_id}_.wav"
         )
         
         # IMPORTANT: Include folder in the path passed to upload
         full_path = f"audio/{filename}"
 
-        print(f"[DEBUG] Uploading audio:")
-        print(f"        Patient ID: {patient_id}")
-        print(f"        Full path: {full_path}")
-        print(f"        File size: {len(audio_bytes)} bytes")
-
         try:
             # Upload to Supabase storage
             _, public_url = upload_audio_file(full_path, audio_bytes)
-            
-            print(f"[DEBUG] Upload successful, public URL: {public_url}")
 
             # Upsert into clinical_activity table
             # Supabase will handle upsert based on primary key (patient_id, doctor_username)
@@ -167,8 +157,6 @@ def render_save_audio_button(patient_id: int, username: str, df):
                 "audio_path": public_url,
                 "updated_at": datetime.now().isoformat(),
             }).execute()
-            
-            print(f"[DEBUG] Upserted record for patient {patient_id}")
 
             # Clear state and show success
             st.session_state.recorded_audio = None
@@ -177,9 +165,6 @@ def render_save_audio_button(patient_id: int, username: str, df):
 
         except Exception as e:
             st.error(f"❌ Save failed: {e}")
-            print(f"[DEBUG] Save error: {e}")
-            import traceback
-            traceback.print_exc()
 
     # Show success message temporarily
     if st.session_state.audio_saved_time:
@@ -228,25 +213,16 @@ def render_additional_notes(patient_id: int, username: str, df):
             filename = (
                 f"{safe_doctor}_"
                 f"patient{patient_id}_"
-                f"motif_{safe_motif}_"
+                f"{safe_motif}_"
                 f"date_{timestamp}_notes.txt"
             )
             
             # Include folder
             full_path = f"notes/{filename}"
 
-            print(f"[DEBUG] Uploading notes to storage only:")
-            print(f"        Patient ID: {patient_id}")
-            print(f"        Full path: {full_path}")
-
             try:
                 # Upload to Supabase storage ONLY
                 _, public_url = upload_notes_file(full_path, text.encode("utf-8"))
-                
-                print(f"[DEBUG] Notes upload successful, public URL: {public_url}")
-
-                # DO NOT touch the database — only store in bucket
-                # supabase.table("clinical_activity").upsert({...}) <-- removed
 
                 # Clear state and show success
                 st.session_state.additional_notes_text = ""
@@ -255,9 +231,6 @@ def render_additional_notes(patient_id: int, username: str, df):
 
             except Exception as e:
                 st.error(f"❌ Upload failed: {e}")
-                print(f"[DEBUG] Upload error: {e}")
-                import traceback
-                traceback.print_exc()
 
     # Show success message temporarily
     if st.session_state.notes_saved_time:
