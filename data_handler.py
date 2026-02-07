@@ -37,7 +37,7 @@ def get_doctor_note_indices(username: str) -> list:
         "Dr. Mohand Akli": [2, 3, 12, 13, 22, 23, 32, 33, 42, 43],
         "Dr. Khacef": [4, 5, 14, 15, 24, 25, 34, 35, 44, 45],
         "Dr. Himeur": [6, 7, 16, 17, 26, 27, 36, 37, 46, 47],
-        "Dr. Benali": [8, 9, 18, 19, 28, 29, 38, 39, 48, 49]
+        "Dr. New": [8, 9, 18, 19, 28, 29, 38, 39, 48, 49]
     }
     return doctor_assignments.get(username, [])
 

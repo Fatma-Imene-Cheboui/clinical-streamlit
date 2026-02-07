@@ -17,9 +17,27 @@ def get_supabase_client():
     return _supabase_client
 
 
+import re
+import unicodedata
+
 def safe_filename(name: str) -> str:
-    """Convert string to safe filename (only alphanumeric, dash, underscore, dot)"""
-    return re.sub(r'[^\w\-_.]', '_', name)
+    """
+    Convert string to safe filename:
+    - Replace accents (é → e)
+    - Replace spaces with underscores
+    - Keep only alphanumerics, dash, underscore, dot
+    """
+    # Normalize unicode (é -> e)
+    name = unicodedata.normalize('NFKD', name).encode('ASCII', 'ignore').decode('utf-8')
+    
+    # Replace spaces with underscore
+    name = name.replace(' ', '_')
+    
+    # Remove any other unsafe characters
+    safe_name = re.sub(r'[^\w\-_.]', '_', name)
+    
+    return safe_name
+
 
 
 def get_supabase_config():
