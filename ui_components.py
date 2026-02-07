@@ -159,17 +159,19 @@ def render_save_audio_button(patient_id: int, username: str, df):
             }).execute()
 
             # Clear state and show success
+            # Clear state and mark success (NO rerun)
             st.session_state.recorded_audio = None
+            st.session_state.audio_saved = True
             st.session_state.audio_saved_time = time.time()
-            st.rerun()
+
 
         except Exception as e:
             st.error(f"❌ Save failed: {e}")
 
     # Show success message temporarily
     if st.session_state.audio_saved_time:
-        if time.time() - st.session_state.audio_saved_time < 2:
-            st.toast("✅ Audio saved successfully!", icon="🎉")
+        if time.time() - st.session_state.audio_saved_time < 3:
+            st.success("✅ Audio saved")
         else:
             st.session_state.audio_saved_time = None
 
