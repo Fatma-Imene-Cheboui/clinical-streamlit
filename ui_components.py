@@ -23,8 +23,8 @@ def init_session_state():
         "recorded_audio": None,
         "additional_notes_text": "",
         "selected_patient_id": None,
-        "audio_saved_time": None,
-        "notes_saved_time": None,
+        "audio_saved_msg": None,
+        "notes_saved_msg": None,
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -159,21 +159,18 @@ def render_save_audio_button(patient_id: int, username: str, df):
             }).execute()
 
             # Clear state and show success
-            # Clear state and mark success (NO rerun)
             st.session_state.recorded_audio = None
-            st.session_state.audio_saved = True
-            st.session_state.audio_saved_time = time.time()
-
+            st.session_state.audio_saved_msg = True
+            st.rerun()
 
         except Exception as e:
             st.error(f"❌ Save failed: {e}")
 
-    # Show success message temporarily
-    if st.session_state.audio_saved_time:
-        if time.time() - st.session_state.audio_saved_time < 3:
-            st.success("✅ Audio saved")
-        else:
-            st.session_state.audio_saved_time = None
+    # Show success message if flag is set
+    if st.session_state.audio_saved_msg:
+        st.success("✅ Audio saved successfully")
+        # Clear the flag after showing
+        st.session_state.audio_saved_msg = None
 
 
 # -------------------------------------------------
@@ -228,18 +225,17 @@ def render_additional_notes(patient_id: int, username: str, df):
 
                 # Clear state and show success
                 st.session_state.additional_notes_text = ""
-                st.session_state.notes_saved_time = time.time()
+                st.session_state.notes_saved_msg = True
                 st.rerun()
 
             except Exception as e:
                 st.error(f"❌ Upload failed: {e}")
 
-    # Show success message temporarily
-    if st.session_state.notes_saved_time:
-        if time.time() - st.session_state.notes_saved_time < 2:
-            st.success("✅ Notes saved")
-        else:
-            st.session_state.notes_saved_time = None
+    # Show success message if flag is set
+    if st.session_state.notes_saved_msg:
+        st.success("✅ Notes saved successfully")
+        # Clear the flag after showing
+        st.session_state.notes_saved_msg = None
 
 
 # -------------------------------------------------
