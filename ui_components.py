@@ -169,7 +169,7 @@ def render_save_audio_button(patient_id: int, username: str, df):
     # Show success message temporarily
     if st.session_state.audio_saved_time:
         if time.time() - st.session_state.audio_saved_time < 2:
-            st.success("✅ Audio saved")
+            st.toast("✅ Audio saved successfully!", icon="🎉")
         else:
             st.session_state.audio_saved_time = None
 
