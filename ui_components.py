@@ -25,6 +25,7 @@ def init_session_state():
         "selected_patient_id": None,
         "audio_saved_msg": None,
         "notes_saved_msg": None,
+        "audio_recorder_key": 0,  # For resetting audio recorder widget
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -35,36 +36,37 @@ def init_session_state():
 # Supabase helpers
 # -------------------------------------------------
 
-def get_patient_activity(patient_id: int):
-    """Get activity record for a patient from Supabase"""
+@st.cache_data(ttl=60)  # Cache for 60 seconds
+def get_all_patient_activities(patient_ids: list):
+    """Get activity records for ALL patients in one query - MUCH faster"""
     try:
         supabase = get_supabase_client()
+        # Convert to strings for the query
+        patient_id_strs = [str(pid) for pid in patient_ids]
+        
         resp = (
             supabase
             .table("clinical_activity")
-            .select("audio_path, notes_path")
-            .eq("patient_id", str(patient_id))
+            .select("patient_id, audio_path, notes_path")
+            .in_("patient_id", patient_id_strs)
             .execute()
         )
-        return resp.data or []
+        
+        # Build a dict for quick lookup
+        activity_map = {}
+        for record in (resp.data or []):
+            pid = int(record.get("patient_id", 0))
+            has_audio = bool(record.get("audio_path", "").strip())
+            activity_map[pid] = has_audio
+        
+        return activity_map
     except Exception:
-        return []
+        return {}
 
 
-def patient_is_completed(patient_id: int) -> bool:
-    """Check if patient has audio completed (notes not required)"""
-    activity = get_patient_activity(patient_id)
-    if not activity:
-        return False
-
-    # Only check for audio - notes are optional
-    # There might be multiple records if multiple doctors, so check any
-    has_audio = any(
-        bool(record.get("audio_path") and len(str(record.get("audio_path", "")).strip()) > 0)
-        for record in activity
-    )
-    
-    return has_audio
+def patient_is_completed(patient_id: int, activity_map: dict) -> bool:
+    """Check if patient has audio completed using pre-loaded activity map"""
+    return activity_map.get(patient_id, False)
 
 
 # -------------------------------------------------
@@ -76,6 +78,10 @@ def render_patient_selector(doctor_notes, username: str) -> int:
     init_session_state()
 
     patient_ids = sorted(doctor_notes["patientId"].unique().tolist())
+    
+    # PERFORMANCE FIX: Fetch ALL patient activities in ONE query
+    activity_map = get_all_patient_activities(patient_ids)
+    
     options = []
 
     for pid in patient_ids:
@@ -83,7 +89,7 @@ def render_patient_selector(doctor_notes, username: str) -> int:
         motif = row.get("motif", "Unknown")
         motif_short = motif.split()[0] if motif else "Unknown"
 
-        completed = patient_is_completed(pid)
+        completed = patient_is_completed(pid, activity_map)
         icon = "✅" if completed else "⭕"
         options.append(f"{icon} Patient {pid} ({motif_short})")
 
@@ -106,9 +112,20 @@ def render_patient_selector(doctor_notes, username: str) -> int:
 
 def render_audio_recorder():
     """Render audio input widget"""
-    audio = st.audio_input("🎤 Record audio")
+    # Use a key that changes when audio is cleared to reset the widget
+    if "audio_recorder_key" not in st.session_state:
+        st.session_state.audio_recorder_key = 0
+    
+    audio = st.audio_input(
+        "🎤 Record audio", 
+        key=f"audio_input_{st.session_state.audio_recorder_key}"
+    )
+    
     if audio:
         st.session_state.recorded_audio = audio.getvalue()
+    elif st.session_state.get("recorded_audio") is None:
+        # If no audio and session state also has none, ensure it's cleared
+        st.session_state.recorded_audio = None
 
 
 def render_save_audio_button(patient_id: int, username: str, df):
@@ -143,34 +160,51 @@ def render_save_audio_button(patient_id: int, username: str, df):
         # IMPORTANT: Include folder in the path passed to upload
         full_path = f"audio/{filename}"
 
+        # Create a placeholder for status updates
+        status_placeholder = st.empty()
+
         try:
-            # Upload to Supabase storage
-            _, public_url = upload_audio_file(full_path, audio_bytes)
+            with st.spinner("⏳ Uploading audio..."):
+                _, public_url = upload_audio_file(full_path, audio_bytes)
+                
+                supabase.table("clinical_activity").upsert({
+                    "patient_id": str(patient_id),
+                    "doctor_username": username,
+                    "note_id": note_id,
+                    "motif": motif,
+                    "audio_path": public_url,
+                    "updated_at": datetime.now().isoformat(),
+                }).execute()
+            
+            # ... state clearing code ...
+            
+            get_all_patient_activities.clear()  # Only clear this cache
+            st.success("✅ Audio saved successfully!")
+            time.sleep(0.5)  # Shorter delay
+            st.rerun()
 
-            # Upsert into clinical_activity table
-            # Supabase will handle upsert based on primary key (patient_id, doctor_username)
-            supabase.table("clinical_activity").upsert({
-                "patient_id": str(patient_id),
-                "doctor_username": username,
-                "note_id": note_id,
-                "motif": motif,
-                "audio_path": public_url,
-                "updated_at": datetime.now().isoformat(),
-            }).execute()
-
-            # Clear state and show success
+            # ONLY after successful upload, clear state
             st.session_state.recorded_audio = None
-            st.session_state.audio_saved_msg = True
+            
+            # Reset the audio recorder widget by changing its key
+            st.session_state.audio_recorder_key = st.session_state.get("audio_recorder_key", 0) + 1
+            
+            # Clear cache to update checkmarks
+            get_all_patient_activities.clear()
+            
+            # Show success message
+            status_placeholder.success("✅ Audio saved successfully!")
+            
+            # Wait a moment so user sees the success message
+            time.sleep(1.5)
+            
+            # Now rerun to refresh the UI
             st.rerun()
 
         except Exception as e:
-            st.error(f"❌ Save failed: {e}")
-
-    # Show success message if flag is set
-    if st.session_state.audio_saved_msg:
-        st.success("✅ Audio saved successfully")
-        # Clear the flag after showing
-        st.session_state.audio_saved_msg = None
+            # Show error without rerunning
+            status_placeholder.error(f"❌ Save failed: {str(e)}")
+            # Don't clear audio on error so user can try again
 
 
 # -------------------------------------------------
@@ -220,22 +254,18 @@ def render_additional_notes(patient_id: int, username: str, df):
             full_path = f"notes/{filename}"
 
             try:
-                # Upload to Supabase storage ONLY
-                _, public_url = upload_notes_file(full_path, text.encode("utf-8"))
+                with st.spinner("Saving notes..."):
+                    # Upload to Supabase storage ONLY
+                    _, public_url = upload_notes_file(full_path, text.encode("utf-8"))
 
-                # Clear state and show success
-                st.session_state.additional_notes_text = ""
-                st.session_state.notes_saved_msg = True
-                st.rerun()
+                    # Clear state
+                    st.session_state.additional_notes_text = ""
+                    st.success("✅ Notes saved successfully")
+                    time.sleep(1)
+                    st.rerun()
 
             except Exception as e:
                 st.error(f"❌ Upload failed: {e}")
-
-    # Show success message if flag is set
-    if st.session_state.notes_saved_msg:
-        st.success("✅ Notes saved successfully")
-        # Clear the flag after showing
-        st.session_state.notes_saved_msg = None
 
 
 # -------------------------------------------------

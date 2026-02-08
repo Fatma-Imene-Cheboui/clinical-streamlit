@@ -3,12 +3,14 @@ Data handling functions for Clinical Notes Application
 ORGANIZED STRUCTURE: 4 patients per motif per doctor (100 patients total)
 """
 import pandas as pd
+import streamlit as st
 from typing import Optional
 from config import DATA_PATH
 
 
+@st.cache_data(ttl=300)  # Cache for 5 minutes
 def load_data() -> pd.DataFrame:
-    """Load clinical notes data from CSV"""
+    """Load clinical notes data from CSV - cached for performance"""
     df = pd.read_csv(DATA_PATH)
     return df
 
