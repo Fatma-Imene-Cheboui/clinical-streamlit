@@ -1,5 +1,5 @@
 """
-UI components for Clinical Notes Application
+UI components for Clinical Notes Application - FIXED VERSION
 """
 
 import streamlit as st
@@ -129,7 +129,15 @@ def render_audio_recorder():
 
 
 def render_save_audio_button(patient_id: int, username: str, df):
-    """Save audio file to Supabase storage and track in database"""
+    """
+    Save audio file to Supabase storage and track in database
+    
+    FIXES APPLIED:
+    1. ✅ Filename now includes timestamp to ensure uniqueness
+    2. ✅ Upsert specifies exact conflict resolution using onConflict
+    3. ✅ Sets created_at only on insert, updated_at on all operations
+    4. ✅ Uses composite key (patient_id + doctor_username + note_id) to prevent duplicates
+    """
     init_session_state()
     supabase = get_supabase_client()
     audio_bytes = st.session_state.recorded_audio
@@ -145,7 +153,7 @@ def render_save_audio_button(patient_id: int, username: str, df):
         motif = row.get("motif", "unknown")
         note_id = row.get("note_id", "unknown")
 
-        # Build filename with FOLDER included
+        # 🔧 FIX #1: Include timestamp in filename to ensure uniqueness
         safe_doctor = safe_filename(username)
         safe_motif = safe_filename(motif)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -154,10 +162,11 @@ def render_save_audio_button(patient_id: int, username: str, df):
             f"{safe_doctor}_"
             f"patient{patient_id}_"
             f"{safe_motif}_"
-            f"{note_id}_.wav"
+            f"{note_id}_"
+            f"{timestamp}.wav"  # ⭐ NOW INCLUDES TIMESTAMP
         )
         
-        # IMPORTANT: Include folder in the path passed to upload
+        # Include folder in the path passed to upload
         full_path = f"audio/{filename}"
 
         # Create a placeholder for status updates
@@ -167,23 +176,43 @@ def render_save_audio_button(patient_id: int, username: str, df):
             with st.spinner("⏳ Uploading audio..."):
                 _, public_url = upload_audio_file(full_path, audio_bytes)
                 
-                supabase.table("clinical_activity").upsert({
+                current_time = datetime.now().isoformat()
+                
+                # 🔧 FIX #2 & #3: Proper upsert with conflict resolution
+                # Check if record exists first
+                existing = (
+                    supabase
+                    .table("clinical_activity")
+                    .select("created_at")
+                    .eq("patient_id", str(patient_id))
+                    .eq("doctor_username", username)
+                    .eq("note_id", note_id)
+                    .execute()
+                )
+                
+                # Prepare data
+                data = {
                     "patient_id": str(patient_id),
                     "doctor_username": username,
                     "note_id": note_id,
                     "motif": motif,
                     "audio_path": public_url,
-                    "updated_at": datetime.now().isoformat(),
-                }).execute()
+                    "updated_at": current_time,
+                }
+                
+                # Only set created_at if this is a new record
+                if not existing.data:
+                    data["created_at"] = current_time
+                
+                # Use upsert with proper conflict resolution
+                # This tells Supabase: if a record with this patient_id+doctor_username+note_id exists,
+                # UPDATE it. Otherwise, INSERT a new one.
+                supabase.table("clinical_activity").upsert(
+                    data,
+                    on_conflict="patient_id,doctor_username,note_id"  # ⭐ SPECIFY UNIQUE CONSTRAINT
+                ).execute()
             
-            # ... state clearing code ...
-            
-            get_all_patient_activities.clear()  # Only clear this cache
-            st.success("✅ Audio saved successfully!")
-            time.sleep(0.5)  # Shorter delay
-            st.rerun()
-
-            # ONLY after successful upload, clear state
+            # Clear state ONLY after successful save
             st.session_state.recorded_audio = None
             
             # Reset the audio recorder widget by changing its key
@@ -212,7 +241,12 @@ def render_save_audio_button(patient_id: int, username: str, df):
 # -------------------------------------------------
 
 def render_additional_notes(patient_id: int, username: str, df):
-    """Render notes text area and save ONLY to Supabase storage (not DB)"""
+    """
+    Render notes text area and save to Supabase storage
+    
+    FIXES APPLIED:
+    1. ✅ Filename now includes timestamp to ensure uniqueness
+    """
     init_session_state()
 
     col1, col2 = st.columns([3, 1])
@@ -237,8 +271,9 @@ def render_additional_notes(patient_id: int, username: str, df):
             # Get patient info
             row = df[df["patientId"] == patient_id].iloc[0]
             motif = row.get("motif", "unknown")
+            note_id = row.get("note_id", "unknown")
 
-            # Build filename with FOLDER included
+            # 🔧 FIX: Include timestamp in filename
             safe_doctor = safe_filename(username)
             safe_motif = safe_filename(motif)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -247,7 +282,8 @@ def render_additional_notes(patient_id: int, username: str, df):
                 f"{safe_doctor}_"
                 f"patient{patient_id}_"
                 f"{safe_motif}_"
-                f"date_{timestamp}_notes.txt"
+                f"{note_id}_"
+                f"{timestamp}_notes.txt"  # ⭐ NOW INCLUDES TIMESTAMP
             )
             
             # Include folder
@@ -255,8 +291,40 @@ def render_additional_notes(patient_id: int, username: str, df):
 
             try:
                 with st.spinner("Saving notes..."):
-                    # Upload to Supabase storage ONLY
+                    # Upload to Supabase storage
                     _, public_url = upload_notes_file(full_path, text.encode("utf-8"))
+                    
+                    # Optionally: Update database record with notes_path
+                    supabase = get_supabase_client()
+                    current_time = datetime.now().isoformat()
+                    
+                    # Check if record exists
+                    existing = (
+                        supabase
+                        .table("clinical_activity")
+                        .select("created_at")
+                        .eq("patient_id", str(patient_id))
+                        .eq("doctor_username", username)
+                        .eq("note_id", note_id)
+                        .execute()
+                    )
+                    
+                    data = {
+                        "patient_id": str(patient_id),
+                        "doctor_username": username,
+                        "note_id": note_id,
+                        "motif": motif,
+                        "notes_path": public_url,
+                        "updated_at": current_time,
+                    }
+                    
+                    if not existing.data:
+                        data["created_at"] = current_time
+                    
+                    supabase.table("clinical_activity").upsert(
+                        data,
+                        on_conflict="patient_id,doctor_username,note_id"
+                    ).execute()
 
                     # Clear state
                     st.session_state.additional_notes_text = ""
