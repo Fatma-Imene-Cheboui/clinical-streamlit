@@ -13,6 +13,7 @@ def get_users() -> Dict[str, str]:
             "Dr. Mohand Akli": st.secrets["passwords"]["dr_mohand_akli"],
             "Dr. Khacef": st.secrets["passwords"]["dr_khacef"],
             "Dr. Himeur": st.secrets["passwords"]["dr_himeur"],
+            "Dr. Korichi": st.secrets["passwords"]["dr_korichi"],
             "Dr. New": st.secrets["passwords"]["dr_new"]
         }
     except KeyError:
@@ -21,6 +22,7 @@ def get_users() -> Dict[str, str]:
             "Dr. Mohand Akli": "Mohand02",
             "Dr. Khacef": "Khacef02",
             "Dr. Himeur": "Himeur01",
+            "Dr. Korichi": "Korichi02",
             "Dr. New": "New01"
         }
 
