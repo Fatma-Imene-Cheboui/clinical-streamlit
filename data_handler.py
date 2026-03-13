@@ -29,7 +29,7 @@ DOCTORS = [
     "Dr. New",
 ]
 
-PATIENTS_PER_DOCTOR = 10
+PATIENTS_PER_DOCTOR = 12
 
 
 def get_doctor_note_indices(username: str) -> list:
