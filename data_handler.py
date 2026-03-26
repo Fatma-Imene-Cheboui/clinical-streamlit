@@ -1,6 +1,6 @@
 """
 Data handling functions for Clinical Notes Application
-ORGANIZED STRUCTURE: 60 STEMI patients, 10 per doctor (6 doctors)
+Reads doctor assignments dynamically from the 'assigned_doctor' column in CSV.
 """
 import pandas as pd
 import streamlit as st
@@ -11,8 +11,7 @@ from config import DATA_PATH
 @st.cache_data(ttl=300)
 def load_data() -> pd.DataFrame:
     """Load clinical notes data from CSV - cached for performance"""
-    df = pd.read_csv(DATA_PATH)
-    return df
+    return pd.read_csv(DATA_PATH)
 
 
 def save_data(df: pd.DataFrame):
@@ -20,43 +19,11 @@ def save_data(df: pd.DataFrame):
     df.to_csv(DATA_PATH, index=False)
 
 
-DOCTORS = [
-    "Dr. Kadri",
-    "Dr. Mohand Akli",
-    "Dr. Khacef",
-    "Dr. Himeur",
-    "Dr. Korichi",
-    "Dr. New",
-]
-
-PATIENTS_PER_DOCTOR = 12
-
-
-def get_doctor_note_indices(username: str) -> list:
-    """
-    Get note indices assigned to a specific doctor.
-    60 STEMI patients split equally: 10 per doctor.
-    
-    Dr. Kadri:        patients 0–11
-    Dr. Mohand Akli:  patients 12–23
-    Dr. Khacef:       patients 24–35
-    Dr. Himeur:       patients 36–47
-    Dr. Korichi:         patients 48–59
-    """
-    if username not in DOCTORS:
-        return []
-    idx = DOCTORS.index(username)
-    start = idx * PATIENTS_PER_DOCTOR
-    return list(range(start, start + PATIENTS_PER_DOCTOR))
-
-
 def get_doctor_notes(df: pd.DataFrame, username: str) -> pd.DataFrame:
-    """Get notes assigned to a specific doctor"""
-    indices = get_doctor_note_indices(username)
-    if indices:
-        valid = [i for i in indices if i < len(df)]
-        return df.iloc[valid]
-    return pd.DataFrame()
+    """Get notes assigned to a specific doctor from the assigned_doctor column"""
+    if "assigned_doctor" not in df.columns:
+        return pd.DataFrame()
+    return df[df["assigned_doctor"] == username].reset_index(drop=True)
 
 
 def get_note_by_id(df: pd.DataFrame, note_id: str) -> Optional[pd.Series]:

@@ -79,10 +79,10 @@ def render_patient_selector(doctor_notes, username: str) -> int:
 
     patient_ids = sorted(doctor_notes["patientId"].unique().tolist())
     
-    # PERFORMANCE FIX: Fetch ALL patient activities in ONE query
     activity_map = get_all_patient_activities(patient_ids)
     
     options = []
+    completed_count = 0
 
     for pid in patient_ids:
         row = doctor_notes[doctor_notes["patientId"] == pid].iloc[0]
@@ -90,21 +90,44 @@ def render_patient_selector(doctor_notes, username: str) -> int:
         motif_short = motif.split()[0] if motif else "Unknown"
 
         completed = patient_is_completed(pid, activity_map)
+        if completed:
+            completed_count += 1
         icon = "✅" if completed else "⭕"
         options.append(f"{icon} Patient {pid} ({motif_short})")
 
     label_to_id = {label: pid for label, pid in zip(options, patient_ids)}
 
-    selected_label = st.selectbox(
-        f"👤 Select Patient — {username}",
-        options,
-        key="patient_selector"
-    )
+    total = len(patient_ids)
+    pct = int((completed_count / total) * 100) if total > 0 else 0
+
+    if pct == 100:
+        color = "#28a745"
+    elif pct >= 50:
+        color = "#ffc107"
+    else:
+        color = "#dc3545"
+
+    col_select, col_pct = st.columns([4, 1])
+
+    with col_select:
+        selected_label = st.selectbox(
+            f"👤 Select Patient — {username}",
+            options,
+            key="patient_selector"
+        )
+
+    with col_pct:
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown(
+            f'<p style="text-align:center; color:{color}; '
+            f'font-weight:bold; font-size:1.2em; margin:0;">'
+            f'{completed_count}/{total} ({pct}%)</p>',
+            unsafe_allow_html=True,
+        )
 
     selected_id = label_to_id[selected_label]
     st.session_state.selected_patient_id = selected_id
     return selected_id
-
 
 # -------------------------------------------------
 # Audio recording + save
