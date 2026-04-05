@@ -19,7 +19,7 @@ def get_users() -> Dict[str, str]:
             "Dr. EL MESSRI": "ElMessr!",
             "Dr. HAMDI": "Ham_di",
             "Dr. Himeur": "Hi_meur",
-            "Dr. KADRI": "Ka_dri",
+            "Dr. Kadri": "Ka_dri",
             "Dr. Kerkache": "Kerk@che",
             "Dr. Khacef": "Kha_cef",
             "Dr. KORICHI ACHOUAK": "Korichi_A",
@@ -67,7 +67,6 @@ def render_login_page():
             if USERS.get(username) == password:
                 st.session_state.logged_in = True
                 st.session_state.username = username
-                st.rerun()
             else:
                 st.error("❌ Invalid credentials. Please try again.")
 
